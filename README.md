@@ -1,3 +1,3 @@
 # hiddlestick
 
-## a brand new social network
+a brand new social network
