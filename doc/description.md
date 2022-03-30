@@ -4,6 +4,9 @@ hiddlestick ist ein soziales Netzwerk. Man kommt zunächst auf die Startseite. D
 Alternativ kann man eine Feed-Seite besuchen, auf der die neuesten Beiträge der abonnierten User zu sehen sind. Desweiteren kann man auch eigene Beiträge erstellen. Dazu kann man dann aus einer Bibliothek an Stickern auswählen. Außerdem kann man die Einstellungen ändern.
 Natürlich kann man sich auch anmelden und registrieren.
 
+## Navigationsleiste
+Auf der Navigationsleiste befinden sich Buttons um auf die Startseite, den Feed, die Beitragserstellungsleiste und den login/account button.
+
 ## Startseite
 Auf der Startseite sieht man zunächst oben die Navigationsleiste, mit Hilfe derer man sich durch die Seiten navigieren kann. Man sieht in der Mitte die jeweils neuesten Beiträge, die neuesten stehen ganz oben. Dabei sieht man vorne zunächst ein Bild und wenn man mit dem Mauszeiger darüberhovered dreht es sich um und man sieht den eigentlichen Inhalt des Posts. Man kann diese Elemente außerdem in der Full screen view betrachten.
 
@@ -27,3 +30,6 @@ Auf der Beitragerstellungsseite sieht man zunächst oben die Navigationsleiste, 
 
 ## Einstellungen
 Auf der Einstellungsseite sieht man zunächst oben die Navigationsleiste, mit Hilfe derer man sich durch die Seiten navigieren kann. Auf der linken Seite kann man simpel den eigenen Account löschen und in der Mitte Einstellungen verändern.
+
+## Account dropdown menu
+Im Account dropdown menu kommt man zu den Einstellungen und kann sich ausloggen.
