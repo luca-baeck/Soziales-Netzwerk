@@ -28,6 +28,7 @@ class Sticker{
     + Creator : CHAR(31)
     '/
     + Description : VARCHAR(511)
+    + CreationTime : DATETIME
 }
 
 User "0..n" -- "0..n" User : aims at >
