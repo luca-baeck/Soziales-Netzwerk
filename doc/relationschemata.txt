@@ -1,0 +1,7 @@
+_: Primary Key
+^: Foreign Key
+User(Handle_, Name, Password, CreationTime)
+Post(ID_, Creator^, Sticker^, Media, Content, CreationTime)
+Sticker(Name_, Location, Creator^, Description, CreationTime)
+Shoot(Target_^, Archer_^, Shot)
+Like(PostID_^, User_^, Time)
