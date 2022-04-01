@@ -1,0 +1,82 @@
+USE hiddlestick;
+
+CREATE TABLE User(
+    Handle CHAR(31) NOT NULL,
+    Name VARCHAR(63) NOT NULL,
+    Password CHAR(128) NOT NULL,
+    CreationTime DATETIME NOT NULL DEFAULT CURRENT_DATETIME,
+
+    PRIMARY KEY(Handle)
+);
+
+CREATE TABLE Sticker(
+    Name CHAR(31) NOT NULL,
+    Location VARCHAR(255) NOT NULL,
+    Creator CHAR(31) NOT NULL DEFAULT 'unknown',
+    Description VARCHAR(511) NULL,
+    CreationTime DATETIME NOT NULL DEFAULT CURRENT_DATETIME,
+
+    PRIMARY KEY(Name),
+
+    FOREIGN KEY(Creator)
+        REFERENCES User(Handle)
+        ON UPDATE CASCADE
+        ON DELETE SET DEFAULT
+);
+
+CREATE TABLE Post(
+    ID INTEGER NOT NULL AUTO_INCREMENT,
+    Creator CHAR(31) NOT NULL,
+    Sticker CHAR(31) NOT NULL DEFAULT 'default',
+    Media VARCHAR(255) NULL,
+    Content VARCHAR(1023) NOT NULL,
+    CreationTime DATETIME NOT NULL DEFAULT CURRENT_DATETIME,
+
+    PRIMARY KEY(ID),
+
+    FOREIGN KEY(Creator)
+        REFERENCES User(Handle)
+        ON UPDATE RESTRICT
+        ON DELETE CASCADE,
+    
+    FOREIGN KEY(Sticker)
+        REFERENCES Sticker(Name)
+        ON UPDATE CASCADE
+        ON DELETE SET DEFAULT
+);
+
+CREATE TABLE Shoot(
+    Target CHAR(31) NOT NULL,
+    Archer CHAR(31) NOT NULL,
+    Shot DATETIME NOT NULL DEFAULT CURRENT_DATETIME,
+
+    PRIMARY KEY(Target, Archer),
+
+    FOREIGN KEY(Target)
+        REFERENCES User(Handle)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+
+    FOREIGN KEY(Archer)
+        REFERENCES User(Handle)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
+CREATE TABLE Like(
+    PostID INTEGER NOT NULL,
+    User CHAR(31) NOT NULL,
+    Time DATETIME NOT NULL DEFAULT CURRENT_DATETIME,
+
+    PRIMARY KEY(PostID, User),
+
+    FOREIGN KEY(PostID)
+        REFERENCES Post(ID)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+
+    FOREIGN KEY(User)
+        REFERENCES User(Handle)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
