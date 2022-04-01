@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="620px" preserveAspectRatio="none" style="width:569px;height:620px;background:#FFFFFF;" version="1.1" viewBox="0 0 569 620" width="569px" zoomAndPan="magnify"><defs/><g><!--MD5=[3fd616f346a44cd59a91eb10b19e157c]
+class User--><rect codeLine="4" fill="#FFFFFF" height="109.1875" id="User" style="stroke:#000000;stroke-width:1.5;" width="200" x="265" y="12"/><ellipse cx="345.25" cy="26" fill="#FFFFFF" rx="9" ry="9" style="stroke:#000000;stroke-width:1.0;"/><path d="M343.1563,25.8438 Q343.1563,27.7188 343.7344,28.7344 Q344.3125,29.7344 345.4688,29.7344 Q346.8125,29.7344 347.4688,27.7188 L349.7344,28.1406 Q348.625,31.6719 345.4531,31.6719 Q343.1094,31.6719 341.8906,30.1875 Q340.6719,28.7031 340.6719,25.8438 Q340.6719,20.125 345.375,20.125 Q346.9219,20.125 347.9531,20.9375 Q349,21.75 349.5,23.3594 L347.2344,23.9063 Q347,23.0313 346.5156,22.5469 Q346.0313,22.0469 345.4063,22.0469 Q343.1563,22.0469 343.1563,25.8438 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="32" x="362.75" y="30.8467">User</text><line style="stroke:#000000;stroke-width:1.5;" x1="266" x2="464" y1="40" y2="40"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="188" x="271" y="56.9951">+CreationTime : DATETIME</text><line style="stroke:#000000;stroke-width:1.5;" x1="266" x2="464" y1="64.2969" y2="64.2969"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="140" x="271" y="81.292">+Handle : CHAR(31)</text><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="160" x="271" y="97.5889">+Name : VARCHAR(63)</text><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="168" x="271" y="113.8857">+Password : CHAR(128)</text><!--MD5=[9bb0bdd047fba1a3c8d48282c35b4537]
+class Post--><rect codeLine="11" fill="#FFFFFF" height="109.1875" id="Post" style="stroke:#000000;stroke-width:1.5;" width="206" x="106" y="335"/><ellipse cx="189.75" cy="349" fill="#FFFFFF" rx="9" ry="9" style="stroke:#000000;stroke-width:1.0;"/><path d="M187.6563,348.8438 Q187.6563,350.7188 188.2344,351.7344 Q188.8125,352.7344 189.9688,352.7344 Q191.3125,352.7344 191.9688,350.7188 L194.2344,351.1406 Q193.125,354.6719 189.9531,354.6719 Q187.6094,354.6719 186.3906,353.1875 Q185.1719,351.7031 185.1719,348.8438 Q185.1719,343.125 189.875,343.125 Q191.4219,343.125 192.4531,343.9375 Q193.5,344.75 194,346.3594 L191.7344,346.9063 Q191.5,346.0313 191.0156,345.5469 Q190.5313,345.0469 189.9063,345.0469 Q187.6563,345.0469 187.6563,348.8438 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="31" x="207.25" y="353.8467">Post</text><line style="stroke:#000000;stroke-width:1.5;" x1="107" x2="311" y1="363" y2="363"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="100" x="112" y="379.9951">+ID : INTEGER</text><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="188" x="112" y="396.292">+CreationTime : DATETIME</text><line style="stroke:#000000;stroke-width:1.5;" x1="107" x2="311" y1="403.5938" y2="403.5938"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="170" x="112" y="420.5889">+Media : VARCHAR(255)</text><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="194" x="112" y="436.8857">+Content : VARCHAR(1023)</text><!--MD5=[ef0783ae408c995dc8855cbad06794c9]
+class Sticker--><rect codeLine="22" fill="#FFFFFF" height="92.8906" id="Sticker" style="stroke:#000000;stroke-width:1.5;" width="220" x="177" y="521"/><ellipse cx="259.75" cy="535" fill="#FFFFFF" rx="9" ry="9" style="stroke:#000000;stroke-width:1.0;"/><path d="M257.6563,534.8438 Q257.6563,536.7188 258.2344,537.7344 Q258.8125,538.7344 259.9688,538.7344 Q261.3125,538.7344 261.9688,536.7188 L264.2344,537.1406 Q263.125,540.6719 259.9531,540.6719 Q257.6094,540.6719 256.3906,539.1875 Q255.1719,537.7031 255.1719,534.8438 Q255.1719,529.125 259.875,529.125 Q261.4219,529.125 262.4531,529.9375 Q263.5,530.75 264,532.3594 L261.7344,532.9063 Q261.5,532.0313 261.0156,531.5469 Q260.5313,531.0469 259.9063,531.0469 Q257.6563,531.0469 257.6563,534.8438 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="47" x="277.25" y="539.8467">Sticker</text><line style="stroke:#000000;stroke-width:1.5;" x1="178" x2="396" y1="549" y2="549"/><line style="stroke:#000000;stroke-width:1.5;" x1="178" x2="396" y1="557" y2="557"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="132" x="183" y="573.9951">+Name : CHAR(31)</text><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="187" x="183" y="590.292">+Location : VARCHAR(255)</text><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="208" x="183" y="606.5889">+Description : VARCHAR(511)</text><!--MD5=[31cff31dc4665adce2a62b3f2e8d5ba6]
+class Shoot--><rect codeLine="39" fill="#FFFFFF" height="60.2969" id="Shoot" style="stroke:#000000;stroke-width:1.5;" width="140" x="422" y="359.5"/><ellipse cx="467.75" cy="373.5" fill="#FFFFFF" rx="9" ry="9" style="stroke:#000000;stroke-width:1.0;"/><path d="M465.6563,373.3438 Q465.6563,375.2188 466.2344,376.2344 Q466.8125,377.2344 467.9688,377.2344 Q469.3125,377.2344 469.9688,375.2188 L472.2344,375.6406 Q471.125,379.1719 467.9531,379.1719 Q465.6094,379.1719 464.3906,377.6875 Q463.1719,376.2031 463.1719,373.3438 Q463.1719,367.625 467.875,367.625 Q469.4219,367.625 470.4531,368.4375 Q471.5,369.25 472,370.8594 L469.7344,371.4063 Q469.5,370.5313 469.0156,370.0469 Q468.5313,369.5469 467.9063,369.5469 Q465.6563,369.5469 465.6563,373.3438 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="41" x="485.25" y="378.3467">Shoot</text><line style="stroke:#000000;stroke-width:1.5;" x1="423" x2="561" y1="387.5" y2="387.5"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="128" x="428" y="404.4951">+Shot : DATETIME</text><line style="stroke:#000000;stroke-width:1.5;" x1="423" x2="561" y1="411.7969" y2="411.7969"/><ellipse cx="492" cy="228" fill="#000000" rx="2" ry="2" style="stroke:none;stroke-width:1.0;"/><!--MD5=[378e3e2ca7e24a99f4479cd893fbde36]
+class Like--><rect codeLine="47" fill="#FFFFFF" height="60.2969" id="Like" style="stroke:#000000;stroke-width:1.5;" width="142" x="50" y="198"/><ellipse cx="103.75" cy="212" fill="#FFFFFF" rx="9" ry="9" style="stroke:#000000;stroke-width:1.0;"/><path d="M101.6563,211.8438 Q101.6563,213.7188 102.2344,214.7344 Q102.8125,215.7344 103.9688,215.7344 Q105.3125,215.7344 105.9688,213.7188 L108.2344,214.1406 Q107.125,217.6719 103.9531,217.6719 Q101.6094,217.6719 100.3906,216.1875 Q99.1719,214.7031 99.1719,211.8438 Q99.1719,206.125 103.875,206.125 Q105.4219,206.125 106.4531,206.9375 Q107.5,207.75 108,209.3594 L105.7344,209.9063 Q105.5,209.0313 105.0156,208.5469 Q104.5313,208.0469 103.9063,208.0469 Q101.6563,208.0469 101.6563,211.8438 Z " fill="#000000"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="27" x="121.25" y="216.8467">Like</text><line style="stroke:#000000;stroke-width:1.5;" x1="51" x2="191" y1="226" y2="226"/><text fill="#000000" font-family="Verdana" font-size="14" lengthAdjust="spacing" textLength="130" x="56" y="242.9951">+Time : DATETIME</text><line style="stroke:#000000;stroke-width:1.5;" x1="51" x2="191" y1="250.2969" y2="250.2969"/><ellipse cx="13" cy="228" fill="#000000" rx="2" ry="2" style="stroke:none;stroke-width:1.0;"/><!--MD5=[6c83186e4083e6f29e72f673a9d53c3f]
+link User to apoint183--><path d="M389.6879,121.0585 C398.1518,136.9873 408.4424,153.891 420,168 C443.0968,196.1954 480.8992,220.9864 489.9889,226.7435 " fill="none" id="User-apoint183" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="48" x="421" y="164.0669">aims at</text><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="24" x="367.3135" y="141.0731">0..n</text><!--MD5=[99cae098287e5159371810886279a6a6]
+link apoint183 to User--><path d="M492.005,225.9046 C491.9331,216.4236 490.6074,176.8817 474,151 C467.082,140.2186 458.2949,130.253 448.7222,121.2331 " fill="none" id="apoint183-User" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="24" x="433.9116" y="141.2701">0..n</text><!--MD5=[f8034fb506092f5077a6a9951b2b74d4]
+link apoint183 to Shoot--><path d="M492,230.042 C492,243.1869 492,316.6804 492,359.1586 " fill="none" id="apoint183-Shoot" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><!--MD5=[77c575690b0287b9077f2f97ff7c450d]
+link User to Post--><path codeLine="33" d="M331.2199,121.3052 C317.4283,144.5818 301.7567,172.2445 289,198 C266.691,243.0411 244.9402,295.8585 229.7636,334.6026 " fill="none" id="User-Post" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="48" x="290" y="232.5669">creates</text><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="24" x="301.3543" y="141.3514">1..1</text><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="24" x="206.8317" y="324.0615">0..n</text><!--MD5=[ca4e51c2df119844c043e29d8f2dffda]
+link User to Sticker--><path codeLine="34" d="M363.6363,121.113 C360.9535,195.0101 353.0599,330.6444 330,444 C324.7048,470.0299 315.268,498.0632 306.5813,520.8316 " fill="none" id="User-Sticker" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="48" x="353" y="301.0669">creates</text><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="24" x="337.9241" y="141.1346">1..1</text><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="24" x="283.6948" y="509.9603">0..n</text><!--MD5=[b5776459882a3c2d26837e1f3ef5d47a]
+link Post to Sticker--><path codeLine="35" d="M233.039,444.3583 C243.782,468.8742 256.3101,497.464 266.5892,520.9215 " fill="none" id="Post-Sticker" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="52" x="254" y="487.0669">includes</text><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="24" x="210.5815" y="464.4113">0..n</text><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="24" x="237.8289" y="510.0634">1..1</text><!--MD5=[0c44de0253f0ba4806f6b88bffa5b3ca]
+link User to apoint193--><path d="M264.659,88.4473 C193.6887,107.9165 99.5281,142.1345 32,198 C22.1196,206.174 15.7519,220.8699 13.7113,226.0935 " fill="none" id="User-apoint193" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="28" x="98" y="164.0669">likes</text><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="24" x="233.1111" y="86.483">0..n</text><!--MD5=[4902adc6432c39bee0026fdca67971e5]
+link apoint193 to Post--><path d="M13.9743,230.0696 C16.4589,235.205 23.4438,248.7824 32,258 C58.4344,286.478 91.7316,313.0457 122.294,334.741 " fill="none" id="apoint193-Post" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="Verdana" font-size="13" lengthAdjust="spacing" textLength="24" x="85.6473" y="323.8275">0..n</text><!--MD5=[f0463ca2a97561615d8d04dfff870101]
+link apoint193 to Like--><path d="M15.1094,228 C26.6912,228 38.2729,228 49.8547,228 " fill="none" id="apoint193-Like" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><!--MD5=[ce545ccf4991883c243a6d354f03d4ab]
+@startuml
+!theme plain
+skinparam ClassAttributeIconSize 0
+
+class User{
+    + Handle : CHAR(31)
+    + Name : VARCHAR(63)
+    + Password : CHAR(128)
+    + CreationTime : DATETIME
+}
+
+class Post{
+    + ID : INTEGER
+    /'
+    + Creator : CHAR(31)
+    + Sticker : CHAR(31)
+    '/
+    + Media : VARCHAR(255)
+    + Content : VARCHAR(1023)
+    + CreationTime : DATETIME
+}
+
+class Sticker{
+    + Name : CHAR(31)
+    + Location : VARCHAR(255)
+    /'
+    + Creator : CHAR(31)
+    '/
+    + Description : VARCHAR(511)
+}
+
+User "0..n" - - "0..n" User : aims at
+(User, User) . Shoot
+User "1..1" - - "0..n" Post : creates
+User "1..1" - - "0..n" Sticker : creates
+Post "0..n" - - "1..1" Sticker : includes
+User "0..n" - - "0..n" Post : likes
+(User, Post) . Like
+
+class Shoot{
+    /'
+    + Target : CHAR(31)
+    + Archer : CHAR(31)
+    '/
+    + Shot : DATETIME
+}
+
+class Like{
+    /'
+    + PostID : INTEGER
+    + User : CHAR(31)
+    '/
+    + Time : DATETIME
+}
+@enduml
+
+@startuml
+
+
+
+
+
+
+
+<style>
+  root {
+    BackgroundColor white
+    FontColor black
+    FontName Verdana
+    HyperLinkColor blue
+    LineColor black
+    LineThickness 1
+    Margin 5
+  }
+  caption {
+    LineThickness 0
+  }
+  footer {
+    LineThickness 0
+  }
+  header {
+    LineThickness 0
+  }
+  node {
+    MaximumWidth 300
+  }
+  title {
+    FontSize 22
+    LineThickness 0
+  }
+</style>
+
+skinparam ArrowLollipopColor black
+skinparam BackgroundColor white
+skinparam DefaultFontName Verdana
+skinparam DefaultMonospacedFontName Courier
+skinparam LifelineStrategy nosolid
+skinparam ParticipantPadding 10
+skinparam SequenceLifeLineBorderColor black
+skinparam Shadowing false
+skinparam UseBetaStyle true
+
+skinparam Activity {
+  BackgroundColor white
+  BarColor black
+  BorderColor black
+  FontColor black
+  FontName Verdana
+}
+skinparam Boundary {
+  FontColor black
+}
+skinparam Box {
+  Padding 5
+}
+skinparam CircledCharacter {
+  FontColor black
+  FontName Courier
+  Radius 9
+}
+skinparam Class {
+  BackgroundColor white
+  BorderColor black
+  FontColor black
+  FontName Verdana
+}
+skinparam ClassAttribute {
+  FontColor black
+  FontName Verdana
+}
+skinparam ClassStereotype {
+  FontColor black
+  FontName Verdana
+}
+skinparam Footer {
+  FontColor black
+  FontName Verdana
+}
+skinparam Header {
+  FontColor black
+  FontName Verdana
+}
+skinparam Hyperlink {
+  Color blue
+}
+skinparam IconPackage {
+  Color black
+  BackgroundColor white
+}
+skinparam IconPrivate {
+  Color black
+  BackgroundColor white
+}
+skinparam IconProtected {
+  Color black
+  BackgroundColor white
+}
+skinparam IconPublic {
+  Color black
+  BackgroundColor white
+}
+skinparam Note {
+  FontColor black
+  FontName Verdana
+}
+skinparam Object {
+  BorderColor black
+}
+skinparam Package {
+  BorderColor black
+  FontColor black
+  FontName Verdana
+}
+skinparam State {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeA {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeC {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeE {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeI {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam StereotypeN {
+  BackgroundColor white
+  BorderColor black
+}
+skinparam UseCaseStereoType {
+  FontColor black
+  FontName Verdana
+}
+skinparam ClassAttributeIconSize 0
+
+class User{
+    + Handle : CHAR(31)
+    + Name : VARCHAR(63)
+    + Password : CHAR(128)
+    + CreationTime : DATETIME
+}
+
+class Post{
+    + ID : INTEGER
+    + Media : VARCHAR(255)
+    + Content : VARCHAR(1023)
+    + CreationTime : DATETIME
+}
+
+class Sticker{
+    + Name : CHAR(31)
+    + Location : VARCHAR(255)
+    + Description : VARCHAR(511)
+}
+
+User "0..n" - - "0..n" User : aims at
+(User, User) . Shoot
+User "1..1" - - "0..n" Post : creates
+User "1..1" - - "0..n" Sticker : creates
+Post "0..n" - - "1..1" Sticker : includes
+User "0..n" - - "0..n" Post : likes
+(User, Post) . Like
+
+class Shoot{
+    + Shot : DATETIME
+}
+
+class Like{
+    + Time : DATETIME
+}
+@enduml
+
+PlantUML version 1.2022.1(Tue Feb 01 19:19:58 CET 2022)
+(GPLV2 source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK Server VM
+Default Encoding: UTF-8
+Language: de
+Country: DE
+--></g></svg>
