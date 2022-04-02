@@ -1,0 +1,16 @@
+/*
+	Noir by Matthias Guggisberg
+*/
+@font-face {
+	font-family: 'Noir';
+	src: local('Noir Medium'), local('Noir'), url('Noir_medium.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Noir';
+	src: local('Noir Regular'), local('Noir'), url('Noir_regular.otf') format('opentype');
+	font-weight: normal;
+	font-style: bold;
+}
