@@ -17,6 +17,7 @@ nav{
 }
 
 header div img {
+    vertical-align: middle;
     height: 4vh;
     margin-left: 0.5vw;
     margin-right: 0.5vw;
