@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+}
+
+body{
+    background-color: #121212;
+}
+
+header{
+    position: sticky; top: 0;
+
+}
+
+nav{
+    background-color: #181818;
+    text-align: center;
+}
+
+header div img {
+    height: 4vh;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+}
+
+.nav-left {
+    float: left;
+    margin: 0.75vh;
+
+}
+.nav-center {
+    display: inline-block;
+    margin: 0.75vh auto;
+}
+.nav-right {
+    float: right;
+    margin: 0.75vh;
+}
+
+
+p{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #fff;
+}
+
+main{
+    margin: 0;
+    padding: 0;
+    width: 30vw;
+    margin-left: 25vw;
+}
