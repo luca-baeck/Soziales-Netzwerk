@@ -58,12 +58,12 @@ main{
 
 i{
     vertical-align: middle;
-    font-size: 3.5vh;
+    font-size: 3vh;
     margin-left: 0.5vw;
     margin-right: 0.5vw; 
     color: var(--icon-color);
     cursor: pointer;
-    font-weight: 400 !important;
+    /*font-weight: 400 !important;*/
 }
 .userprofile{
     float: right;
@@ -89,18 +89,20 @@ i{
     border: none;
     outline:none;
     width: 0px;
-    font-size: 3vh;
+    font-size: 2vh;
     transition: 0.8s;
-
+    color: var(--text-color);
 }
 
-.search-container i {
-    font-weight: 900 !important;
-}
+.search-input::placeholder {
+    color: var(--text-color);
+  }
 
 .search-container .search-btn .fas{
     color: var(--header-color);
 }
 
 
-
+form{
+    float: left;
+}
