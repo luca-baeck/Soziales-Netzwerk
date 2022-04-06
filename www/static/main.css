@@ -1,5 +1,8 @@
+@import url("lib/fonts/Roboto/font.css");
+
 *{
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 body{
@@ -18,7 +21,7 @@ nav{
 
 header div img {
     vertical-align: middle;
-    height: 4vh;
+    height: 3.5vh;
     margin-left: 0.5vw;
     margin-right: 0.5vw;
 }
@@ -38,6 +41,7 @@ header div img {
 }
 
 
+
 p{
     margin: 0;
     padding: 0;
@@ -51,3 +55,52 @@ main{
     width: 30vw;
     margin-left: 25vw;
 }
+
+i{
+    vertical-align: middle;
+    font-size: 3.5vh;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw; 
+    color: #fff;
+    cursor: pointer;
+    font-weight: 400 !important;
+}
+.userprofile{
+    float: right;
+}
+.search-container{
+    background: #121212;
+    height: 3vh;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    float: left;
+    transition: 0.8s;
+}
+
+.search-container:hover > .search-input{
+    width: 7.5vw;
+}
+
+.search-container .search-input{
+    background: transparent;
+    border: none;
+    outline:none;
+    width: 0px;
+    font-size: 3vh;
+    transition: 0.8s;
+
+}
+
+.search-container i {
+    font-weight: 900 !important;
+}
+
+.search-container .search-btn .fas{
+    color: #121212;
+}
+
+
+
