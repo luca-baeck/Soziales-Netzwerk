@@ -4,6 +4,7 @@ CREATE TABLE User(
     Handle CHAR(31) NOT NULL,
     Name VARCHAR(63) NOT NULL,
     Password CHAR(128) NOT NULL,
+    ProfilePicture VARCHAR(255) NULL,
     CreationTime DATETIME NOT NULL DEFAULT CURRENT_DATETIME,
 
     PRIMARY KEY(Handle)
