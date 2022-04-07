@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="img/logo/logo_color_white.svg" />
     <title>hiddlestick</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="lib/fontawesome/6.1.1/css/all.css">
 </head>
 <body>
@@ -16,14 +16,33 @@
         <nav>
             <div class="nav-left">
                 <a href="#"><img src="img/logo/logo_color_white.svg" alt="hiddlestick logo" title="hiddlestick logo"></a>
-                <a href="#"><img src="img/icons/light/switch.svg" alt="switch between feed and start page" title="switch between feed and start page"></a>
+                <i class="fa-regular fa-window-restore"></i>
             </div>
             <div class="nav-center">
-                <a href="#"><img src="img/icons/light/plus.svg" alt="create post" title="create post"></a>
+                <i class="fa-solid fa-plus"></i>
             </div>
             <div class="nav-right">
-                <a href="#"><img src="img/icons/light/search.svg" alt="search" title="search"></a>
-                <a href="#"><img src="img/icons/light/user.svg" alt="profile" title="profile"></a>
+
+                <form action="search.php" method="post"> 
+                    <div class="search-container">
+                    
+                        <a href="#" class="search-btn">
+                            <i class="fa-solid fa-magnifying-glass"></i>      
+                        </a>
+                        
+                        <input class="search-input" type="text" name="search" placeholder="Search...">
+                       
+                    </div>
+                </form>
+               
+              
+
+
+
+               <div class="userprofile">
+                  <i class="fa-solid fa-user "></i>
+               </div>
+                
             </div>
         </nav>
     </header>

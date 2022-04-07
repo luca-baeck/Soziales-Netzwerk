@@ -1,0 +1,108 @@
+@import url("lib/fonts/Roboto/font.css");
+@import url(colors.css);
+*{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: var(--background-color);
+}
+
+header{
+    position: sticky; top: 0;
+
+}
+
+nav{
+    background-color: var(--header-color);
+    text-align: center;
+}
+
+header div img {
+    vertical-align: middle;
+    height: 3.5vh;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+}
+
+.nav-left {
+    float: left;
+    margin: 0.75vh;
+
+}
+.nav-center {
+    display: inline-block;
+    margin: 0.75vh auto;
+}
+.nav-right {
+    float: right;
+    margin: 0.75vh;
+}
+
+
+
+p{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: var(--text-color);
+}
+
+main{
+    margin: 0;
+    padding: 0;
+    width: 30vw;
+    margin-left: 25vw;
+}
+
+i{
+    vertical-align: middle;
+    font-size: 3vh;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw; 
+    color: var(--icon-color);
+    cursor: pointer;
+    /*font-weight: 400 !important;*/
+}
+.userprofile{
+    float: right;
+}
+.search-container{
+    background: var(--header-color);
+    height: 3vh;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    float: left;
+    transition: 0.8s;
+}
+
+.search-container:hover > .search-input{
+    width: 7.5vw;
+}
+
+.search-container .search-input{
+    background: transparent;
+    border: none;
+    outline:none;
+    width: 0px;
+    font-size: 2vh;
+    transition: 0.8s;
+    color: var(--text-color);
+}
+
+.search-input::placeholder {
+    color: var(--text-color);
+  }
+
+.search-container .search-btn .fas{
+    color: var(--header-color);
+}
+
+
+form{
+    float: left;
+}
