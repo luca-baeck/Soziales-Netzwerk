@@ -24,11 +24,14 @@ header div img {
     height: 3.5vh;
     margin-left: 0.5vw;
     margin-right: 0.5vw;
+    
 }
+
+
 
 .nav-left {
     float: left;
-    margin: 0.75vh;
+    margin: 0.45vh;
 
 }
 .nav-center {
@@ -41,21 +44,6 @@ header div img {
 }
 
 
-
-p{
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    color: var(--text-color);
-}
-
-main{
-    margin: 0;
-    padding: 0;
-    width: 30vw;
-    margin-left: 25vw;
-}
-
 i{
     vertical-align: middle;
     font-size: 3vh;
@@ -64,7 +52,15 @@ i{
     color: var(--icon-color);
     cursor: pointer;
     /*font-weight: 400 !important;*/
+    transition: 0.5s;
 }
+
+i:hover {
+    color: var(--spezial-color);
+    transform: translateY(-0.4vh);
+}
+
+
 .userprofile{
     float: right;
 }
@@ -83,6 +79,12 @@ i{
 .search-container:hover > .search-input{
     width: 7.5vw;
 }
+.search-container:hover > .search-btn i{
+    color: var(--spezial-color);
+}
+.search-container:hover > .search-input::placeholder{
+    color: var(--spezial-color);
+}
 
 .search-container .search-input{
     background: transparent;
@@ -91,7 +93,7 @@ i{
     width: 0px;
     font-size: 2vh;
     transition: 0.8s;
-    color: var(--text-color);
+    color: var(--spezial-color);
 }
 
 .search-input::placeholder {
@@ -111,7 +113,7 @@ form{
 .dropbtn {
 
 
-
+    padding-bottom: 0.75vh;
     border: none;
   }
   
@@ -126,13 +128,15 @@ form{
     display: none;
     position: absolute;
     background: var(--header-color);
-    min-width: 7.5vw;
+    min-width: 5vw;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    right: 0vw;
-    margin-top: 1.5vh;
-    border: 0.5px solid var(--text-color);
+    right: 0;
+    padding: 1vh;
+
     border-radius: 15px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     
   }
   
@@ -141,14 +145,47 @@ form{
     color: var(--text-color);
     padding: 12px 16px;
     text-decoration: none;
-    display: block;
+    display: inline-block;
+    position: relative;
   }
   
   /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd;}
+  .dropdown-content a:hover {
+      color: var(--logo-color1);
+      /*border: 0.1px solid var(--spezial-color);
+      border-radius: 10px;*/
+    }
   
+
+      .dropdown-content a:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--logo-color2);
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+      }
+      
+      .dropdown-content a:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+
+
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {display: block;}
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+  .dropdown:hover .dropbtn {background-color: var(--header-color);}
+
+
+.login-logout{
+    margin-top: 0.75vh;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
