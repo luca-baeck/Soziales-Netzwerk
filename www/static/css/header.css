@@ -15,6 +15,7 @@ header{
 }
 
 nav{
+    padding: 0.25rem;
     background-color: var(--header-color);
     text-align: center;
 }
