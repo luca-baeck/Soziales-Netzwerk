@@ -1,4 +1,4 @@
-@import url("lib/fonts/Roboto/font.css");
+@import url("../static/lib/fonts/Roboto/font.css");
 @import url(colors.css);
 *{
     margin: 0;
