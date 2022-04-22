@@ -1,0 +1,192 @@
+@import url("../static/lib/fonts/Roboto/font.css");
+@import url(colors.css);
+*{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: var(--background-color);
+}
+
+header{
+    position: sticky; top: 0;
+
+}
+
+nav{
+    padding: 0.25rem;
+    background-color: var(--header-color);
+    text-align: center;
+}
+
+header div img {
+    vertical-align: middle;
+    height: 3.5vh;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+    
+}
+
+
+
+.nav-left {
+    float: left;
+    margin: 0.45vh;
+
+}
+.nav-center {
+    display: inline-block;
+    margin: 0.75vh auto;
+}
+.nav-right {
+    float: right;
+    margin: 0.75vh;
+}
+
+
+i{
+    vertical-align: middle;
+    font-size: 3vh;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw; 
+    color: var(--icon-color);
+    cursor: pointer;
+    /*font-weight: 400 !important;*/
+    transition: 0.5s;
+}
+
+i:hover {
+    color: var(--spezial-color);
+    transform: translateY(-0.4vh);
+}
+
+
+.userprofile{
+    float: right;
+}
+.search-container{
+    background: var(--header-color);
+    height: 3vh;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    float: left;
+    transition: 0.8s;
+}
+
+.search-container:hover > .search-input{
+    width: 7.5vw;
+}
+.search-container:hover > .search-btn i{
+    color: var(--spezial-color);
+}
+.search-container:hover > .search-input::placeholder{
+    color: var(--spezial-color);
+}
+
+.search-container .search-input{
+    background: transparent;
+    border: none;
+    outline:none;
+    width: 0px;
+    font-size: 2vh;
+    transition: 0.8s;
+    color: var(--spezial-color);
+}
+
+.search-input::placeholder {
+    color: var(--text-color);
+  }
+
+.search-container .search-btn .fas{
+    color: var(--header-color);
+}
+
+
+form{
+    float: left;
+}
+
+/* Dropdown Button */
+.dropbtn {
+
+
+    padding-bottom: 0.75vh;
+    border: none;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background: var(--header-color);
+    min-width: 5vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    padding: 1vh;
+
+    border-radius: 15px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {
+      color: var(--logo-color1);
+      /*border: 0.1px solid var(--spezial-color);
+      border-radius: 10px;*/
+    }
+  
+
+      .dropdown-content a:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--logo-color2);
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+      }
+      
+      .dropdown-content a:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+
+
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {background-color: var(--header-color);}
+
+
+.login-logout{
+    margin-top: 0.75vh;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+

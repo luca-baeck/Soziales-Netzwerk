@@ -7,7 +7,8 @@ class User{
     + Handle : CHAR(31)
     + Name : VARCHAR(63)
     + Password : CHAR(128)
-    + CreationTime : DATETIME
+    + ProfilePicture : VARCHAR(255)
+    + CreationTime : TIMESTAMP
 }
 
 class Post{
@@ -18,7 +19,7 @@ class Post{
     '/
     + Media : VARCHAR(255)
     + Content : VARCHAR(1023)
-    + CreationTime : DATETIME
+    + CreationTime : TIMESTAMP
 }
 
 class Sticker{
@@ -28,7 +29,7 @@ class Sticker{
     + Creator : CHAR(31)
     '/
     + Description : VARCHAR(511)
-    + CreationTime : DATETIME
+    + CreationTime : TIMESTAMP
 }
 
 User "0..n" -- "0..n" User : aims at >
@@ -44,7 +45,7 @@ class Shoot{
     + Target : CHAR(31)
     + Archer : CHAR(31)
     '/
-    + Shot : DATETIME
+    + Shot : TIMESTAMP
 }
 
 class Like{
@@ -52,7 +53,7 @@ class Like{
     + PostID : INTEGER
     + User : CHAR(31)
     '/
-    + Time : DATETIME
+    + Time : TIMESTAMP
 }
 
 @enduml
