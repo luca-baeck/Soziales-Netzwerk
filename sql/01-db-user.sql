@@ -1,6 +1,15 @@
+-- DROP DATABASE hiddlestick;
+-- DROP USER 'hiddlestick_r'@'localhost';
+-- DROP USER 'hiddlestick_rw'@'localhost';
+
 CREATE DATABASE hiddlestick;
 
-CREATE USER hiddlestickuser@localhost 
-  IDENTIFIED BY '%?|Qn?6b|4^[6_D5_*W&1C~B1v8.NE<z';
+CREATE USER hiddlestick_r@localhost 
+  IDENTIFIED BY 'hiddlestick_r';
+CREATE USER hiddlestick_rw@localhost 
+  IDENTIFIED BY 'hiddlestick_rw';
 
-GRANT ALL ON hiddlestick.* TO hiddlestickuser@localhost;
+GRANT SELECT ON hiddlestick.* TO hiddlestick_r@localhost;
+GRANT ALL ON hiddlestick.* TO hiddlestick_rw@localhost;
+
+FLUSH PRIVILEGES;
