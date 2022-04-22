@@ -1,7 +1,6 @@
 <?php
 
-class DBConfig
-{
+class DBConfig{
   const DRIVER   = 'mysql';
   const HOST     = '127.0.0.1';
   const PORT     = '3306';
