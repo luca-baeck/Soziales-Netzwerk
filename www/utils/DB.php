@@ -1,6 +1,6 @@
 <?php
 
-require_once('DBconfig.php');
+require_once('./config/DBconfig.php');
 
 class DB{
 	public static function connect(){

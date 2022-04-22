@@ -1,0 +1,41 @@
+<?php
+
+require_once('./config/router.php');
+
+class Router{
+
+	public function __construct(){
+
+	}
+
+	public function routeTo(string $uri){
+		$parts = explode('/', $uri, 3);
+		
+		$ctrl_file = $parts[0];
+		$action = count($parts) > 1 ? $parts[1] : 'show';
+		$params = count($parts) > 2 ? $parts[2] : null;
+
+		if($ctrl_file == 't'){
+			$ctrl_file = 'target';
+			$action = 'show';
+			$params = $parts[1];
+		}
+
+		if (!in_array($ctrl_file, RouterConfig::ALL_CTRL_FILES)){
+			$ctrl_file = 'target';
+			$action = 'show';
+			$params = $parts[0];
+		}
+
+		if(in_array($ctrl_file, RouterConfig::PUBLIC_CTRL_FILES)){
+			require_once('./ctrl/' . $ctrl_file . '.php');
+			$ctrl_class = strtoupper(substr($ctrl_file, 0, 1)) . substr($ctrl_file, 1) . 'Controller';
+			$controller = new $ctrl_class();
+			$controller->$action($params);
+		}else{
+			header('Location: /login');
+		}
+	}
+}
+
+?>

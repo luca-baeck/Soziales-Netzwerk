@@ -1,12 +1,21 @@
 <?php
 
 class RouterConfig{
-	const PUBLIC_ROUTES = array(
-		'/land',
-		'/login',
-		'/register',
-		'/t',
-		'/target'
+	const PUBLIC_CTRL_FILES = array(
+		'land',
+		'login',
+		'register',
+		'target'
+	);
+
+	const ALL_CTRL_FILES = array(
+		'create',
+		'feed',
+		'land',
+		'login',
+		'register',
+		'settings',
+		'target'
 	);
 }
 

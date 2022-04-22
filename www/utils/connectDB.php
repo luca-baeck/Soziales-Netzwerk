@@ -1,6 +1,6 @@
 <?php
 
-require_once('DB.php');
+require_once('./utils/DB.php');
 
 function runSQL($command){
 	$pdo = DB::connect();
