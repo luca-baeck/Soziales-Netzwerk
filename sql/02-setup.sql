@@ -1,72 +1,78 @@
 USE hiddlestick;
 
 CREATE TABLE User(
+    ID UUID NOT NULL,
     Handle CHAR(31) NOT NULL,
     Name VARCHAR(63) NOT NULL,
     Password CHAR(128) NOT NULL,
     ProfilePicture VARCHAR(255) NULL,
     CreationTime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    PRIMARY KEY(Handle)
+    PRIMARY KEY(ID),
+
+    UNIQUE(Handle)
 );
 
 CREATE TABLE Sticker(
+    ID UUID NOT NULL,
     Name CHAR(31) NOT NULL,
     Location VARCHAR(255) NOT NULL,
-    Creator CHAR(31) NOT NULL DEFAULT 'unknown',
+    CreatorID UUID NULL,
     Description VARCHAR(511) NULL,
     CreationTime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    PRIMARY KEY(Name),
+    PRIMARY KEY(ID),
 
-    FOREIGN KEY(Creator)
-        REFERENCES User(Handle)
+    UNIQUE(Name),
+
+    FOREIGN KEY(CreatorID)
+        REFERENCES User(ID)
         ON UPDATE CASCADE
-        ON DELETE SET DEFAULT
+        ON DELETE SET NULL
 );
 
 CREATE TABLE Post(
-    ID INTEGER NOT NULL AUTO_INCREMENT,
-    Creator CHAR(31) NOT NULL,
-    Sticker CHAR(31) NOT NULL DEFAULT 'default',
+    ID UUID NOT NULL,
+    CreatorID UUID NOT NULL,
+    StickerID UUID NULL,
     Media VARCHAR(255) NULL,
     Content VARCHAR(1023) NOT NULL,
     CreationTime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     PRIMARY KEY(ID),
 
-    FOREIGN KEY(Creator)
-        REFERENCES User(Handle)
+    FOREIGN KEY(CreatorID)
+        REFERENCES User(ID)
         ON UPDATE RESTRICT
         ON DELETE CASCADE,
     
-    FOREIGN KEY(Sticker)
-        REFERENCES Sticker(Name)
+    FOREIGN KEY(StickerID)
+        REFERENCES Sticker(ID)
         ON UPDATE CASCADE
-        ON DELETE SET DEFAULT
+        ON DELETE SET NULL
 );
 
 CREATE TABLE Shoot(
-    Target CHAR(31) NOT NULL,
-    Archer CHAR(31) NOT NULL,
+    Target UUID NOT NULL,
+    Archer UUID NOT NULL,
     Shot TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     PRIMARY KEY(Target, Archer),
 
     FOREIGN KEY(Target)
-        REFERENCES User(Handle)
+        REFERENCES User(ID)
         ON UPDATE CASCADE
         ON DELETE CASCADE,
 
     FOREIGN KEY(Archer)
-        REFERENCES User(Handle)
+        REFERENCES User(ID)
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
 
 CREATE TABLE Like(
-    PostID INTEGER NOT NULL,
-    User CHAR(31) NOT NULL,
+    PostID UUID NOT NULL,
+    UserID UUID NOT NULL,
     Time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     PRIMARY KEY(PostID, User),
@@ -76,8 +82,23 @@ CREATE TABLE Like(
         ON UPDATE CASCADE
         ON DELETE CASCADE,
 
-    FOREIGN KEY(User)
-        REFERENCES User(Handle)
+    FOREIGN KEY(UserID)
+        REFERENCES User(ID)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
+CREATE TABLE Session(
+    UserID UUID NOT NULL,
+    CreationTime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    Name VARCHAR(127) NULL,
+    Token UUID NOT NULL,
+    ExpirationTime TIMESTAMP NULL,
+
+    PRIMARY KEY(User, CreationTime),
+
+    FOREIGN KEY(UserID)
+        REFERENCES User(ID)
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );

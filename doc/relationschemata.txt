@@ -1,7 +1,8 @@
 _: Primary Key
 ^: Foreign Key
-User(Handle_, Name, Password, ProfilePicture, CreationTime)
-Post(ID_, Creator^, Sticker^, Media, Content, CreationTime)
-Sticker(Name_, Location, Creator^, Description, CreationTime)
+User(ID_, Handle, Name, Password, ProfilePicture, CreationTime)
+Post(ID_, CreatorID^, StickerID^, Media, Content, CreationTime)
+Sticker(ID_, Name, Location, CreatorID^, Description, CreationTime)
 Shoot(Target_^, Archer_^, Shot)
-Like(PostID_^, User_^, Time)
+Like(PostID_^, UserID_^, Time)
+Session(UserID_^, CreationTime_, Name, Token, ExpirationTime)

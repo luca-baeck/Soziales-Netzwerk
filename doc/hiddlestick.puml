@@ -4,6 +4,7 @@
 skinparam ClassAttributeIconSize 0
 
 class User{
+    + ID : UUID
     + Handle : CHAR(31)
     + Name : VARCHAR(63)
     + Password : CHAR(128)
@@ -12,10 +13,10 @@ class User{
 }
 
 class Post{
-    + ID : INTEGER
+    + ID : UUID
     /'
-    + Creator : CHAR(31)
-    + Sticker : CHAR(31)
+    /+ CreatorID : UUID
+    /+ StickerID : UUID
     '/
     + Media : VARCHAR(255)
     + Content : VARCHAR(1023)
@@ -23,10 +24,11 @@ class Post{
 }
 
 class Sticker{
+    + ID : UUID
     + Name : CHAR(31)
     + Location : VARCHAR(255)
     /'
-    + Creator : CHAR(31)
+    /+ CreatorID : UUID
     '/
     + Description : VARCHAR(511)
     + CreationTime : TIMESTAMP
@@ -38,22 +40,33 @@ User "1..1" -- "0..n" Post : creates >
 User "1..1" -- "0..n" Sticker : creates >
 Post "0..n" -- "1..1" Sticker : includes >
 User "0..n" -- "0..n" Post : likes >
+Session "1..n" -- "1..1" User : authenticates >
 (User, Post) . Like
 
 class Shoot{
     /'
-    + Target : CHAR(31)
-    + Archer : CHAR(31)
+    /+ Target : UUID
+    /+ Archer : UUID
     '/
     + Shot : TIMESTAMP
 }
 
 class Like{
     /'
-    + PostID : INTEGER
-    + User : CHAR(31)
+    /+ PostID : UUID
+    /+ UserID : UUID
     '/
     + Time : TIMESTAMP
+}
+
+class Session{
+    /'
+    /+ UserID : UUID
+    '/
+    + CreationTime : TIMESTAMP
+    + Name : VARCHAR(127)
+    + Token : UUID
+    + ExpirationTime : TIMESTAMP
 }
 
 @enduml
