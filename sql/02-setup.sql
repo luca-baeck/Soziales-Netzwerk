@@ -93,7 +93,7 @@ CREATE TABLE Session(
     CreationTime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     Name VARCHAR(127) NULL,
     Token UUID NOT NULL,
-    ExpirationTime TIMESTAMP NULL,
+    ExpirationDate DATE NULL,
 
     PRIMARY KEY(User, CreationTime),
 
