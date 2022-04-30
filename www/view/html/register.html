@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="../www/static/img/logo/logo_color_white.svg"/>
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="../www/css/register.css">
+    <link rel="stylesheet" type="text/css" href="../www/static/lib/fontawesome/6.1.1/css/all.css">
+</head>
+<body>
+    <div class="left-half">
+<<<<<<< HEAD
+        <img class="background" id="pic" src="../www/static/img/background/preload-background.png" alt="" >
+        <video class="background" id="vid_lowres" src="../www/static/vid/background/background-wallpaper-waves-lowres.mp4" muted loop autoplay></video>
+        <video class="background" id="vid_fullres" src="../www/static/vid/background/background-wallpaper-waves.mp4" muted loop autoplay></video>
+=======
+        <img class="background" id="pic" src="../www/static/img/background/preload.png" alt="" >
+        <video class="background" id="vid_lowres" src="../www/static/img/background/background-wallpaper-waves-lowres.mp4" muted loop autoplay></video>
+        <video class="background" id="vid_fullres" src="../www/static/img/background/background-wallpaper-waves.mp4" muted loop autoplay></video>
+>>>>>>> 7ee31f5739cc3979ab4816bb54e46bc73fe894d5
+       
+
+        <script src="../www/js/load-background.js"></script>
+      
+        
+        <svg viewbox="0 0 100 20">
+            <defs>
+              <linearGradient id="gradient">
+                <stop color="#000"/>
+              </linearGradient>
+              <pattern id="wave" x="0" y="0.25" width="100%" height="100%" patternUnits="userSpaceOnUse">
+                <path id="wavePath" d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z" mask="url(#mask)" fill="#0cbc5e"> 
+                  <animateTransform
+                      attributeName="transform"
+                      begin="0s"
+                      dur="1.5s"
+                      type="translate"
+                      from="0,0"
+                      to="40,0"
+                      repeatCount="indefinite" />
+                </path>
+              </pattern>
+            </defs>
+            <text text-anchor="middle" x="50" y="15" font-size="12.5" fill="#54ac6b" fill-opacity="0.7">hiddlestick</text>
+            <text text-anchor="middle" x="50" y="15" font-size="12.5" fill="url(#wave)"  fill-opacity="1">hiddlestick</text>
+          </svg>
+    </div>
+    <div class="right-half">
+        <div class="content">
+            <h1>Register</h1>
+            <form action="../www/register.php" method="POST">
+
+              <div class="handle">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="handle" placeholder="handle...">
+              </div>
+              <p class="errorMessage handle-invalid"></p>
+              <div class="pwd">
+                    <i class="fa-solid fa-lock"></i>
+                    <input id="pw-first" type="password" name="password" placeholder="password..."  onkeyup='check_pw()'>
+                    <i class="fa-solid fa-eye-slash"></i>
+              </div>
+              <div id="repeat" class="pwd repeat">
+                <i class="fa-solid fa-lock"></i>
+                <input id="pw-repeat" type="password" name="repeat" placeholder="repeat pw..." onfocusout='check_animate()' onkeyup='check_pw()'>
+                <i class="fa-solid fa-eye-slash"></i>
+              </div>
+
+              <script src="../www/js/check-pw-fields.js"></script>
+              <script src="../www/js/pwd-field.js"></script>
+              
+
+              <p class="errorMessage pw-invalid"></p>
+              <br>
+              <a href="">log in?</a>
+              <br>
+              <button class="glow-on-hover" type="submit" type="button">Sign up</button>
+
+            </form>
+        </div>
+
+        <img src="../www/static/img/logo/logo_color_white.svg" alt="hiddlestick logo_white">
+
+    </div>
+
+   
+</body>
+</html>
