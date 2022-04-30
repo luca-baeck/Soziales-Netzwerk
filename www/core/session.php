@@ -28,7 +28,7 @@ class Session{
 					$this->token = $_SESSION['token'];
 					$this->stayLoggedIn = $_SESSION['stayLoggedIn'];
 					if(isset($_COOKIE['authentificationRefresh'])){
-						if($_COOKIE['authentificationRefresh']) < time()){
+						if($_COOKIE['authentificationRefresh'] < time()){
 							$timeToExpire = time() + 3600 * 2;
 							$timeToRefresh = time() + (3600);
 							setcookie('authentificationRefresh', $timeToRefresh, $timeToExpire);

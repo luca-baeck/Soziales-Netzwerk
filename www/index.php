@@ -8,7 +8,7 @@ require_once('./core/session.php');
 
 $session = new Session();
 
-$router = new Router();
+$router = new Router($session);
 $router->routeTo($_GET['uri']);
 
 ?>
