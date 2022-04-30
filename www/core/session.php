@@ -5,7 +5,7 @@ require_once('./core/uuid_factory.php');
 require_once('./core/sql/db.php');
 require_once('./core/sql/sql_command.php');
 require_once('./core/sql/sql_result.php');
-require_once('./core/utils.php');
+require_once('./util/cookie.php');
 
 class Session{
 	private ?string $userID;
