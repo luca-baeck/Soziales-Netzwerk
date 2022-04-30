@@ -1,14 +1,19 @@
 <?php
 
+require_once('./core/session.php');
+
 abstract class Controller{
-    public function __construct(){
 
-    }
+	private Session $session;
 
-    protected function reload(){
-        $location = $_POST['location'];
-        header("Location: $location");
-    }
+	public function __construct(Session $session){
+		$this->session = $session;
+	}
+
+	protected function reload(){
+		$location = $_POST['location'];
+		header("Location: $location");
+	}
 }
 
 ?>
