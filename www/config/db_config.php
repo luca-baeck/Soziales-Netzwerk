@@ -2,7 +2,7 @@
 
 class DBConfig{
 	const DRIVER   = 'mysql';
-	const HOST     = '127.0.0.1';
+	const HOST     = 'localhost';
 	const PORT     = '3306';
 	const NAME     = 'hiddlestick';
 	const CHARSET  = 'utf8';

@@ -7,6 +7,7 @@ require_once('./core/sql/sql_command.php');
 require_once('./core/sql/sql_result.php');
 require_once('./data/user.php');
 require_once('./util/cookie.php');
+require_once('./util/debug.php');
 
 class Session{
 	private ?string $userID;

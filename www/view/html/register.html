@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="left-half">
-        <img class="background" id="pic" src="/static/img/background/preload-background.png" alt="" >
+        <img class="background" id="pic" src="/static/img/preload-background.png" alt="waves background" >
         <video class="background" id="vid_lowres" src="/static/vid/background/background-wallpaper-waves-lowres.mp4" muted loop autoplay></video>
         <video class="background" id="vid_fullres" src="/static/vid/background/background-wallpaper-waves.mp4" muted loop autoplay></video>
        
@@ -44,7 +44,7 @@
     <div class="right-half">
         <div class="content">
             <h1>Register</h1>
-            <form action="../www/register.php" method="POST">
+            <form id="form" action="/register/register" method="POST">
 
               <div class="handle">
                 <i class="fa-solid fa-user"></i>
@@ -68,7 +68,7 @@
 
               <p class="errorMessage pw-invalid"></p>
               <br>
-              <a href="">log in?</a>
+              <a href="/login">log in?</a>
               <br>
               <button class="glow-on-hover" type="submit" name = "submit_register" type="button">Sign up</button>
 

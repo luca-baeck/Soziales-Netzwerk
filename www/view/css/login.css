@@ -302,7 +302,7 @@ input[type="checkbox"]:focus + label {
     color: var(--logo-color3);
     font-size: 1.5vh;
     vertical-align: middle;
-    margin-top: 0.25vh;
+    margin-top: 0.1vh !important;
 }
 
 a {
@@ -312,11 +312,7 @@ a {
     font-size: small;
 }
 
-a:hover {
-    letter-spacing: 5px;
-    color: var(--logo-color1);
-    font-size: medium;
-}
+
 
 .glow-on-hover {
     margin-top: 2vh;
@@ -436,4 +432,10 @@ input:-webkit-autofill:focus {
     margin-top: 1vh !important;
     margin-bottom: 0 !important;
     height: 15px;
+}
+
+.a:hover {
+    letter-spacing: 5px !important;
+    color: var(--logo-color1);
+    font-size: medium !important;
 }

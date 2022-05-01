@@ -12,33 +12,33 @@ class LoginController extends Controller{
 
 		if($this->session->isLoggedIn()){
 			$sql  = 'SELECT Handle, Name, ProfilePicture, CreationTime';
-				$sql .= '  FROM User';
-				$sql .= '  WHERE ID = :ID';
+			$sql .= '  FROM User';
+			$sql .= '  WHERE ID = :ID';
 		
-				$params = array(':UserID' => $_SESSION['userID']);
+			$params = array(':UserID' => $_SESSION['userID']);
 
-				$cmd = new SQLCommand($sql, $params);
-				$sqlResult = $cmd->execute();
-				$row = $sqlResult.getRow();
+			$cmd = new SQLCommand($sql, $params);
+			$sqlResult = $cmd->execute();
+			$row = $sqlResult->getRow();
 
-				if($row['ProfilePicture']){
-					$pic = $row['ProfilePicture'];
-				}else{
-					$pic = '/static/img/preload-background.png';
-				}
-				$htmlSnippet  = '<h1>Logged In as...</h1>';
-				$htmlSnippet .= '<img id="profile_picture" src="'. $pic .'" alt="profile picture">';
-				$htmlSnippet .= '<p>'. $row['Name'] .'</p>';
-				$htmlSnippet .= '<a href="/'. $row['handle'] .'">'. $row['Name'] .'</a>';
-				$htmlSnippet .= '<p class="creationDate">'. $row['CreationTime'] .'</p>';
-				$apostrophe = "'";
-				$htmlSnippet .= ' <button onclick="window.location.href ='. $apostrophe . '/login/logout' . $apostrophe .';" class="glow-on-hover" name="submit_login" type="submit" type="button">Log out</button>';
+			if($row['ProfilePicture']){
+				$pic = $row['ProfilePicture'];
+			}else{
+				$pic = '/static/img/preload-background.png';
+			}
+			$htmlSnippet  = '<h1>Logged In as...</h1>';
+			$htmlSnippet .= '<img id="profile_picture" src="'. $pic .'" alt="profile picture">';
+			$htmlSnippet .= '<p>'. $row['Name'] .'</p>';
+			$htmlSnippet .= '<a href="/'. $row['handle'] .'">'. $row['Name'] .'</a>';
+			$htmlSnippet .= '<p class="creationDate">'. $row['CreationTime'] .'</p>';
+			$apostrophe = "'";
+			$htmlSnippet .= ' <button onclick="window.location.href ='. $apostrophe . '/login/logout' . $apostrophe .';" class="glow-on-hover" name="submit_login" type="submit" type="button">Log out</button>';
 
-				$replace  = '<h1>';
-				$replace .= stringBetweenTwoStrings($loginHtml, '<h1>', '</form>');
-				$replace .= '</form>';
+			$replace  = '<h1>';
+			$replace .= stringBetweenTwoStrings($loginHtml, '<h1>', '</form>');
+			$replace .= '</form>';
 
-				$loginHtml = str_replace($replace, $htmlSnippet, $loginHtml);
+			$loginHtml = str_replace($replace, $htmlSnippet, $loginHtml);
 		}
 		if($errorMsg == 'failed'){
 			$errorMsgHtml = '<p class="errorMessage input-invalid">invalid username or password...</p>';
@@ -49,34 +49,40 @@ class LoginController extends Controller{
 
 	public function login($params){
 
-		if((!(isset($_POST['handle_login']) or isset($_POST['password_login']))) or (empty($_POST['handle_login']) or empty($_POST['password_login']))){
+		if((empty($_POST['handle_login']) or empty($_POST['password_login'])) and empty($params)){
 			header('Location: /login');
-		}
-
-		$sql  = 'SELECT ID';
-		$sql .= '  FROM User';
-		$sql .= '  WHERE Handle = :Handle';
-		$sql .= 'AND Password = :Password';
-
-		$pwHash = hash('sha256', $_POST['password_login']); 
-		$params = array(':Handle' => $_POST['handle_login'], ':Password' => $pwHash);
-
-		$cmd = new SQLCommand($sql, $params);
-		$sqlResult = $cmd->execute();
-
-		$userID = $row['ID'];
-		$stayLoggedIn = isset($_POST['checkbox_login']);
-
-		if($sqlResult.isEmpty()){
-			header('Location: /login/show/failed');
 		}else{
-			$this->session->login($userID, $stayLoggedIn);
-			if(isset($_SESSION['redirect']) and !empty($_SESSION['redirect'])){
-				$redUri = $_SESSION['redirect'];
-				$_SESSION['redirect'] = NULL;
-				header('Location: ' . $redUri);
+			$sql  = 'SELECT ID';
+			$sql .= '  FROM User';
+			$sql .= '  WHERE Handle = :Handle';
+			$sql .= ' AND Password = :Password;';
+
+			if(!(empty($_POST['handle_login']) or empty($_POST['password_login']))){
+				$pwHash = hash('sha256', $_POST['password_login']); 
+				$params = array(':Handle' => $_POST['handle_login'], ':Password' => $pwHash);
 			}else{
-				$this->reload();
+				$parts = explode(':', $params, 2);
+				$pwHash = $parts[1]; 
+				$params = array(':Handle' => $parts[0], ':Password' => $pwHash);
+			}
+			$cmd = new SQLCommand($sql, $params);
+			$sqlResult = $cmd->execute();
+
+
+			if($sqlResult->isEmpty()){
+				header('Location: /login/show/failed');
+			}else{
+				$row = $sqlResult->getRow();
+				$userID = $row['ID'];
+				$stayLoggedIn = isset($_POST['checkbox_login']);
+				$this->session->login($userID, $stayLoggedIn);
+				if(isset($_SESSION['redirect']) and !empty($_SESSION['redirect'])){
+					$redUri = $_SESSION['redirect'];
+					$_SESSION['redirect'] = NULL;
+					header('Location: ' . $redUri);
+				}else{
+					$this->reload();
+				}
 			}
 		}
 	}

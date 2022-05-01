@@ -3,6 +3,7 @@
 require_once('./config/miscellaneous.php');
 require_once('./core/session.php');
 require_once('./util/util.php');
+require_once('./util/debug.php');
 
 abstract class Controller{
 
@@ -13,7 +14,7 @@ abstract class Controller{
 	}
 
 	protected function reload(){
-		$location = $_POST['location'];
+		$location = $_SERVER['REQUEST_URI'];
 		header("Location: $location");
 	}
 

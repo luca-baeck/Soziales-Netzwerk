@@ -1,5 +1,7 @@
 const pw = document.getElementById("pw-first");
 const pw_r = document.getElementById("pw-repeat");
+var form = document.getElementById("form");
+form.action = "";
 var errorMessage;
 window.addEventListener('load', function () {
     var errorMessages = document.getElementsByClassName('pw-invalid');
@@ -13,10 +15,12 @@ function check_pw(){
     if(pw.value != pw_r.value && pw_r.value != ""){
         errorMessage.style.display = "initial";
         errorMessage.innerText  = "entered passwords don't match...";
+        form.action = "";
     }else{
         errorMessage.style.display = "none";
         errorMessage.innerText  = "";
         correct = true;
+        form.action = "/register/register";
     }
     return correct;
 }   
