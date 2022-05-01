@@ -42,6 +42,7 @@ class Router{
 				$controller->$action($params);
 			}
 		}else{
+			$_SESSION['redirect'] = $uri;
 			header('Location: /login');
 		}
 	}

@@ -72,7 +72,9 @@ class LoginController extends Controller{
 		}else{
 			$this->session->login($userID, $stayLoggedIn);
 			if(isset($_SESSION['redirect']) and !empty($_SESSION['redirect'])){
-				header('Location: ' . $_SESSION['redirect']);
+				$redUri = $_SESSION['redirect'];
+				$_SESSION['redirect'] = NULL;
+				header('Location: ' . $redUri);
 			}else{
 				$this->reload();
 			}
