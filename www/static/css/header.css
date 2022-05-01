@@ -57,7 +57,7 @@ i{
 }
 
 i:hover {
-    color: var(--spezial-color);
+    color: var(--logo-color3);
     transform: translateY(-0.4vh);
 }
 
@@ -81,10 +81,10 @@ i:hover {
     width: 7.5vw;
 }
 .search-container:hover > .search-btn i{
-    color: var(--spezial-color);
+    color: var(--logo-color3);
 }
 .search-container:hover > .search-input::placeholder{
-    color: var(--spezial-color);
+    color: var(--logo-color3);
 }
 
 .search-container .search-input{
@@ -94,7 +94,7 @@ i:hover {
     width: 0px;
     font-size: 2vh;
     transition: 0.8s;
-    color: var(--spezial-color);
+    color: var(--logo-color3);
 }
 
 .search-input::placeholder {
@@ -153,7 +153,7 @@ form{
   /* Change color of dropdown links on hover */
   .dropdown-content a:hover {
       color: var(--logo-color1);
-      /*border: 0.1px solid var(--spezial-color);
+      /*border: 0.1px solid var(--logo-color3);
       border-radius: 10px;*/
     }
   

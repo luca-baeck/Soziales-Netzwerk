@@ -4,25 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="../www/static/img/logo/logo_color_white.svg"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/logo/logo_color_white.svg"/>
     <title>Register</title>
-    <link rel="stylesheet" type="text/css" href="../www/css/register.css">
-    <link rel="stylesheet" type="text/css" href="../www/static/lib/fontawesome/6.1.1/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/view/css/register.css">
+    <link rel="stylesheet" type="text/css" href="/static/lib/fontawesome/6.1.1/css/all.css">
 </head>
 <body>
     <div class="left-half">
-<<<<<<< HEAD
-        <img class="background" id="pic" src="../www/static/img/background/preload-background.png" alt="" >
-        <video class="background" id="vid_lowres" src="../www/static/vid/background/background-wallpaper-waves-lowres.mp4" muted loop autoplay></video>
-        <video class="background" id="vid_fullres" src="../www/static/vid/background/background-wallpaper-waves.mp4" muted loop autoplay></video>
-=======
-        <img class="background" id="pic" src="../www/static/img/background/preload.png" alt="" >
-        <video class="background" id="vid_lowres" src="../www/static/img/background/background-wallpaper-waves-lowres.mp4" muted loop autoplay></video>
-        <video class="background" id="vid_fullres" src="../www/static/img/background/background-wallpaper-waves.mp4" muted loop autoplay></video>
->>>>>>> 7ee31f5739cc3979ab4816bb54e46bc73fe894d5
+        <img class="background" id="pic" src="/static/img/background/preload-background.png" alt="" >
+        <video class="background" id="vid_lowres" src="/static/vid/background/background-wallpaper-waves-lowres.mp4" muted loop autoplay></video>
+        <video class="background" id="vid_fullres" src="/static/vid/background/background-wallpaper-waves.mp4" muted loop autoplay></video>
        
 
-        <script src="../www/js/load-background.js"></script>
+        <script src="/view/js/load-background.js"></script>
       
         
         <svg viewbox="0 0 100 20">
@@ -54,34 +48,34 @@
 
               <div class="handle">
                 <i class="fa-solid fa-user"></i>
-                <input type="text" name="handle" placeholder="handle...">
+                <input type="text" name="handle_register" placeholder="handle...">
               </div>
               <p class="errorMessage handle-invalid"></p>
               <div class="pwd">
                     <i class="fa-solid fa-lock"></i>
-                    <input id="pw-first" type="password" name="password" placeholder="password..."  onkeyup='check_pw()'>
+                    <input id="pw-first" type="password" name="password_register" placeholder="password..."  onkeyup='check_pw()'>
                     <i class="fa-solid fa-eye-slash"></i>
               </div>
               <div id="repeat" class="pwd repeat">
                 <i class="fa-solid fa-lock"></i>
-                <input id="pw-repeat" type="password" name="repeat" placeholder="repeat pw..." onfocusout='check_animate()' onkeyup='check_pw()'>
+                <input id="pw-repeat" type="password" name="repeat_password_register" placeholder="repeat pw..." onfocusout='check_animate()' onkeyup='check_pw()'>
                 <i class="fa-solid fa-eye-slash"></i>
               </div>
 
-              <script src="../www/js/check-pw-fields.js"></script>
-              <script src="../www/js/pwd-field.js"></script>
+              <script src="/view/js/check-pw-fields.js"></script>
+              <script src="/view/js/pwd-field.js"></script>
               
 
               <p class="errorMessage pw-invalid"></p>
               <br>
               <a href="">log in?</a>
               <br>
-              <button class="glow-on-hover" type="submit" type="button">Sign up</button>
+              <button class="glow-on-hover" type="submit" name = "submit_register" type="button">Sign up</button>
 
             </form>
         </div>
 
-        <img src="../www/static/img/logo/logo_color_white.svg" alt="hiddlestick logo_white">
+        <img src="/static/img/logo/logo_color_white.svg" alt="hiddlestick logo_white">
 
     </div>
 

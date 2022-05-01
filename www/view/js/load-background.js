@@ -1,5 +1,4 @@
-
-vid_fullres = document.getElementById("vid_fullres")
+vid_fullres = document.getElementById("vid_fullres");
 vid_fullres.style.display="none";
 vid_fullres.addEventListener('loadeddata', function() {
   loadedFullRes();

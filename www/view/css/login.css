@@ -1,5 +1,5 @@
-@import url("../static/lib/fonts/Roboto/font.css");
-@import url(../static/css/colors.css);
+@import url("/static/lib/fonts/Roboto/font.css");
+@import url(/static/css/colors.css);
 
 
 *{
@@ -56,21 +56,21 @@ svg{
 }
 
 @-webkit-keyframes pulsate {
-    0% {border-color:var(--spezial-color) }
+    0% {border-color:var(--logo-color3) }
     50% {border-color: var(--logo-color1)}
-    100% {border-color: var(--spezial-color) }
+    100% {border-color: var(--logo-color3) }
    
 }
 @-moz-keyframes pulsate {
-    0% {border-color:var(--spezial-color) }
+    0% {border-color:var(--logo-color3) }
     50% {border-color: var(--logo-color1)}
-    100% {border-color: var(--spezial-color) }
+    100% {border-color: var(--logo-color3) }
    
-}
+}profile_picture
 @keyframes pulsate {
-    0% {border-color:var(--spezial-color) }
+    0% {border-color:var(--logo-color3) }
     50% {border-color: var(--logo-color1)}
-    100% {border-color: var(--spezial-color) }
+    100% {border-color: var(--logo-color3) }
     
 }
 
@@ -105,7 +105,7 @@ svg{
     background-color: transparent;
     width: 45%;
     border-radius: 15px;
-    color: var(--spezial-color);
+    color: var(--logo-color3);
     height: 3vh;
     border: none;
 }
@@ -115,13 +115,13 @@ svg{
 }
 
 .pwd i {
-    color: var(--spezial-color);
+    color: var(--logo-color3);
     font-size: 1.5vh;
     
 }
 
 input::placeholder{
-    color: var(--spezial-color);
+    color: var(--logo-color3);
 }
 
 
@@ -156,7 +156,7 @@ input::placeholder{
     background-color: transparent;
     width: 45%;
     border-radius: 15px;
-    color: var(--spezial-color);
+    color: var(--logo-color3);
     height: 3vh;
     border: none;
     margin-left: 0.4vw;
@@ -168,7 +168,7 @@ input::placeholder{
 }
 
 .handle i {
-    color: var(--spezial-color);
+    color: var(--logo-color3);
     font-size: 1.5vh;
     margin-top: 0.75vh;
     margin-left: 1.25vw;
@@ -183,7 +183,7 @@ label {
 	margin: 0 calc(1.5vh * 0.25);
 	width: 1.5vh;
 	height: 1.5vh;
-	border: calc(1.5vh * 0.125) solid var(--spezial-color);
+	border: calc(1.5vh * 0.125) solid var(--logo-color3);
 	border-radius: 12.5%;
 	-webkit-transition: 400ms 100ms ease-out;
 	-o-transition: 400ms 100ms ease-out;
@@ -299,7 +299,7 @@ input[type="checkbox"]:focus + label {
 
 .checkbox p {
     float: left;
-    color: var(--spezial-color);
+    color: var(--logo-color3);
     font-size: 1.5vh;
     vertical-align: middle;
     margin-top: 0.25vh;
@@ -307,7 +307,7 @@ input[type="checkbox"]:focus + label {
 
 a {
     text-decoration: none;
-    color: var(--spezial-color);
+    color: var(--logo-color3);
     transition: ease-in-out 0.75s;
     font-size: small;
 }
@@ -351,7 +351,7 @@ a:hover {
 }
 
 .glow-on-hover:active {
-    color: var(--spezial-color)
+    color: var(--logo-color3)
 }
 
 
@@ -388,14 +388,52 @@ a:hover {
 
 input:-webkit-autofill {
     transition: background-color 5000s;
-    -webkit-text-fill-color: var(--spezial-color) !important;
+    -webkit-text-fill-color: var(--logo-color3) !important;
     -webkit-box-sizing:  border-box;
 
 }
 
 input:-webkit-autofill:focus {
     transition: background-color 5000s;
-    -webkit-text-fill-color: var(--spezial-color) !important;
+    -webkit-text-fill-color: var(--logo-color3) !important;
     -webkit-box-sizing:  border-box;
 
 } 
+
+#profile_picture{
+    height: 10vh;
+    width: 10vh;
+    border: 2px solid var(--logo-color3);
+    border-radius: 45px;
+    margin-top: 4vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content p {
+    text-align: center;
+    color: var(--logo-color1);
+    margin: 0.5vh;
+    font-size: medium;
+}
+
+.creationDate {
+    font-size: small !important;
+}
+
+.content a:hover {
+    letter-spacing: initial;
+    color: var(--logo-color1);
+    font-size: small;
+}
+
+.errorMessage {
+    color: rgb(177, 48, 48) !important;
+    font-size: small !important;
+    margin-bottom: 0.75vh;
+}
+.input-invalid{
+    margin-top: 1vh !important;
+    margin-bottom: 0 !important;
+    height: 15px;
+}

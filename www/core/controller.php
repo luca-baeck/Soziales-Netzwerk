@@ -2,10 +2,11 @@
 
 require_once('./config/miscellaneous.php');
 require_once('./core/session.php');
+require_once('./util/util.php');
 
 abstract class Controller{
 
-	private Session $session;
+	protected Session $session;
 
 	public function __construct(Session $session){
 		$this->session = $session;
