@@ -1,6 +1,6 @@
 <?php
 
-	function deleteCookie(string $name, ?string $location){
+	function deleteCookie(string $name, ?string $location = NULL){
 		if(isset($_COOKIE[$name])){
 			unset($_COOKIE[$name]);
 			if(empty($location)){
@@ -14,7 +14,7 @@
 		}
 	}
 
-	function deleteCookies(array $names, ?string $location){
+	function deleteCookies(array $names, ?string $location = NULL){
 		foreach($names as $current){
 			deleteCookie($current, $location);
 		}
