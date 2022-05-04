@@ -51,7 +51,7 @@ class Shoot{
     + Shot : TIMESTAMP
 }
 
-class Like{
+class Point{
     /'
     /+ PostID : UUID
     /+ UserID : UUID

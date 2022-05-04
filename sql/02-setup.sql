@@ -70,12 +70,12 @@ CREATE TABLE Shoot(
         ON DELETE CASCADE
 );
 
-CREATE TABLE Like(
+CREATE TABLE Point(
     PostID UUID NOT NULL,
     UserID UUID NOT NULL,
     Time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    PRIMARY KEY(PostID, User),
+    PRIMARY KEY(PostID, UserID),
 
     FOREIGN KEY(PostID)
         REFERENCES Post(ID)
@@ -95,7 +95,7 @@ CREATE TABLE Session(
     Token UUID NOT NULL,
     ExpirationDate DATE NULL,
 
-    PRIMARY KEY(User, CreationTime),
+    PRIMARY KEY(UserID, CreationTime),
 
     FOREIGN KEY(UserID)
         REFERENCES User(ID)
