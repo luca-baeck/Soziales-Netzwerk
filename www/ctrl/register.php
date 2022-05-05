@@ -38,7 +38,7 @@ class RegisterController extends Controller{
 
 			$sql  = 'SELECT ID';
 			$sql .= '  FROM User';
-			$sql .= '  WHERE Handle = :Handle';
+			$sql .= '  WHERE Handle = :Handle;';
 			
 			$params = array(':Handle' => $handle);
 
