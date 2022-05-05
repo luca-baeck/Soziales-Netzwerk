@@ -4,7 +4,7 @@
 		if(isset($_COOKIE[$name])){
 			unset($_COOKIE[$name]);
 			if(empty($location)){
-				setcookie($name, null, -1);
+				setcookie($name, null, -1, '/');
 			}else{
 				setcookie($name, null, -1, $location); 
 			}
