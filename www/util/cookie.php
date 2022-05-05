@@ -1,5 +1,13 @@
 <?php
 
+	function createCookie(string $name, $value, int $timeToExpire, ?string $location = NULL){
+		if(empty($location)){
+			setcookie($name, $value, $timeToExpire, '/');
+		}else{
+			setcookie($name, $value, $timeToExpire, $location);
+		}
+	}
+
 	function deleteCookie(string $name, ?string $location = NULL){
 		if(isset($_COOKIE[$name])){
 			unset($_COOKIE[$name]);

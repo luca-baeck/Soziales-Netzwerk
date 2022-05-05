@@ -31,9 +31,9 @@ class Session{
 						if($_COOKIE['authentificationRefresh'] < time()){
 							$timeToExpire = time() + 3600 * 2;
 							$timeToRefresh = time() + (3600);
-							setcookie('authentificationRefresh', $timeToRefresh, $timeToExpire);
-							setcookie('authentificationUser', $this->userID, $timeToExpire);
-							setcookie('authentificationToken', $this->token, $timeToExpire);
+							createCookie('authentificationRefresh', $timeToRefresh, $timeToExpire);
+							createCookie('authentificationUser', $this->userID, $timeToExpire);
+							createCookie('authentificationToken', $this->token, $timeToExpire);
 						}
 					}
 				}else{
@@ -93,13 +93,13 @@ class Session{
 		}else{
 			$timeToExpire += 3600 * 2;
 			$timeToRefresh = time() + (3600);
-			setcookie('authentificationRefresh', $timeToRefresh, $timeToExpire);
+			createCookie('authentificationRefresh', $timeToRefresh, $timeToExpire);
 		}
 		$_SESSION['userID'] = $this->userID;
 		$_SESSION['token'] = $this->token;
 		$_SESSION['stayLoggedIn'] = $this->stayLoggedIn;
-		setcookie('authentificationUser', $this->userID, $timeToExpire);
-		setcookie('authentificationToken', $this->token, $timeToExpire);
+		createCookie('authentificationUser', $this->userID, $timeToExpire);
+		createCookie('authentificationToken', $this->token, $timeToExpire);
 	}
 
 
