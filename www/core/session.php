@@ -69,7 +69,7 @@ class Session{
 	}
 
 	public function isLoggedIn(): bool{
-		return !empty($userID);
+		return !empty($this->userID);
 	}
 
 	public function login(string $userID, bool $stayLoggedIn){
