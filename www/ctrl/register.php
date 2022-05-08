@@ -58,9 +58,7 @@ class RegisterController extends Controller{
 	
 				$cmd = new SQLCommand($sql, $params);
 				$cmd->execute();
-
-				$_SESSION['redirect'] = '/settings';
-				header('Location: /login/login/'. $handle .':'. $pwHash);
+				header('Location: /settings');
 
 			}
 		}

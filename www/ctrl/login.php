@@ -49,7 +49,7 @@ class LoginController extends Controller{
 
 	public function login($params){
 
-		if((empty($_POST['handle_login']) or empty($_POST['password_login'])) and empty($params)){
+		if(empty($_POST['handle_login']) or empty($_POST['password_login'])){
 			header('Location: /login');
 		}else{
 			$sql  = 'SELECT ID';
@@ -57,14 +57,10 @@ class LoginController extends Controller{
 			$sql .= '  WHERE Handle = :Handle';
 			$sql .= ' AND Password = :Password;';
 
-			if(!(empty($_POST['handle_login']) or empty($_POST['password_login']))){
-				$pwHash = hash('sha256', $_POST['password_login']); 
-				$params = array(':Handle' => $_POST['handle_login'], ':Password' => $pwHash);
-			}else{
-				$parts = explode(':', $params, 2);
-				$pwHash = $parts[1]; 
-				$params = array(':Handle' => $parts[0], ':Password' => $pwHash);
-			}
+			
+			$pwHash = hash('sha256', $_POST['password_login']); 
+			$params = array(':Handle' => $_POST['handle_login'], ':Password' => $pwHash);
+
 			$cmd = new SQLCommand($sql, $params);
 			$sqlResult = $cmd->execute();
 
@@ -81,7 +77,7 @@ class LoginController extends Controller{
 					$_SESSION['redirect'] = NULL;
 					header('Location: ' . $redUri);
 				}else{
-					$this->reload();
+					header('Location: /land');
 				}
 			}
 		}
