@@ -93,6 +93,7 @@ CREATE TABLE Session(
     Name VARCHAR(127) NULL,
     Token UUID NOT NULL,
     ExpirationDate DATE NULL,
+error: Failed to merge in the changes.
 
     PRIMARY KEY(UserID, CreationTime),
 
@@ -157,3 +158,4 @@ CREATE TABLE Upload(
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
+error: Failed to merge in the changes.
