@@ -85,7 +85,7 @@ class LoginController extends Controller{
 
 	public function logout(){
 		$this->session->logout();
-		$this->reload();
+		header('Location: /login');
 	}
 }
 
