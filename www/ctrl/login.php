@@ -15,7 +15,7 @@ class LoginController extends Controller{
 			$sql .= '  FROM User';
 			$sql .= '  WHERE ID = :ID';
 		
-			$params = array(':UserID' => $_SESSION['userID']);
+			$params = array(':ID' => $_SESSION['userID']);
 
 			$cmd = new SQLCommand($sql, $params);
 			$sqlResult = $cmd->execute();
@@ -29,7 +29,7 @@ class LoginController extends Controller{
 			$htmlSnippet  = '<h1>Logged In as...</h1>';
 			$htmlSnippet .= '<img id="profile_picture" src="'. $pic .'" alt="profile picture">';
 			$htmlSnippet .= '<p>'. $row['Name'] .'</p>';
-			$htmlSnippet .= '<a href="/'. $row['handle'] .'">'. $row['Name'] .'</a>';
+			$htmlSnippet .= '<a href="/'. $row['Handle'] .'">'. $row['Name'] .'</a>';
 			$htmlSnippet .= '<p class="creationDate">'. $row['CreationTime'] .'</p>';
 			$apostrophe = "'";
 			$htmlSnippet .= ' <button onclick="window.location.href ='. $apostrophe . '/login/logout' . $apostrophe .';" class="glow-on-hover" name="submit_login" type="submit" type="button">Log out</button>';
