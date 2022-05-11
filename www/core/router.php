@@ -34,6 +34,13 @@ class Router{
 			$ctrl_class = strtoupper(substr($ctrl_file, 0, 1)) . substr($ctrl_file, 1) . 'Controller';
 			$controller = new $ctrl_class($this->session);
 			$controller->$action($params);
+		}else if($this->session->isLoggedIn()){
+			if(in_array($ctrl_file, RouterConfig::PRIVATE_CTRL_FILES)){
+				require_once('./ctrl/' . $ctrl_file . '.php');
+				$ctrl_class = strtoupper(substr($ctrl_file, 0, 1)) . substr($ctrl_file, 1) . 'Controller';
+				$controller = new $ctrl_class($this->session);
+				$controller->$action($params);
+			}
 		}else{
 			header('Location: /login');
 		}

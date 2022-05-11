@@ -26,7 +26,6 @@ class Post{
 class Sticker{
     + ID : UUID
     + Name : CHAR(31)
-    + Location : VARCHAR(255)
     /'
     /+ CreatorID : UUID
     '/

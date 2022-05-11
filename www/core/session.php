@@ -45,7 +45,7 @@ class Session{
 				$sql .= '  FROM Session';
 				$sql .= '  WHERE UserID = :UserID';
 				$sql .= '    AND Token = :Token';
-				$sql .= '    AND ExpirationDate < CURRENT_DATE;';
+				$sql .= '    AND ExpirationDate > CURRENT_DATE;';
 		
 				$params = array(':UserID' => $_COOKIE['authentificationUser'], ':Token' => $_COOKIE['authentificationToken']);
 

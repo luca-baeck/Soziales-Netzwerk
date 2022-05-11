@@ -8,6 +8,16 @@ class RouterConfig{
 		'target'
 	);
 
+	const PRIVATE_CTRL_FILES = array(
+		'create',
+		'feed',
+		'setting'
+	);
+
+	const ADMIN_CTRL_FILES = array(
+
+	);
+
 	const ALL_CTRL_FILES = array(
 		'create',
 		'feed',

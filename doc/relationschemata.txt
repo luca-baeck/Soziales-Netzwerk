@@ -2,7 +2,7 @@ _: Primary Key
 ^: Foreign Key
 User(ID_, Handle, Name, Password, ProfilePicture, CreationTime)
 Post(ID_, CreatorID^, StickerID^, Media, Content, CreationTime)
-Sticker(ID_, Name, Location, CreatorID^, Description, CreationTime)
+Sticker(ID_, Name, CreatorID^, Description, CreationTime)
 Shoot(Target_^, Archer_^, Shot)
 Point(PostID_^, UserID_^, Time)
 Session(UserID_^, CreationTime_, Name, Token, ExpirationDate)
