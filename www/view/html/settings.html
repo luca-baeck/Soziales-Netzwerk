@@ -10,6 +10,16 @@
     <link rel="stylesheet" type="text/css" href="/static/lib/fontawesome/6.1.1/css/all.css">
 </head>
 <body>
+   <div class="content">
+    <div class="profile-pic">
+        <label class="-label" for="file">
+          <span class="glyphicon glyphicon-camera"></span>
+          <span>Change Image</span>
+        </label>
+        <input id="file" type="file" onchange="loadFile(event)"/>
+        <img src="/static/img/logo/logo_color_white.svg" id="output" width="200" />
+      </div>
+   </div>
    
 </body>
 </html>
