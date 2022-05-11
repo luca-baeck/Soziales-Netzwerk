@@ -29,7 +29,7 @@ class Router{
 			$params = $parts[0];
 		}
 
-		if(in_array($ctrl_file, RouterConfig::PUBLIC_CTRL_FILES)){
+		if(in_array($ctrl_file, RouterConfig::PUBLIC_CTRL_FILES) or $this->session->isLoggedIn()){
 			require_once('./ctrl/' . $ctrl_file . '.php');
 			$ctrl_class = strtoupper(substr($ctrl_file, 0, 1)) . substr($ctrl_file, 1) . 'Controller';
 			$controller = new $ctrl_class($this->session);
@@ -42,7 +42,7 @@ class Router{
 				$controller->$action($params);
 			}
 		}else{
-			$_SESSION['redirect'] = $uri;
+			$_SESSION['redirect'] = '/' . $uri;
 			header('Location: /login');
 		}
 	}

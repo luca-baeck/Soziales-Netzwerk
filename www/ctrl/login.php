@@ -2,7 +2,7 @@
 
 require_once('./core/controller.php');
 require_once('./core/session.php');
-
+require_once('./util/debug.php');
 
 class LoginController extends Controller{
 
@@ -75,7 +75,7 @@ class LoginController extends Controller{
 				if(isset($_SESSION['redirect']) and !empty($_SESSION['redirect'])){
 					$redUri = $_SESSION['redirect'];
 					$_SESSION['redirect'] = NULL;
-					header('Location: ' . $redUri);
+					header("Location: $redUri");
 				}else{
 					header('Location: /land');
 				}
