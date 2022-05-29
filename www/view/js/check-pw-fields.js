@@ -3,6 +3,7 @@ const pw_r = document.getElementById("pw-repeat");
 var form = document.getElementById("form");
 form.action = "";
 var errorMessage;
+
 window.addEventListener('load', function () {
     var errorMessages = document.getElementsByClassName('pw-invalid');
     errorMessage = errorMessages[0];
@@ -16,6 +17,17 @@ function check_pw(){
         errorMessage.style.display = "initial";
         errorMessage.innerText  = "entered passwords don't match...";
         form.action = "";
+    }else if(pw.value == pw_r.value && pw_r.value != ""){
+        if(pw.value.length < 6){
+            errorMessage.style.display = "initial";
+            errorMessage.innerText  = "password must have at least 6 characters...";
+            form.action = "";
+        }else{
+            errorMessage.style.display = "none";
+            errorMessage.innerText  = "";
+            correct = true;
+            form.action = "/register/register";
+        }
     }else{
         errorMessage.style.display = "none";
         errorMessage.innerText  = "";

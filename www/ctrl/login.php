@@ -40,7 +40,7 @@ class LoginController extends Controller{
 		}
 		if($errorMsg == 'failed'){
 			$errorMsgHtml = '<p class="errorMessage input-invalid">invalid username or password...</p>';
-			$loginHtml = str_replace('<p class="errorMessage input-invalid"></p>', $errorMsgHtml, $loginHtml);
+			$loginHtml = str_replace('<!-- error Message -->', $errorMsgHtml, $loginHtml);
 		}
 		echo($loginHtml);
   	}

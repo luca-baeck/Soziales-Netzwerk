@@ -12,16 +12,51 @@
 </head>
 <body>
   <header></header>
-   <div class="content">
-    <div class="profile-pic">
-        <label class="-label" for="file">
-          <span class="glyphicon glyphicon-camera"></span>
-          <span>Change Image</span>
-        </label>
-        <input id="file" type="file" onchange="loadFile(event)"/>
-        <img src="/static/img/logo/logo_color_white.svg" id="output" width="200" />
+
+    <div class="container">
+      <div class="leftbox">
+        <nav>
+          <a onclick="tabs(0)" class="tab active">
+            <i class="fa-solid fa-image"></i>
+          </a>
+          <a onclick="tabs(1)" class="tab">
+            <i class="fa fa-user"></i>
+          </a>
+          <a onclick="tabs(2)" class="tab">
+            <i class="fa-solid fa-key"></i>
+          </a>
+          <a onclick="tabs(3)" class="tab">
+            <i class="fa-solid fa-droplet"></i>
+          </a>
+        </nav>
       </div>
-   </div>
-   
+      <div class="rightbox">
+        <div class="profilePic tabShow">
+            <h1>Profile picture</h1>
+            <form action="/settings/changeProfilePicture">
+              <div class="drop-zone">
+                <img src="profile-pic-source-placeholder" alt="current profile picture" class="profile-pic">
+                <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                <input type="file" name="newProfilePic" class="drop-zone__input">
+              </div>
+              <script src="/view/js/settings-drag-drop.js"></script>
+              <!-- handle link  -->
+              <button class="glow-on-hover" name="submit_changeProfilePicture" type="submit" type="button">Change</button>
+            </form>
+        </div>
+        <div class="user tabShow">
+
+        </div>
+        <div class="password tabShow">
+            
+        </div>
+        <div class="colorMode tabShow">
+            
+        </div>
+
+      </div>
+    </div>
+
+  <script src="/view/js/settings.js"></script>
 </body>
 </html>

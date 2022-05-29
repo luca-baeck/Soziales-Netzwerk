@@ -1,6 +1,7 @@
 <?php
 require_once('./core/uuid_factory.php');
 require_once('./core/controller.php');
+;
 
 class RegisterController extends Controller{
 
@@ -17,10 +18,10 @@ class RegisterController extends Controller{
 		switch($errorMsg){
 			case "failed-handle":
 				$errorMsgHtml = '<p class="errorMessage handle-invalid">handle not available</p>';
-				$registerHtml = str_replace('<p class="errorMessage handle-invalid"></p>', $errorMsgHtml, $registerHtml);
+				$registerHtml = str_replace('<!-- error Message handle invalid -->', $errorMsgHtml, $registerHtml);
 			case "failed":
 				$errorMsgHtml = '<p class="errorMessage handle-invalid">Sorry, something did not work right...</p>';
-				$registerHtml = str_replace('<p class="errorMessage handle-invalid"></p>', $errorMsgHtml, $registerHtml);
+				$registerHtml = str_replace('<!-- error Message handle invalid -->', $errorMsgHtml, $registerHtml);
 		}
 
 		echo($registerHtml);
