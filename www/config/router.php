@@ -12,7 +12,7 @@ class RouterConfig{
 	const PRIVATE_CTRL_FILES = array(
 		'create',
 		'feed',
-		'setting'
+		'settings'
 	);
 
 	const ADMIN_CTRL_FILES = array(

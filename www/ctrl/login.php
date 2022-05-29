@@ -1,8 +1,6 @@
 <?php
-
 require_once('./core/controller.php');
-require_once('./core/session.php');
-require_once('./util/debug.php');
+
 
 class LoginController extends Controller{
 
@@ -29,7 +27,7 @@ class LoginController extends Controller{
 			$htmlSnippet  = '<h1>Logged In as...</h1>';
 			$htmlSnippet .= '<img id="profile_picture" src="'. $pic .'" alt="profile picture">';
 			$htmlSnippet .= '<p>'. $row['Name'] .'</p>';
-			$htmlSnippet .= '<a href="/'. $row['Handle'] .'">'. $row['Name'] .'</a>';
+			$htmlSnippet .= '<a href="/'. $row['Handle'] .'">@'. $row['Name'] .'</a>';
 			$htmlSnippet .= '<p class="creationDate">'. $row['CreationTime'] .'</p>';
 			$apostrophe = "'";
 			$htmlSnippet .= ' <button onclick="window.location.href ='. $apostrophe . '/login/logout' . $apostrophe .';" class="glow-on-hover" name="submit_login" type="submit" type="button">Log out</button>';

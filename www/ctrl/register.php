@@ -1,7 +1,6 @@
 <?php
 require_once('./core/uuid_factory.php');
 require_once('./core/controller.php');
-require_once('./core/session.php');
 
 class RegisterController extends Controller{
 
