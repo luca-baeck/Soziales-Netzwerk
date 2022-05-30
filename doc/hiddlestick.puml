@@ -8,7 +8,6 @@ class User{
     + Handle : CHAR(31)
     + Name : VARCHAR(63)
     + Password : CHAR(128)
-    + ProfilePicture : VARCHAR(255)
     + CreationTime : TIMESTAMP
 }
 
@@ -18,7 +17,8 @@ class Post{
     /+ CreatorID : UUID
     /+ StickerID : UUID
     '/
-    + Media : VARCHAR(255)
+    + Media : UUID
+    + MediaExtension : VARCHAR(7)
     + Content : VARCHAR(1023)
     + CreationTime : TIMESTAMP
 }
