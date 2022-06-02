@@ -101,3 +101,29 @@ CREATE TABLE Session(
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
+
+CREATE TABLE PermissionLevel(
+    Level TINYINT NOT NULL,
+    Name VARCHAR(15) NOT NULL,
+
+    PRIMARY KEY(Level),
+
+    UNIQUE(Name)
+);
+
+CREATE TABLE Permission(
+    UserID UUID NOT NULL,
+    Level TINYINT NOT NULL,
+
+    PRIMARY KEY(UserID),
+
+    FOREIGN KEY(UserID)
+        REFERENCES User(ID)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+
+    FOREIGN KEY(Level)
+        REFERENCES PermissionLevel(Level)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);

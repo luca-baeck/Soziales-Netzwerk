@@ -40,6 +40,8 @@ User "1..1" -- "0..n" Sticker : creates >
 Post "0..n" -- "1..1" Sticker : includes >
 User "0..n" -- "0..n" Post : likes >
 Session "1..n" -- "1..1" User : authenticates >
+User "0..n" -- "0..1" Permission : has >
+Permission "1..1" -- "1..1" PermissionLevel : means >
 (User, Post) . Like
 
 class Shoot{
@@ -66,6 +68,20 @@ class Session{
     + Name : VARCHAR(127)
     + Token : UUID
     + ExpirationDate : DATE
+}
+
+class Permission{
+    /'
+    /+ UserID : UUID
+    '/
+    /'
+    /+ Level : TINYINT
+    '/
+}
+
+class PermissionLevel{
+    + Level : TINYINT
+    + Name : VARCHAR(15)
 }
 
 @enduml
