@@ -8,6 +8,16 @@ class Router{
 
 	public function __construct(Session $session){
 		$this->session = $session;
+		set_exception_handler(function (Throwable $exception) {
+			$this->errorHandler(404);
+		});
+
+	}
+
+	private function errorHandler($errorCode){
+		require_once('./ctrl/err.php');
+		$controller = new ErrController($this->session);
+		$controller->show($errorCode); 
 	}
 
 	public function routeTo(string $uri){

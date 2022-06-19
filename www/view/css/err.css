@@ -1,0 +1,67 @@
+@import url("/static/lib/fonts/Roboto/font.css");
+@import url(/static/css/colors.css);
+
+
+*{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent !important;
+    background-image: linear-gradient(to bottom right, var(--logo-color3), var(--logo-color2));
+    overflow-x: hidden;
+}
+
+.content {
+    text-align: center;
+}
+
+.text {
+    position: relative;
+    width: 50vw;
+    margin-top: 15vh;
+    float: left;
+    z-index: 0;
+}
+
+.text h1 {
+    width: 100%;
+    font-size: 35vh;
+    font-weight: lighter;
+    z-index: -10;
+}
+
+.text h2 {
+    top: 100%;
+    left: 33%;
+    position: absolute;
+    width: 34%;
+    z-index: 10;
+}
+.content a {
+    width: 4%;
+    bottom: 20%;
+    right: 48%;
+    position: absolute;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: x-large;
+    background-color: var(--header-color);
+    border: 2px solid var(--text-color);
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    border-radius: 5px;
+}
+.content img {
+    position: absolute;
+    float: right;
+    width: 24vw;
+    right: 13vw;
+    top: 25vh;
+}
+.content a:hover{
+    cursor: pointer;
+}

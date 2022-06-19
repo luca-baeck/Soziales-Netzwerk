@@ -1,6 +1,7 @@
 const pw = document.getElementById("pw-first");
 const pw_r = document.getElementById("pw-repeat");
 var form = document.getElementById("form");
+var target = form.action;
 form.action = "";
 var errorMessage;
 
@@ -26,13 +27,13 @@ function check_pw(){
             errorMessage.style.display = "none";
             errorMessage.innerText  = "";
             correct = true;
-            form.action = "/register/register";
+            form.action = target;
         }
     }else{
         errorMessage.style.display = "none";
         errorMessage.innerText  = "";
         correct = true;
-        form.action = "/register/register";
+        form.action = target;
     }
     return correct;
 }   

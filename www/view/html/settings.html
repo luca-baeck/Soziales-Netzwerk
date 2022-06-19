@@ -11,6 +11,7 @@
     <!-- header stylesheets -->
 </head>
 <body>
+  <script src="/view/js/theme.js"></script>
   <header></header>
 
     <div class="container">
@@ -32,10 +33,9 @@
       </div>
       <div class="rightbox">
         <div class="profilePic tabShow">
-            <h1>Profile picture</h1>
-            <form action="/settings/changeProfilePicture">
+            <h1>Profile Picture</h1>
+            <form action="/settings/changeProfilePicture" method="POST">
               <div class="drop-zone">
-                <img src="profile-pic-source-placeholder" alt="current profile picture" class="profile-pic">
                 <span class="drop-zone__prompt">Drop file here or click to upload</span>
                 <input type="file" name="newProfilePic" class="drop-zone__input">
               </div>
@@ -45,13 +45,87 @@
             </form>
         </div>
         <div class="user tabShow">
-
+          <h1>Account Information</h1>
+          <!-- handle link  -->
+          <img src="profile-pic-source-placeholder" alt="current profile picture" class="profile-pic">
+          <div class="accountInfo">
+            <div>
+              <p>Name:</p> <!-- user name  --> 
+            </div>
+            <div>
+              <p>Handle: <!-- handle link  --></p> 
+            </div>
+            <div>
+              <p>Creationtime:</p><!-- user creationtime  --> 
+            </div>
+          </div>
+          <form action="/settings/changeName" method="POST">
+            <p>User Name</p>
+            <div class="name">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" name="name_settings" placeholder="Name..." value="user-name-placeholder">
+            </div>
+            <button class="glow-on-hover" name="submit_changeProfilePicture" type="submit" type="button">Change</button>
+          </form>
         </div>
         <div class="password tabShow">
-            
+          <form id="form" action="/settings/changePassword" method="POST">
+            <h1>Change Password</h1>
+            <div>
+              <p>Enter old password:</p>
+              <div class="pwd">
+                <i class="fa-solid fa-lock"></i>
+                <input id="pw-old" type="password" name="old_password_settings" placeholder="old password..." required>
+                <i class="fa-solid fa-eye-slash"></i>
+              </div>
+          </div>
+          <!-- error Message old pw invalid -->
+          <div class="middle">
+            <p>Enter new password:</p>
+            <div class="pwd">
+              <i class="fa-solid fa-lock"></i>
+              <input id="pw-first" type="password" name="new_password_settings" placeholder="new password..."  onkeyup='check_pw()'>
+              <i class="fa-solid fa-eye-slash"></i>
+            </div>
+          </div>
+          <div>
+            <p>Repeat new password:</p>
+            <div id="repeat" class="pwd repeat">
+              <i class="fa-solid fa-lock"></i>
+              <input id="pw-repeat" type="password" name="repeat_new_password_settings" placeholder="repeat new pw..." onfocusout='check_animate()' onkeyup='check_pw()'>
+              <i class="fa-solid fa-eye-slash"></i>
+            </div>
+          </div>
+            <script src="/view/js/check-pw-fields.js"></script>
+            <script src="/view/js/pwd-field.js"></script>
+            <p class="errorMessage pw-invalid"></p>
+            <br>
+            <button class="glow-on-hover" name="submit_changeProfilePicture" type="submit" type="button">Change</button>
+          </form>
         </div>
         <div class="colorMode tabShow">
-            
+          <h1>Select Color Theme</h1>
+          <div class="row">
+            <div class="theme dark" onclick="select(0)">
+              <div></div>  
+              <p>dark theme</p>           
+            </div>
+            <div class="theme light" onclick="select(1)">
+              <div></div> 
+              <p>light theme</p>             
+            </div>
+          </div>
+          <div class="row">
+            <div class="theme cold" onclick="select(2)">
+              <div></div>     
+              <p>cold theme</p>         
+            </div>
+            <div class="theme warm" onclick="select(3)">
+              <div></div>  
+              <p>warm theme</p>          
+            </div>
+          </div>
+          <script src="/view/js/settings-theme.js"></script>
         </div>
 
       </div>

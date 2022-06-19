@@ -66,7 +66,7 @@ svg{
     50% {border-color: var(--logo-color1)}
     100% {border-color: var(--logo-color3) }
    
-}profile_picture
+}
 @keyframes pulsate {
     0% {border-color:var(--logo-color3) }
     50% {border-color: var(--logo-color1)}
@@ -81,7 +81,6 @@ svg{
     margin-left: 25%;
     width: 50%;
     background-color: transparent;
-    border-radius: 15px;
     height: 3vh;
     border: 2.5px solid;
     border-radius: 15px;
@@ -131,7 +130,6 @@ input::placeholder{
     margin-left: 25%;
     width: 50%;
     background-color: transparent;
-    border-radius: 15px;
     height: 3vh;
     border: 2.5px solid;
     border-radius: 15px;
