@@ -91,6 +91,22 @@ class User{
 	public function isValid(): bool{
 		return !empty($this->userID);
 	}
+
+	public function wasShot(string $archerUUID): bool{
+		if(isset($archerUUID)){
+			$sql  = 'SELECT Shot';
+			$sql .= '  FROM Shoot';
+			$sql .= '  WHERE Target = :Target';
+			$sql .= '    AND Archer = :Archer;';
+
+			$params = array(':Target' => $this->uuid, ':Archer' => $archerUUID);
+
+			$cmd = new SQLCommand($sql, $params);
+			$sqlResult = $cmd->execute();
+
+			return !$sqlResult->isEmpty();
+		}
+	}
 }
 
 ?>

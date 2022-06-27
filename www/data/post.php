@@ -84,6 +84,22 @@ class Post{
 		return $this->uuid;
 	}
 
+	public function gotPoint(string $userUUID): bool{
+		if(isset($userUUID)){
+			$sql  = 'SELECT Time';
+			$sql .= '  FROM Point';
+			$sql .= '  WHERE PostID = :PostID';
+			$sql .= '    AND UserID = :UserID;';
+
+			$params = array(':PostID' => $this->uuid, ':UserID' => $us<erUUID);
+
+			$cmd = new SQLCommand($sql, $params);
+			$sqlResult = $cmd->execute();
+
+			return !$sqlResult->isEmpty();
+		}
+	}
+
 	public function hasMedia(): bool{
 		return isset($this->mediaUUID);
 	}
