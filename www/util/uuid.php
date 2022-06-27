@@ -14,6 +14,14 @@ class UUIDUtils{
 		}
 	}
 
+	public static function getNilUUID(?bool $short = false): string{
+		if($short){
+			return '00000000000000000000000000000000';
+		}else{
+			return '00000000-0000-0000-0000-000000000000';
+		}
+	}
+
 	public static function strip(string $uuid): string{
 		if(empty($uuid)){
 			return 'ERROR: empty UUID';
