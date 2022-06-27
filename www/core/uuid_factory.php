@@ -5,7 +5,7 @@ require_once('./core/id_factory.php');
 
 class UUIDFactory extends IDFactory{
 	// Source: https://www.uuidgenerator.net/dev-corner/php, 22-Feb-2022
-	public function create(): string{
+	public function create(?bool $short = false): string{
 		$data = random_bytes(16);
 		assert(strlen($data) == 16);
 
@@ -14,10 +14,13 @@ class UUIDFactory extends IDFactory{
 		// Set bits 6-7 to 10
 		$data[8] = chr(ord($data[8]) & 0x3f | 0x80);
 
-		// Output the 36 character UUID.
-		return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
-		// Output the 32 character UUID.
-		// return vsprintf('%s%s%s%s%s%s%s%s', str_split(bin2hex($data), 4));
+		if($short){
+			// Output the 32 character UUID.
+			return vsprintf('%s%s%s%s%s%s%s%s', str_split(bin2hex($data), 4));
+		}else{
+			// Output the 36 character UUID.
+			return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
+		}
 	}
 }
 
