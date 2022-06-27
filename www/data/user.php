@@ -44,33 +44,7 @@ class User{
 		return $this->name;
 	}
 
-	public function getPermissionLevel(): int{
-		if(!isset($this->permissionLevel)){
-			$this->setPermission();
-		}
-		return $this->permissionLevel;
-	}
-
-	public function getProfilePictureURL(): string{
-		return FileUtils::generateProfilePictureURL($this->uuid);
-	}
-
-	public function getRank(): string{
-		if(!isset($this->rank)){
-			$this->setPermission();
-		}
-		return $this->rank;
-	}
-
-	public function getUUID(): string{
-		return $this->uuid;
-	}
-
-	public function isValid(): bool{
-		return !empty($this->userID);
-	}
-
-	private function setPermission(){
+	private function getPermissionInformation(){
 		if(isset($this->uuid)){
 			$sql  = 'SELECT P.Level, L.Name';
 			$sql .= '  FROM Permission AS P, PermissionLevel AS L';
@@ -90,6 +64,32 @@ class User{
 				$this->rank = $row['Name'];
 			}
 		}
+	}
+
+	public function getPermissionLevel(): int{
+		if(!isset($this->permissionLevel)){
+			$this->getPermissionInformation();
+		}
+		return $this->permissionLevel;
+	}
+
+	public function getProfilePictureURL(): string{
+		return FileUtils::generateProfilePictureURL($this->uuid);
+	}
+
+	public function getRank(): string{
+		if(!isset($this->rank)){
+			$this->getPermissionInformation();
+		}
+		return $this->rank;
+	}
+
+	public function getUUID(): string{
+		return $this->uuid;
+	}
+
+	public function isValid(): bool{
+		return !empty($this->userID);
 	}
 }
 
