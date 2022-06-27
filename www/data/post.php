@@ -61,7 +61,7 @@ class Post{
 	}
 
 	public function getMediaURL(): string{
-		return FileUtils::generateMediaURL($this->creatorUUID, $this->mediaUUID);
+		return FileUtils::generateMediaURL($this->creatorUUID, $this->mediaUUID, $this->mediaExtension);
 	}
 
 	public function getMediaUUID(): string{
