@@ -42,7 +42,7 @@ User "0..n" -- "0..n" Post : likes >
 Session "1..n" -- "1..1" User : authenticates >
 User "0..n" -- "0..1" Permission : has >
 Permission "1..1" -- "1..1" PermissionLevel : means >
-(User, Post) . Like
+(User, Post) . Point
 
 class Shoot{
     /'
