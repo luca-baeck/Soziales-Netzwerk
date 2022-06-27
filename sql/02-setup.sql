@@ -113,7 +113,7 @@ CREATE TABLE PermissionLevel(
 
 CREATE TABLE Permission(
     UserID UUID NOT NULL,
-    Level TINYINT NOT NULL,
+    Level TINYINT UNSIGNED NOT NULL,
 
     PRIMARY KEY(UserID),
 
