@@ -9,11 +9,13 @@ class User{
 	private ?string $handle;
 	private ?string $name;
 	private ?DateTime $creationTime;
+	private ?int $permissionLevel;
+	private ?string $rank;
 
 	public function __construct(string $uuid){
-		$sql = 'SELECT ID, Handle, Name, CreationTime';
-		$sql .= 'FROM User';
-		$sql .= 'WHERE ID = :ID;';
+		$sql  = 'SELECT ID, Handle, Name, CreationTime';
+		$sql .= '  FROM User';
+		$sql .= '  WHERE ID = :ID;';
 
 		$params = array(':ID' => $uuid);
 
@@ -41,8 +43,22 @@ class User{
 		return $this->name;
 	}
 
+	public function getPermissionLevel(): int{
+		if(!isset($this->permissionLevel)){
+			$this->setPermission();
+		}
+		return $this->permissionLevel;
+	}
+
 	public function getProfilePictureURL(): string{
 		return FileUtils::generateProfilePictureURL($this->uuid);
+	}
+
+	public function getRank(): string{
+		if(!isset($this->rank)){
+			$this->setPermission();
+		}
+		return $this->rank;
 	}
 
 	public function getUUID(): string{
@@ -51,6 +67,28 @@ class User{
 
 	public function isValid(): bool{
 		return !empty($this->userID);
+	}
+
+	private function setPermission(){
+		if(isset($this->uuid)){
+			$sql  = 'SELECT P.Level, L.Name';
+			$sql .= '  FROM Permission AS P, PermissionLevel AS L';
+			$sql .= '  WHERE P.UserID = :UserID';
+			$sql .= '    AND P.Level = L.Level;';
+
+			$params = array(':UserID' => $this->uuid);
+
+			$cmd = new SQLCommand($sql, $params);
+			$sqlResult = $cmd->execute();
+			if($sqlResult->isEmpty()){
+				$this->permissionLevel = 1;
+				$this->rank = 'user';
+			}else{
+				$row = $sqlResult->getRow();
+				$this->permissionLevel = $row['Level'];
+				$this->rank = $row['Name'];
+			}
+		}
 	}
 }
 
