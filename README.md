@@ -5,6 +5,7 @@ a brand new social network
 ## Requirements
 * MariaDB v 10.7.3
 * libgd
+* php v 7.4
 
 ### php-modules
 * gd
