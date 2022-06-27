@@ -13,22 +13,23 @@ class User{
 	private ?string $rank;
 
 	public function __construct(string $uuid){
-		$sql  = 'SELECT ID, Handle, Name, CreationTime';
-		$sql .= '  FROM User';
-		$sql .= '  WHERE ID = :ID;';
+		if(isset($uuid)){
+			$sql  = 'SELECT ID, Handle, Name, CreationTime';
+			$sql .= '  FROM User';
+			$sql .= '  WHERE ID = :ID;';
 
-		$params = array(':ID' => $uuid);
+			$params = array(':ID' => $uuid);
 
-		$cmd = new SQLCommand($sql, $params);
-		$sqlResult = $cmd->execute();
-		if(!$sqlResult->isEmpty()){
-			$row = $sqlResult->getRow();
-			$this->uuid = $row['ID'];
-			$this->handle = $row['Handle'];
-			$this->name = $row['Name'];
-			$this->creationTime = DateTime::createFromFormat('YY-MM-DD H:i:s', $row['CreationTime']);
+			$cmd = new SQLCommand($sql, $params);
+			$sqlResult = $cmd->execute();
+			if(!$sqlResult->isEmpty()){
+				$row = $sqlResult->getRow();
+				$this->uuid = $row['ID'];
+				$this->handle = $row['Handle'];
+				$this->name = $row['Name'];
+				$this->creationTime = DateTime::createFromFormat('YY-MM-DD H:i:s', $row['CreationTime']);
+			}
 		}
-
 	}
 
 	public function getCreationTime(): DateTime{
