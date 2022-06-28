@@ -1,7 +1,7 @@
 @import url("/static/css/colors.css");
 @import url("/static/lib/fonts/Noir/font.css");
 
-footer::selection{
+footer p::selection{
 	background-color: var(--footer-text-color);
 	color: var(--footer-color);
 }
