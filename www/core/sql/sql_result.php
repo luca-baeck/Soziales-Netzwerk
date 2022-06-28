@@ -1,5 +1,7 @@
 <?php
 
+# mainly from ohg/registration
+
 class SQLResult{
 	private PDOStatement $cmd;
 	private array $row;

@@ -1,5 +1,7 @@
 <?php
 
+# mainly from ohg/registration
+
 require_once('./core/sql/db.php');
 require_once('./core/sql/sql_result.php');
 
@@ -7,7 +9,6 @@ require_once('./core/sql/sql_result.php');
 class SQLCommand{
 		
 	private PDOStatement $cmd;
-
 
 	public function __construct(string $sql, array $params = array()){
 		$pdo = DB::connect(true);

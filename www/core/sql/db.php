@@ -1,5 +1,7 @@
 <?php
 
+# mainly from ohg/registration
+
 require_once("./config/db_config.php");
 
 class DB{
