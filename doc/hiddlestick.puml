@@ -19,7 +19,7 @@ class Post{
     '/
     + Media : UUID
     + MediaExtension : VARCHAR(7)
-    + Content : VARCHAR(1023)
+    + Content : VARCHAR(4095)
     + CreationTime : TIMESTAMP
 }
 
