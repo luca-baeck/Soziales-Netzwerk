@@ -103,6 +103,7 @@ error: Failed to merge in the changes.
         ON DELETE CASCADE
 );
 
+<<<<<<< HEAD
 CREATE TABLE PermissionLevel(
     Level TINYINT UNSIGNED NOT NULL,
     Name VARCHAR(15) NOT NULL,
@@ -159,3 +160,5 @@ CREATE TABLE Upload(
         ON DELETE CASCADE
 );
 error: Failed to merge in the changes.
+=======
+>>>>>>> §sa

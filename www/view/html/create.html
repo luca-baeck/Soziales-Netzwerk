@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/logo/logo_color_white.svg"/>
+    <title>Create post</title>
+    <link rel="stylesheet" type="text/css" href="/view/css/create.css">
+    <link rel="stylesheet" type="text/css" href="/static/lib/fontawesome/6.1.1/css/all.css">
+    <!-- header stylesheets -->
+</head>
+<body>
+  <script src="/view/js/theme.js"></script>
+  <script src="/view/js/create.js"></script>
+  <header></header>
+
+    <div class="content">
+
+        <div class="left">
+            <h1>Sticker</h1>
+            <div class="selected">
+                <h2>Selected Sticker</h2>
+                <img src="js-sticker-placeholder" alt="Current selected sticker">
+                <div>
+                    <p>Name:</p>
+
+                    <p>Description:</p>
+
+                    <p>Creationtime:</p>
+
+                    <p>Creator: <!-- handle link  --></p> 
+                </div>
+            </div> 
+            <div class="scrollbar">
+                <!-- Stickers -->
+            </div>
+        </div>
+
+        <div class="right">
+            <h1>Content</h1>
+            <form method="POST" action="/create/create">
+                <input type="hidden" name="StickerID" id="StickerID" value="" />
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>

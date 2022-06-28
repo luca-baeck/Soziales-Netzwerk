@@ -1,5 +1,4 @@
 <?php
-
 require_once('./config/router.php');
 require_once('./core/session.php');
 
@@ -8,9 +7,9 @@ class Router{
 
 	public function __construct(Session $session){
 		$this->session = $session;
-		set_exception_handler(function (Throwable $exception) {
-			$this->errorHandler(404);
-		});
+		#set_exception_handler(function (Throwable $exception) {
+		#	$this->errorHandler(404);
+	#	});
 
 	}
 
