@@ -22,7 +22,7 @@ class SQLResult{
 	}
 
 	public function next(): bool{
-		$tmp = $cmd->fetch();
+		$tmp = $this->cmd->fetch();
 		$this->row = $tmp ? $tmp : array();
 		return($tmp !== false);
 	}
