@@ -9,7 +9,7 @@ class Footer{
 		$styles = StringUtils::stringBetweenTwoStrings($footer_file, '<!-- footer styles start -->', '<!-- footer styles end -->');
 
 		$html = str_replace('<!-- footer stylesheets -->', $styles, $html);
-		$html = str_replace('footer placeholder', $footer, $html);
+		$html = str_replace('<!-- footer placeholder -->', $footer, $html);
 		return $html;
 	}
 }
