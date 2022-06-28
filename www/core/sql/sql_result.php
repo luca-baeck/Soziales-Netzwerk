@@ -8,8 +8,7 @@ class SQLResult{
 	public function __construct(PDOStatement $cmd){
 		$this->cmd = $cmd;
 
-		$tmp = $cmd->fetch();
-		$this->row = $tmp ? $tmp : array();
+		$this->next();
 	}
 
 
@@ -20,6 +19,12 @@ class SQLResult{
 
 	public function getRow(): array{
 		return $this->row;
+	}
+
+	public function next(): bool{
+		$tmp = $cmd->fetch();
+		$this->row = $tmp ? $tmp : array();
+		return($tmp !== false);
 	}
 }
 
