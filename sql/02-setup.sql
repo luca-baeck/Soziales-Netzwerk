@@ -2,8 +2,8 @@ USE hiddlestick;
 
 CREATE TABLE User(
     ID UUID NOT NULL,
-    Handle CHAR(31) NOT NULL,
-    Name VARCHAR(63) NOT NULL,
+    Handle CHAR(23) NOT NULL,
+    Name VARCHAR(47) NOT NULL,
     Password CHAR(128) NOT NULL,
     CreationTime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 

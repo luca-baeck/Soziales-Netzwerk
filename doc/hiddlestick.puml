@@ -5,8 +5,8 @@ skinparam ClassAttributeIconSize 0
 
 class User{
     + ID : UUID
-    + Handle : CHAR(31)
-    + Name : VARCHAR(63)
+    + Handle : CHAR(23)
+    + Name : VARCHAR(47)
     + Password : CHAR(128)
     + CreationTime : TIMESTAMP
 }
