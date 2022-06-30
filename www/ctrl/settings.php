@@ -8,6 +8,7 @@ class SettingsController extends Controller{
     {
         $settingsHtml = file_get_contents('./view/html/settings.html');
         $settingsHtml = insertHeader($settingsHtml, $this->session);
+        $settingsHtml = FileUtils::insertUploadArea($settingsHtml, 'profilepicture');
 
         $sql  = 'SELECT *';
         $sql .= '  FROM User';

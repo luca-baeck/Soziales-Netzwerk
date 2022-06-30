@@ -58,17 +58,16 @@ class SearchController extends Controller{
 
                 $name = $row['Name'];
                 $handle = $row['Handle'];
+                $creationTime = $row['CreationTime'];
+                $imgUrl = FileUtils::generateProfilePictureURL($row['ID']); 
 
-                $imgUrl = FileUtils::generateStickerURL(null, $row['ID']); 
-                $stripID = UUIDUtils::strip($row['ID']);
-                $id = '"' . $stripID . '"';
                 $html .= '<div class="sticker">
                                 <div class="info">
-                                    <p>#UserName</p>
+                                    <p>' . $name . '</p>
                                 </div>
-                            <a href="#handleLinkPlaceholder"><img class="profilePic" src="/static/img/preload-background.png" alt="User"></a>
+                            <a href="/' . $handle . '"><img class="profilePic" src="' . $imgUrl . '" alt="User"></a>
                             <div class="info">
-                                <p>#creationTimePlaceholder</p>
+                                <p></p>
                                 <p>handle: <a href="#handleLinkPlaceholder">#handlePlaceholder</a></p>
                             </div>
                         </div>';

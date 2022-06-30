@@ -114,9 +114,12 @@ body{
     padding-bottom: 0.5vh;
 }
 
+.upload-wrapper {
+    width: 15vw;
+    height: 15vw;
+}
 
-
-.drop-zone {
+/* .drop-zone {
     max-width: 15vw;
     height: 15vw;
     padding: 25px;
@@ -166,7 +169,7 @@ body{
     font-size: 14px;
     text-align: center;
   }
-  
+  */
   .rightbox div form{
       text-align: center;
       width: 80%;

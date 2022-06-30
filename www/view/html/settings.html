@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/view/css/settings.css">
     <link rel="stylesheet" type="text/css" href="/static/lib/fontawesome/6.1.1/css/all.css">
     <!-- header stylesheets -->
+    <!-- upload wrapper stylesheets -->
 </head>
 <body>
   <script src="/view/js/theme.js"></script>
@@ -35,10 +36,7 @@
         <div class="profilePic tabShow">
             <h1>Profile Picture</h1>
             <form action="/settings/changeProfilePicture" method="POST">
-              <div class="drop-zone">
-                <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                <input type="file" name="newProfilePic" class="drop-zone__input" accept="image/png, image/webp, image/jpeg">
-              </div>
+             <!-- upload wrapper placeholder -->
               <script src="/view/js/drag-drop.js"></script>
               <!-- handle link  -->
               <button class="glow-on-hover" name="submit_changeProfilePicture" type="submit" type="button">Change</button>
