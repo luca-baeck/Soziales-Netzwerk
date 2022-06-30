@@ -98,18 +98,18 @@ body{
     margin: auto;
 }
 
-.rightbox div form a {
+.rightbox div  a {
     text-align: center;
     font-size: large;
     text-decoration: none;
     color: var(--text-color);
     transition: .5s ease-in-out;
 }
-.rightbox div form a:hover {
+.rightbox div  a:hover {
     color: var(--icon-color-reversed);
 }
  
-.rightbox div form a p {
+.rightbox div  a p {
     margin-top: 8vh;
     padding-bottom: 0.5vh;
 }
@@ -176,7 +176,7 @@ body{
       margin-left: 10%;
   }
 
-  .rightbox div form button{
+  .rightbox div button{
       margin-top: 3vh;
   }
 
