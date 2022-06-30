@@ -97,7 +97,7 @@ class Upload{
     + Type : TINYINT
     + UploaderID : UUID
     + UploadTime : TIMESTAMP
-    + Selfdestruct : TIMESTAMP
+    + ExpirationTime : TIMESTAMP
 }
 
 @enduml
