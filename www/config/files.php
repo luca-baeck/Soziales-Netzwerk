@@ -22,6 +22,12 @@ class FileConfig{
 		'image/png',
 		'image/webp'
 	);
+
+	const UPLOAD_TYPES = array(
+		'media' => 1,
+		'profilepicture' => 2,
+		'sticker' => 3
+	);
 }
 
 ?>
