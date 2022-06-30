@@ -5,6 +5,7 @@ require_once('./core/uuid_factory.php');
 require_once('./core/sql/db.php');
 require_once('./core/sql/sql_command.php');
 require_once('./core/sql/sql_result.php');
+require_once('./data/user.php');
 require_once('./util/cookie.php');
 
 class Session{
@@ -36,6 +37,9 @@ class Session{
 							createCookie('authentificationToken', $this->token, $timeToExpire);
 						}
 					}
+					if(!isset($_SESSION['user'])){
+						$_SESSION['user'] = new User($this->userID);
+					}
 				}else{
 					deleteCookie('authentificationUser');
 					deleteCookie('authentificationToken');
@@ -66,6 +70,9 @@ class Session{
 					$_SESSION['token'] = $this->token;
 					$this->stayLoggedIn = true;
 					$_SESSION['stayLoggedIn'] = $this->stayLoggedIn;
+					if(!isset($_SESSION['user'])){
+						$_SESSION['user'] = new User($this->userID);
+					}
 				}
 			}
 		}else{
@@ -109,6 +116,7 @@ class Session{
 		$_SESSION['userID'] = $this->userID;
 		$_SESSION['token'] = $this->token;
 		$_SESSION['stayLoggedIn'] = $this->stayLoggedIn;
+		$_SESSION['user'] = new User($this->userID);
 		createCookie('authentificationUser', $this->userID, $timeToExpire);
 		createCookie('authentificationToken', $this->token, $timeToExpire);
 	}
@@ -136,6 +144,8 @@ class Session{
 			createCookie('cookiestorageMethod', 'remove', $exp);
 			createCookie('cookiestorageCookies', 'authentificationUser, authentificationToken', $exp);
 		}
+
+		$_SESSION['user'] = NULL;
 		
 		session_destroy();
 		setcookie("PHPSESSID", "", time() - 3600);
