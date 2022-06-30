@@ -38,7 +38,7 @@ body{
 }
 
 #upload-err-try-again{
-	position: relative;
+	position: sticky;
 	display: block;
 	margin-left: calc(50% - 2.5rem);
 	margin-right: calc(50% - 2.5rem);
@@ -48,4 +48,5 @@ body{
 	color: var(--link-color);
 	text-decoration: none;
 	z-index: 2;
+	bottom: 1rem;
 }
