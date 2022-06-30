@@ -2,7 +2,7 @@
 
 require_once('./config/miscellaneous.php');
 require_once('./core/session.php');
-require_once('./util/util.php');
+require_once('./util/string.php');
 require_once('./util/debug.php');
 
 abstract class Controller{
