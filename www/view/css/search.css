@@ -1,0 +1,138 @@
+@import url("/static/lib/fonts/Roboto/font.css");
+@import url(/static/css/colors.css);
+
+
+*{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.content{
+    width: 40%;
+    margin-left: 20%;
+    margin-right: 40%;
+    border-top-style: none !important;
+    border-right-style: solid !important;
+    border-bottom-style: none !important;
+    border-left-style: solid !important;
+    border: 0.5px var(--logo-color3);
+    min-height: 100vh;
+}
+
+.select {
+    padding: 1.5vh;
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--background-color);
+    border-bottom-style: solid !important;
+    border: 0.5px var(--logo-color3);
+    padding-bottom: 2vh;
+}
+
+.select i {
+    color: var(--logo-color3);
+}
+
+.select i:hover {
+    color: var(--logo-color1);
+}
+
+.tabShow h2 {
+    text-align: center;
+    color: var(--logo-color1);
+    margin: 2vh;
+    width: 20%;
+    margin-left: 39%;
+}
+
+.tabShow {
+    display: none;
+}
+
+.tabShow p {
+    text-align: center;
+    color: var(--logo-color3);
+    margin: 1vh;
+}
+
+.sticker  img{
+    width: 15vw;
+    height: 15vw;
+    border: 2px solid;
+    border-color: var(--logo-color2);
+    border-radius: 35px;
+}
+
+.sticker {
+    text-align: center;
+    margin: auto;
+    margin-top: 3vw !important;
+    width: 25vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+.info {
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.info a {
+   text-decoration: none;
+   color: var(--logo-color1);
+}   
+
+.profilePic {
+    border-radius: 75px !important;
+}
+
+
+.choose select {
+    margin: auto;
+    margin-bottom: 1vh;
+    border: 2px solid;
+    border-color: var(--logo-color1);
+    border-radius: 10px;
+    background-color: var(--logo-color3);
+    color: var(--text-color);
+    padding: 5px;
+    border: none;
+    font-size: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+  }
+
+.choose::before {
+    position: absolute;
+    width: 10%;
+    height: 25%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 45px;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+}
+  
+.choose:hover::before {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+  
+.choose select option {
+    padding: 30px;
+}
+.choose {
+    margin-top: 2vh;
+}
+
+form{
+    text-align: center;
+    margin: auto;
+    margin-left: 42.5%;
+}

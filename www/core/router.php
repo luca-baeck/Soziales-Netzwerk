@@ -7,9 +7,9 @@ class Router{
 
 	public function __construct(Session $session){
 		$this->session = $session;
-		#set_exception_handler(function (Throwable $exception) {
-		#	$this->errorHandler(404);
-	#	});
+		set_exception_handler(function (Throwable $exception) {
+			$this->errorHandler(404);
+		});
 
 	}
 

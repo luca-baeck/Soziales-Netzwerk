@@ -21,15 +21,16 @@
             <h1>Sticker</h1>
             <div class="selected">
                 <h2>Selected Sticker</h2>
-                <img src="js-sticker-placeholder" alt="Current selected sticker">
+                <img id="currentSticker" src="" alt="Current selected sticker">
                 <div>
-                    <p>Name:</p>
+                    <p id="name" >Name:</p>
 
-                    <p>Description:</p>
+                    <p id="description" >Description:</p>
 
-                    <p>Creationtime:</p>
+                    <p id="time" >Creationtime:</p>
 
-                    <p>Creator: <!-- handle link  --></p> 
+                    <p>Creator: <a id="creator" href="#handleLinkPlaceholder">#handlePlaceholder</a></p>
+
                 </div>
             </div> 
             <div class="scrollbar">
@@ -39,8 +40,19 @@
 
         <div class="right">
             <h1>Content</h1>
+            <h2>Create your post</h2>
+            <p>Add media for your post</p>
             <form method="POST" action="/create/create">
                 <input type="hidden" name="StickerID" id="StickerID" value="" />
+                <div class="drop-zone">
+                    <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                    <input type="file" name="newPostMedia" class="drop-zone__input" accept="image/png, image/webp, image/jpeg">
+                </div>
+                <div class="contentPost">
+                    <textarea  name="contentPost" required></textarea>
+                  </div>
+                <button class="glow-on-hover" name="submit_createPost" type="submit" type="button">Post</button>
+                <script src="/view/js/drag-drop.js"></script>
             </form>
         </div>
 

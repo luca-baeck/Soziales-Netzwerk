@@ -7,7 +7,8 @@ class RouterConfig{
 		'login',
 		'register',
 		'target',
-		'err'
+		'err',
+		'search'
 	);
 
 	const PRIVATE_CTRL_FILES = array(
@@ -29,7 +30,8 @@ class RouterConfig{
 		'register',
 		'settings',
 		'target',
-		'err'
+		'err',
+		'search'
 	);
 }
 

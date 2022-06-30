@@ -37,9 +37,9 @@
             <form action="/settings/changeProfilePicture" method="POST">
               <div class="drop-zone">
                 <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                <input type="file" name="newProfilePic" class="drop-zone__input">
+                <input type="file" name="newProfilePic" class="drop-zone__input" accept="image/png, image/webp, image/jpeg">
               </div>
-              <script src="/view/js/settings-drag-drop.js"></script>
+              <script src="/view/js/drag-drop.js"></script>
               <!-- handle link  -->
               <button class="glow-on-hover" name="submit_changeProfilePicture" type="submit" type="button">Change</button>
             </form>
@@ -63,10 +63,11 @@
             <p>User Name</p>
             <div class="name">
               <i class="fa-solid fa-user"></i>
-              <input type="text" name="name_settings" placeholder="Name..." value="user-name-placeholder">
+              <input type="text" name="name_settings" placeholder="Name..." value="user-name-placeholder" required>
             </div>
             <button class="glow-on-hover" name="submit_changeProfilePicture" type="submit" type="button">Change</button>
           </form>
+          <button id="delete" onclick="deleteAccount()" class="glow-on-hover" name="submit_changeProfilePicture" type="submit" type="button">Delete Account</button>
         </div>
         <div class="password tabShow">
           <form id="form" action="/settings/changePassword" method="POST">

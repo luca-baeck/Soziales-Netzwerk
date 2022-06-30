@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/logo/logo_color_white.svg"/>
+    <title>Search</title>
+    <link rel="stylesheet" type="text/css" href="/view/css/search.css">
+    <link rel="stylesheet" type="text/css" href="/static/lib/fontawesome/6.1.1/css/all.css">
+    <!-- header stylesheets -->
+</head>
+<body>
+  <script src="/view/js/theme.js"></script>
+  <header></header>
+
+  <div class="content">
+    <div class="select">
+        <i class="fa-regular fa-square header-icon selectI" onclick="select(0)"></i>
+        <i class="fa-solid fa-users header-icon selectI" onclick="select(1)"></i>
+        <i class="fa-solid fa-certificate header-icon selectI" onclick="select(2)" ></i>
+    </div>
+    <form action="/search" method="POST" id="sort">
+      <div class="choose">
+        <input type="hidden" name="search" value="searchParamPlaceHolder">
+        <select name="sorting" onchange="sort.submit()">
+          <option value="1">Trending</option>
+          <option value="2">Likes</option>
+          <option value="3">Newest</option>
+          <option value="4">Oldest</option>
+        </select>
+      </div>
+    </form>
+    <br>
+    <br>
+    <div class="postSelect tabShow">
+        <h2>Posts</h1>
+        <p>Results for "#searchParamPlaceholder" in posts</p>
+        <!-- post elements -->
+
+    </div>
+    <div class="userSelect tabShow">
+
+      <h2>Users</h1>
+      <p>Results for "#searchParamPlaceholder" in users</p>
+      <!-- user elements -->
+        <div class="sticker">
+          <div class="info">
+            <p>#UserName</p>
+          </div>
+          <a href="#handleLinkPlaceholder"><img class="profilePic" src="/static/img/preload-background.png" alt="User"></a>
+        <div class="info">
+          <p>#creationTimePlaceholder</p>
+          <p>handle: <a href="#handleLinkPlaceholder">#handlePlaceholder</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="postSelect tabShow">
+      <h2>Stickers</h1>
+      <p>Results for "#searchParamPlaceholder" in stickers</p>
+      <!-- sticker elements -->
+      <div class="sticker">
+        <div class="info">
+          <p>#titlePlaceholder</p>
+        </div>
+        <a href="#stickerLinkPlaceholder"><img src="/static/img/preload-background.png" alt="Sticker"></a>
+        <div class="info">
+          <p>#creationTimePlaceholder</p>
+          <p>Creator: <a href="#creatorLinkPlaceholder">#creatorNamePlaceholder</a></p>
+        </div>
+    </div>
+    </div>
+  </div>    
+  <script src="/view/js/search.js"></script>
+</body>
+</html>

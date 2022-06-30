@@ -177,6 +177,7 @@ body{
       margin-top: 3vh;
   }
 
+
   .glow-on-hover {
     margin-top: 2vh;
     width: 5vw;
@@ -190,6 +191,14 @@ body{
     z-index: 0;
     border-radius: 10px;
     font-weight: bold;
+}
+
+#delete{
+    width: 6vw;
+    height: 3.5vh;
+    text-align: center;
+    margin-left: 11.45vw;
+    margin-top: 6vh;
 }
 
 .glow-on-hover:before {

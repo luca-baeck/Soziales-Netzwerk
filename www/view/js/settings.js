@@ -23,4 +23,6 @@ if($_GET['tab'] == null){
     tabs(parseInt($_GET['tab']));
 }
 
-
+function deleteAccount() {
+    window.location.href = "/create/delete";
+}
