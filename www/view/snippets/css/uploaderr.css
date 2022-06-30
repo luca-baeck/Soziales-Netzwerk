@@ -1,0 +1,43 @@
+@import url("/static/lib/fonts/Roboto/font.css");
+@import url("/static/css/colors.css");
+
+body{
+	margin: 0;
+	background-color: var(--background-color);
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+#upload-err-container{
+	position: relative;
+	background-color: var(--upload-err-area-color);
+	font-family: 'Roboto', sans-serif;
+	width: calc(100% - 6px - 1rem);
+	height: calc(100% - 6px - 1rem);
+	margin: 0.5rem;
+	border: 3px dashed var(--upload-border-color);
+	border-radius: 12px;
+	color: var(--text-color);
+}
+
+#upload-err-text{
+	position: absolute;
+	z-index: 1;
+	margin-left: 33%;
+	margin-right: 33%;
+	margin-top: calc(42vh - 1rem);
+	text-align: center;
+	width: 34%;
+}
+
+#upload-err-try-again{
+	position: absolute;
+	margin-left: calc(50% - 2.5rem);
+	margin-right: calc(50% - 2.5rem);
+	margin-top: calc(42vh + 2rem);
+	text-align: center;
+	width: 5rem;
+	color: var(--link-color);
+	text-decoration: none;
+}

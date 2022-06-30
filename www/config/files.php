@@ -28,6 +28,12 @@ class FileConfig{
 		'profilepicture' => 2,
 		'sticker' => 3
 	);
+
+	const UPLOAD_TEXTS = array(
+		'media' => 'Please select an image(*.jpg, *.png, *.webp) file to upload',
+		'profilepicture' => 'Please select an image(*.jpg, *.png, *.webp) file to upload',
+		'sticker' => 'Please select an image(*.png, *.webp) file to upload'
+	);
 }
 
 ?>

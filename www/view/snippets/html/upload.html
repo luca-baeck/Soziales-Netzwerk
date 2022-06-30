@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>upload - hiddlestick</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/static/img/logo/logo_color_white.svg" />
+	<link rel="stylesheet" type="text/css" href="/view/snippets/css/upload.css">
+</head>
+
+<body>
+	<div id="upload-container">
+		<form action="/fileadmin/upload/usage" method="post" enctype="multipart/form-data" id="upload-form">
+			<span id="upload-text">
+				<!-- upload text -->
+			</span>
+			<input type="file" name="upload" accept="acceptable-file-types" id="upload-file">
+			<input type="submit" value="Submit" name="submit" id="upload-submit">
+		</form>
+	</div>
+</body>
+
+</html>
