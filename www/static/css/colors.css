@@ -8,4 +8,12 @@
     --spezial-color: #3fbcd5;
     --footer-color: #041e38;
     --footer-text-color: #39f5f2;
+    --border-color: #353535;
+    --handle-color: #bebebe;
+    --scrollbar-color: #5e5e5e;
+    --upload-border-color: #565656;
+    --upload-area-color: #212121;
+    --upload-ok-area-color: #213821;
+    --upload-err-area-color: #422121;
+    --link-color: #1b6acb;
 }

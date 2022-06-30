@@ -14,6 +14,7 @@ class Miscellaneous{
 	);
 
 	const LEVEL_RANKS = array(
+		256 => 'none',
 		255 => 'admin',
 		1   => 'user',
 		0   => 'guest'
