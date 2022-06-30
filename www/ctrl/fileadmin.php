@@ -3,6 +3,7 @@
 require_once('./config/files.php');
 require_once('./config/miscellaneous.php');
 require_once('./core/controller.php');
+require_once('./')
 require_once('./core/uuid_factory.php');
 require_once('./util/string.php');
 
@@ -67,7 +68,6 @@ class FileadminController extends Controller{
 			case 'media':
 			case 'profilepicture':
 			case 'sticker':
-				mime_content_type();
 				try{
 					if(!isset($_FILES['upload']['error'])){
 						throw new RuntimeException('Some unknown error occured.');
@@ -91,6 +91,7 @@ class FileadminController extends Controller{
 						case UPLOAD_ERR_NO_TMP_DIR:
 						case UPLOAD_ERR_CANT_WRITE:
 						case UPLOAD_ERR_EXTENSION:
+
 							throw new RuntimeException('There seems to be an error on our side. Feel free to contact your favorite admin.');
 							break;
 						default:
