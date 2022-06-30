@@ -10,6 +10,7 @@ class FileUtils{
 	public static function insertUploadArea($html, $usage){
 		$upload_file = file_get_contents('./view/snippets/html/uploadwrapper.html');
 		$upload_wrapper = StringUtils::stringBetweenTwoStrings($upload_file, '<!-- upload wrapper begin -->', '<!-- upload wrapper end -->');
+		$upload_wrapper = str_replace('usage', $usage, $upload_wrapper);
 		$styles = StringUtils::stringBetweenTwoStrings($upload_file, '<!-- upload wrapper styles begin -->', '<!-- upload wrapper styles end -->');
 
 		$html = str_replace('<!-- upload wrapper stylesheets -->', $styles, $html);
