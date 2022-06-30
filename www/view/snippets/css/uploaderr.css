@@ -21,23 +21,31 @@ body{
 	color: var(--text-color);
 }
 
-#upload-err-text{
+#upload-err-text-container{
 	position: absolute;
-	z-index: 1;
 	margin-left: 20%;
 	margin-right: 20%;
 	margin-top: calc(32vh - 1rem);
+	width: 60%;
+}
+
+#upload-err-text{
+	position: relative;
+	z-index: 1;
+	display: block;
 	text-align: center;
-	width: 34%;
+	width: 100%;
 }
 
 #upload-err-try-again{
-	position: absolute;
+	position: relative;
+	display: block;
 	margin-left: calc(50% - 2.5rem);
 	margin-right: calc(50% - 2.5rem);
-	margin-top: calc(32vh + 4rem);
+	margin-top: 1rem;
 	text-align: center;
 	width: 5rem;
 	color: var(--link-color);
 	text-decoration: none;
+	z-index: 2;
 }
