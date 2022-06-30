@@ -24,11 +24,7 @@ function insertHeader($html, Session $session){
 			$sqlResult = $cmd->execute();
 			$row = $sqlResult->getRow();
 
-			if($row['ProfilePicture']){
-				$pic = $row['ProfilePicture'];
-			}else{
-				$pic = '/static/img/preload-background.png';
-			}
+			$pic = $_SESSION['user']->getProfilePictureURL();
 
 		$html = str_replace('<i class="fa-solid fa-user dropbtn header-icon"></i>', '<img src="' . $pic . '" alt="profile picture" class="header-profile-pic">', $html);
 		$html = str_replace('<!-- LogIn link -->', '<a href="/login/logout" class="login-logout">Log Out</a>', $html);

@@ -19,6 +19,13 @@ function select(index){
     elements[currentSelectedIndex].style.color = color1; 
     tabsElem[currentSelectedIndex].style.display = "inline";
     window.history.replaceState(null, null, ("?tab=" + currentSelectedIndex));
+
+    var select = document.getElementById("sort");
+    if(index == 2){
+        select.style.display = "none";
+    }else{
+        select.style.display = "inline";
+    }
 }
 
 if($_GET['tab'] == null){

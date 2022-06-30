@@ -26,10 +26,11 @@ class CreateController extends Controller{
         }else{
             do{
                 $row = $sqlResult->getRow();
+                $imgUrl = FileUtils::generateStickerURL(null, $row['ID']); 
                 $stripID = UUIDUtils::strip($row['ID']);
                 $id = '"' . $stripID . '"';
                 $html .= "<div class='sticker' onclick='selectSticker(" . $id . " , this);'>
-                            <img src='/static/img/preload-background.png' alt='" . $row['ID'] . "'>
+                            <img src='" . $imgUrl . "' alt='" . $row['ID'] . "'>
                         </div>
                         <script>
                             stickerInfo[" . $id . "] = " . json_encode($row) . ";

@@ -1,5 +1,6 @@
 <?php
 require_once('./core/controller.php');
+require_once('./util/string.php');
 
 
 class LoginController extends Controller{
@@ -19,11 +20,11 @@ class LoginController extends Controller{
 			$sqlResult = $cmd->execute();
 			$row = $sqlResult->getRow();
 
-			if($row['ProfilePicture']){
-				$pic = $row['ProfilePicture'];
-			}else{
-				$pic = '/static/img/preload-background.png';
-			}
+			
+			$pic = $_SESSION['user']->getProfilePictureURL();
+			
+			
+			
 			$htmlSnippet  = '<h1>Logged In as...</h1>';
 			$htmlSnippet .= '<img id="profile_picture" src="'. $pic .'" alt="profile picture">';
 			$htmlSnippet .= '<p>'. $row['Name'] .'</p>';
@@ -33,7 +34,7 @@ class LoginController extends Controller{
 			$htmlSnippet .= ' <button onclick="window.location.href ='. $apostrophe . '/login/logout' . $apostrophe .';" class="glow-on-hover" name="submit_login" type="submit" type="button">Log out</button>';
 
 			$replace  = '<h1>';
-			$replace .= stringBetweenTwoStrings($loginHtml, '<h1>', '</form>');
+			$replace .= StringUtils::stringBetweenTwoStrings($loginHtml, '<h1>', '</form>');
 			$replace .= '</form>';
 
 			$loginHtml = str_replace($replace, $htmlSnippet, $loginHtml);
