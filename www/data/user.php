@@ -27,7 +27,7 @@ class User{
 				$this->uuid = $row['ID'];
 				$this->handle = $row['Handle'];
 				$this->name = $row['Name'];
-				$this->creationTime = DateTime::createFromFormat('YY-MM-DD H:i:s', $row['CreationTime']);
+				$this->creationTime = DateTime::createFromFormat('Y-m-d H:i:s', $row['CreationTime']);
 			}
 		}
 	}
