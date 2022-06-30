@@ -3,7 +3,7 @@
 
 body{
 	margin: 0;
-	background-color: var(--background-color);
+	background-color: transparent;
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
@@ -24,9 +24,9 @@ body{
 #upload-err-text{
 	position: absolute;
 	z-index: 1;
-	margin-left: 33%;
-	margin-right: 33%;
-	margin-top: calc(42vh - 1rem);
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-top: calc(32vh - 1rem);
 	text-align: center;
 	width: 34%;
 }
@@ -35,7 +35,7 @@ body{
 	position: absolute;
 	margin-left: calc(50% - 2.5rem);
 	margin-right: calc(50% - 2.5rem);
-	margin-top: calc(42vh + 2rem);
+	margin-top: calc(32vh + 4rem);
 	text-align: center;
 	width: 5rem;
 	color: var(--link-color);
