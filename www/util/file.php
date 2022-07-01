@@ -107,7 +107,9 @@ class FileUtils{
 				default:
 					return;
 			}
-			unlink($loc);
+			if(file_exists($loc)){
+				unlink($loc);
+			}
 		}	
 	}
 
