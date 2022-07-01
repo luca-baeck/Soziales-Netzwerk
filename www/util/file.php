@@ -177,7 +177,7 @@ class FileUtils{
 				}
 			}
 		}
-		return '/sticker' . ($fileadmin ? 'fileadmin/' : '') . '/' . UUIDUtils::strip($creatorID) . '/' . UUIDUtils::strip($stickerID) . '.webp';
+		return '/sticker' . ($fileadmin ? '/fileadmin' : '') . '/' . UUIDUtils::strip($creatorID) . '/' . UUIDUtils::strip($stickerID) . '.webp';
 	}
 
 }
