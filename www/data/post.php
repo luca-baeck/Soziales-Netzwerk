@@ -38,7 +38,7 @@ class Post{
 					$this->mediaExtension = $row['MediaExtension'];
 				}
 				$this->content = $row['Content'];
-				$this->creationTime = DateTime::createFromFormat('YY-MM-DD H:i:s', $row['CreationTime']);
+				$this->creationTime = DateTime::createFromFormat('Y-m-d H:i:s', $row['CreationTime']);
 				$this->points = $row['Points'];
 			}
 		}

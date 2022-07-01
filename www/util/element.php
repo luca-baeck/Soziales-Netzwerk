@@ -6,21 +6,20 @@ require_once('./util/string.php');
 
 class ElementUtils{
 
-	private static string $element_file;
-
 	public static function insertElement(string $uuid, $html, ?bool $allowFullscreen = true, ?User $user = NULL): string{
 		$post = new Post($uuid);
 		if(!isset($user)){
 			$user = new User($post->getCreatorUUID());
 		}
+		$element_file = file_get_contents('./view/snippets/html/element.html');
 		$element = StringUtils::stringBetweenTwoStrings($element_file, '<!-- element begin -->', '<!-- element end -->');
 
 		$element = str_replace('sticker-src', $post->getStickerURL(), $element);
 		$element = str_replace('<!-- post content -->', $post->getContent(), $element);
-		$element = str_replace('creator-handle', $post->getHandle(), $element);
+		$element = str_replace('creator-handle', $user->getHandle(), $element);
 		$element = str_replace('profile-picture-src', $user->getProfilePictureURL(), $element);
 		$element = str_replace('<!-- creator name -->', $user->getName(), $element);
-		$element = str_replace('<!-- creator handle -->', $user->getHandle(), $elements);
+		$element = str_replace('<!-- creator handle -->', $user->getHandle(), $element);
 		$element = str_replace('<!-- creation date -->', $post->getCreationTime()->format('Y.m.d'), $element);
 
 		$html = str_replace('<!-- element placeholder -->', $element, $html);

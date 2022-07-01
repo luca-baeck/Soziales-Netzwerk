@@ -22,7 +22,6 @@ class SQLCommand{
 
 	public function execute(): SQLResult{
 		$this->cmd->execute();
-
 		return new SQLResult($this->cmd);
 	}
 }

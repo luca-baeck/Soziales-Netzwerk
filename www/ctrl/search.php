@@ -12,6 +12,7 @@ class SearchController extends Controller{
         $searchHtml = file_get_contents('./view/html/search.html');
         $searchHtml = insertHeader($searchHtml, $this->session);
         $searchHtml = Footer::insert($searchHtml);
+        $searchHtml = ElementUtils::insertElementStyles($searchHtml);
 
         if($params == ""){
             $paramsSearch = $_POST['search'];
@@ -29,7 +30,7 @@ class SearchController extends Controller{
 
 
         
-
+/*
         if(!empty($_POST['sorting'])){
             $sorting = $_POST['sorting'];
         }else{
@@ -58,6 +59,11 @@ class SearchController extends Controller{
                 $sqlUser = 'Select * From User AS U Where ( U.Handle + U.Name + U.CreationTime) Like "%:SearchParam%" Order By U.CreationTime ASC;';
                 $sqlPosts = 'Select * From Post AS P Where ( P.Content + P.CreationTime) Like "%:SearchParam%" Order By P.CreationTime ASC;';
         }   
+*/
+        $sqlPosts = 'Select * From Post;';
+        $sqlUser = 'Select * From User ;';
+        $sqlSticker = 'Select Sticker.*, User.Handle From Sticker Left Outer Join User On User.ID = Sticker.CreatorID ;';
+
 
         $params = array(':SearchParam' => $paramsSearch);
 
@@ -89,10 +95,9 @@ class SearchController extends Controller{
 
             }while($sqlResultUser->next());
             $searchHtml = str_replace( "<!-- user elements -->", $html, $searchHtml);
-        }
+        } 
 
-        $sqlPosts = "Select * From Post";
-
+        
         $cmdPosts = new SQLCommand($sqlPosts, $params);
 		$sqlResultPosts = $cmdPosts->execute();
 
@@ -123,7 +128,7 @@ class SearchController extends Controller{
                 $name = $row['Name'];
                 $creator = $row['Handle'];
                 $creationTime = $row['CreationTime'];
-                $imgUrl = FileUtils::generateStickerURL(null, $row['ID'], true); 
+                $imgUrl = FileUtils::generateStickerURL($row['ID']); 
 
                 $html .= '<div class="sticker">
                              <div class="info">

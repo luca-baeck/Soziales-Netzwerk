@@ -19,4 +19,5 @@ a brand new social network
 
 ## Notes
 * When using Firefox the expires attribute of cookies is always session (why?)
+* Die Suche funktioniert nicht, bzw kann nur alle Posts, User, Sticker Anzeigen, da aus rätselhaften Gründen und extremen Zeitmangel nur leere Ergebnisse von der Datenbank zurückgegeben werden.
 * Die Sortierung der Suche funktioniert noch nicht, ist aber in html und php schon teilweise implementiert

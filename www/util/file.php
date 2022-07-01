@@ -155,7 +155,7 @@ class FileUtils{
 		}
 	}
 
-	public static function generateStickerURL(?string $creatorID = NULL, string $stickerID, ?bool $fileadmin = true): string{
+	public static function generateStickerURL(string $stickerID, ?string $creatorID = NULL, ?bool $fileadmin = true): string{
 		if(!isset($creatorID)){
 			$sql  = 'SELECT CreatorID';
 			$sql .= '  FROM Sticker';
