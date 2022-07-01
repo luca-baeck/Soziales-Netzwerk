@@ -46,7 +46,7 @@ class FileUtils{
 			}
 		}
 
-		$location = FileConfig::DIR_DATA . '/' . 'uploads' . '/' . UUIDUtils::strip($row['ID']) . '.' . $row['extension'];
+		$location = FileConfig::DIR_DATA . '/' . 'uploads' . '/' . UUIDUtils::strip($row['ID']) . '.' . $row['Extension'];
 
 		if(!file_exists($location)){
 			return array('error' => FileConfig::CONFIRM_ERRORS['Missing file']);
@@ -113,7 +113,7 @@ class FileUtils{
 		}	
 	}
 
-	private static function deleteFromUploads($file_uuid){
+	protected static function deleteFromUploads($file_uuid){
 		$sql  = 'DELETE FROM Upload';
 		$sql .= '  WHERE ID = :ID;';
 
