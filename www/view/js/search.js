@@ -38,3 +38,9 @@ if($_GET['tab'] == null){
 window.addEventListener('load', function () {
     document.getElementById("sort").action = window.location.href;
 })
+
+function updateURL(){
+    var form = document.getElementById("sort");
+    form.action = window.location.href;
+    form.submit();
+}

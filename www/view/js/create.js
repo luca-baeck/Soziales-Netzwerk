@@ -38,8 +38,10 @@ function selectSticker(UUID, sticker){
     currentStickerImg.src = currentSelectedElement.children[0].src;
     if(info['Handle'] != null){
         creator.innerText = "@" + info['Handle'];
+        creator.setAttribute('href', "/" + info['Handle'])
     }else{
         creator.innerText = "";
+        creator.setAttribute('href', "" )
     }
 
     var formValueSticker = document.getElementById("StickerID");

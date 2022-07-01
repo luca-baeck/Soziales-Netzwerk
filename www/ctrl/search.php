@@ -2,6 +2,8 @@
 require_once('./core/controller.php');
 require_once('./util/header.php');
 require_once('./util/uuid.php');
+require_once('./util/element.php');
+require_once('./util/footer.php');
 
 class SearchController extends Controller{
 
@@ -9,6 +11,7 @@ class SearchController extends Controller{
     {
         $searchHtml = file_get_contents('./view/html/search.html');
         $searchHtml = insertHeader($searchHtml, $this->session);
+        $searchHtml = Footer::insert($searchHtml);
 
         if($params == ""){
             $paramsSearch = $_POST['search'];
@@ -35,7 +38,7 @@ class SearchController extends Controller{
         $searchHtml = str_replace("#" . $sorting, "selected", $searchHtml);
         $sqlUser = "";
         $sqlPosts = "";
-        $sqlSticker = "Select * From Sticker;";
+        $sqlSticker = "Select Sticker.*, User.Handle From Sticker Left Outer Join User On User.ID = Sticker.CreatorID;";
         switch($sorting){
 
             case 1:
@@ -60,8 +63,9 @@ class SearchController extends Controller{
 		$sqlResultUser = $cmdUser->execute();
 
         if($sqlResultUser->isEmpty()){
-            $searchHtml = str_replace( " <!-- post elements -->", '<p>No results found</p>', $searchHtml);
+            $searchHtml = str_replace( "<!-- user elements -->", '<p>No results found</p>', $searchHtml);
         }else{
+            $html = '';
             do{
                 $row = $sqlResultUser->getRow();
 
@@ -74,7 +78,7 @@ class SearchController extends Controller{
                                 <div class="info">
                                     <p>' . $name . '</p>
                                 </div>
-                            <a href="/' . $handle . '"><img class="profilePic" src="' . $imgUrl . '" alt="User"></a>
+                            <a href="/' . $handle . '"><img loading="lazy"  class="profilePic" src="' . $imgUrl . '" alt="User"></a>
                             <div class="info">
                                 <p>' . $creationTime . '</p>
                                 <p>handle: <a href="/' . $handle . '">' . $handle . '</a></p>
@@ -82,6 +86,7 @@ class SearchController extends Controller{
                         </div>';
 
             }while($sqlResultUser->next());
+            $searchHtml = str_replace( "<!-- user elements -->", $html, $searchHtml);
         }
 
 
@@ -90,23 +95,48 @@ class SearchController extends Controller{
 		$sqlResultPosts = $cmdPosts->execute();
 
         if($sqlResultPosts->isEmpty()){
-            $searchHtml = str_replace( " <!-- user elements -->", '<p>No results found</p>', $searchHtml);
+            $searchHtml = str_replace( "<!-- post elements -->", '<p>No results found</p>', $searchHtml);
         }else{
+            $postElements = "<!-- element placeholder -->";
             do{
-                $row = $sqlResultUser->getRow();
+                $row = $sqlResultPosts->getRow();
 
-                $name = $row['Name'];
-                $handle = $row['Handle'];
-                $creationTime = $row['CreationTime'];
-                $imgUrl = FileUtils::generateProfilePictureURL($row['ID']); 
+                $postElements = ElementUtils::insertElement($row['ID'], $postElements);
 
-
-            }while($sqlResultUser->next());
+            }while($sqlResultPosts->next());
+            $searchHtml = str_replace( "<!-- post elements -->", $postElements, $searchHtml);
         }
+
 
         $cmdSticker = new SQLCommand($sqlSticker, $params);
 		$sqlResultSticker = $cmdSticker->execute();
 
+        if($sqlResultSticker->isEmpty()){
+            $searchHtml = str_replace( "<!-- sticker elements -->", '<p>No results found</p>', $searchHtml);
+        }else{
+            $html = '';
+            do{
+                $row = $sqlResultSticker->getRow();
+
+                $name = $row['Name'];
+                $creator = $row['Handle'];
+                $creationTime = $row['CreationTime'];
+                $imgUrl = FileUtils::generateStickerURL($row['ID']); 
+
+                $html .= '<div class="sticker">
+                             <div class="info">
+                                <p>' . $name . '</p>
+                             </div>
+                             <a href=""><img loading="lazy" src="' .  $imgUrl. '" alt="Sticker"></a>
+                            <div class="info">
+                                <p>' . $creationTime . '</p>
+                                <p>Creator: <a href="/' . $creator . '">' . $creator . '</a></p>
+                            </div>
+                        </div>';
+
+            }while($sqlResultSticker->next());#
+            $searchHtml = str_replace( "<!-- sticker elements -->", $html, $searchHtml);
+        }
         
 
         echo($searchHtml);

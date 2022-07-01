@@ -29,7 +29,7 @@ Auf dem Registerscreen kann man sich einen Username aussuchen, ein Passwort fest
 Auf der Beitragerstellungsseite sieht man zunächst oben die Navigationsleiste, mit Hilfe derer man sich durch die Seiten navigieren kann. Man kann auf der linken Seite den Sticker auswwählen und auf der rechten Seite den Text eingeben und den Post veröffentlichen. 
 
 ## Einstellungen
-Auf der Einstellungsseite sieht man zunächst oben die Navigationsleiste, mit Hilfe derer man sich durch die Seiten navigieren kann. Auf der linken Seite kann man simpel den eigenen Account löschen und in der Mitte Einstellungen verändern.
+Auf der Einstellungsseite sieht man zunächst oben die Navigationsleiste, mit Hilfe derer man sich durch die Seiten navigieren kann. Man kann hier verschiedenste Einstellungen an seinem Account ändern.
 
 ## Account dropdown menu
 Im Account dropdown menu kommt man zu den Einstellungen und kann sich ausloggen.

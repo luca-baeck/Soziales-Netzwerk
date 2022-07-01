@@ -26,12 +26,13 @@ class CreateController extends Controller{
             echo("No Stickers available");
         }else{
             do{
+                
                 $row = $sqlResult->getRow();
                 $imgUrl = FileUtils::generateStickerURL(null, $row['ID']); 
                 $stripID = UUIDUtils::strip($row['ID']);
                 $id = '"' . $stripID . '"';
                 $html .= "<div class='sticker' onclick='selectSticker(" . $id . " , this);'>
-                            <img src='" . $imgUrl . "' alt='" . $row['ID'] . "'>
+                            <img  loading='lazy' src='" . $imgUrl . "' alt='" . $row['ID'] . "'>
                         </div>
                         <script>
                             stickerInfo[" . $id . "] = " . json_encode($row) . ";
