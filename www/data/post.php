@@ -17,10 +17,10 @@ class Post{
 	public function __construct(string $uuid){
 		if(isset($uuid)){
 			$sql  = 'SELECT DISTINCT P.ID, P.CreatorID, P.StickerID, P.Media, P.MediaExtension, P.Content, P.CreationTime, COUNT(I.UserID) AS Points';
-			$sql .= '  FROM Post AS P, Point AS I';
+			$sql .= '  FROM Post AS P';
+			$sql .= '  LEFT OUTER JOIN Point AS I ON I.PostID = P.ID';
 			$sql .= '  WHERE P.ID = :ID';
-			$sql .= '    AND P.ID = I.ID';
-			$sql .= '  GROUP BY I.ID;';
+			$sql .= '  GROUP BY I.PostID;';
 
 			$params = array(':ID' => $uuid);
 
