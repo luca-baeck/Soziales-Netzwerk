@@ -19,3 +19,4 @@ a brand new social network
 
 ## Notes
 * When using Firefox the expires attribute of cookies is always session (why?)
+* Die Sortierung der Suche funktioniert noch nicht, ist aber in html und php schon teilweise implementiert
