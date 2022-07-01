@@ -2,7 +2,7 @@ $(document).ready(function () {
 	const cookies = document.cookie.split('; ');
 	if(cookies.some((item) => item.trim().startsWith('cookiestorageMethod='))){
 		if(cookies.some((item) => item.trim().startsWith('cookiestorageCookies='))){
-			const cookiesToUse = cookies.find((item) => item.startsWith('cookiestorageCookies=')).split('=')[1].split(', ');
+			let cookiesToUse = cookies.find((item) => item.startsWith('cookiestorageCookies=')).split('=')[1].split('___');
 			const method = cookies.find((item) => item.startsWith('cookiestorageMethod=')).split('=')[1];
 			switch (method) {
 				case "idle":
@@ -17,7 +17,7 @@ $(document).ready(function () {
 					console.log('[cookiestorage] made a picture of the cookies in the jar');
 					break;
 				case "store":
-					cookiesToUse.forEach((item) => storeCookie(item));
+					cookiesToUse.forEach((item) => storeCookie(item, cookies.find((mItem) => mItem.startsWith(item + '=').split('=')[1])));
 					console.log('[cookiestorage] put cookies in the jar');
 					break;
 				default:
@@ -28,6 +28,8 @@ $(document).ready(function () {
 			document.cookie = "cookiestorageMethod=; path=/ ;expires= Thu, 01 Jan 1970 00:00:01 GMT";
 			document.cookie = "cookiestorageCookies=; path=/ ;expires= Thu, 01 Jan 1970 00:00:01 GMT";
 		}
+	}else{
+		console.log('[cookiestorage] idling while waiting for cookies to bake in the oven');
 	}
 });
 
