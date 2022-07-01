@@ -11,6 +11,8 @@ a brand new social network
 * gd
 * header_module
 
+`names of the packages are those on opensuse`
+
 ### php.ini settings
 `file_uploads = On`
 
