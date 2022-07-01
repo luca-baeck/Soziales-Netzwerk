@@ -100,6 +100,20 @@ class SettingsController extends Controller{
         }
     }
 
+    public function delete($params){
+        $Id = $_SESSION['userID'];
+        FileUtils::deleteFile("profilepicture", $Id);
+        $this->session->logout();
+        $sql  = 'Delete From User';
+		$sql .= '   Where ID = :BenutzerID';
+		
+		$params = array(':BenutzerID' => $Id);
+
+		$cmd = new SQLCommand($sql, $params);
+		$sqlResult = $cmd->execute();
+
+		header('Location: /login');
+    }
 
 
 }

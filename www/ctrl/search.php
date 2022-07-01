@@ -7,16 +7,23 @@ class SearchController extends Controller{
 
     public function show($params)
     {
-        if(!isset($_POST["search"])){
-            header("Location: /land");
-        }
-
         $searchHtml = file_get_contents('./view/html/search.html');
         $searchHtml = insertHeader($searchHtml, $this->session);
 
         $searchHtml = str_replace('#searchParamPlaceholder', $_POST["search"], $searchHtml);
+        
+        echo $_POST["search"];
+        echo $_POST["search1"];
+        if(!isset($_POST["search"]) ANd !isset($_POST["seach1"])){
+         #   header("Location: /land");
+        }
+
+
 
         $searchParam = $_POST["search"];
+        if($searchParam == null){
+            $searchParam = $_POST["search1"];
+        }
         if(isset($_POST['sorting'])){
             $sorting = $_POST['sorting'];
         }else{

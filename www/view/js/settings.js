@@ -24,5 +24,5 @@ if($_GET['tab'] == null){
 }
 
 function deleteAccount() {
-    window.location.href = "/create/delete";
+    window.location.href = "/settings/delete";
 }
