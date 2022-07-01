@@ -93,7 +93,6 @@ CREATE TABLE Session(
     Name VARCHAR(127) NULL,
     Token UUID NOT NULL,
     ExpirationDate DATE NULL,
-error: Failed to merge in the changes.
 
     PRIMARY KEY(UserID, CreationTime),
 
@@ -103,7 +102,6 @@ error: Failed to merge in the changes.
         ON DELETE CASCADE
 );
 
-<<<<<<< HEAD
 CREATE TABLE PermissionLevel(
     Level TINYINT UNSIGNED NOT NULL,
     Name VARCHAR(15) NOT NULL,
@@ -159,6 +157,4 @@ CREATE TABLE Upload(
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
-error: Failed to merge in the changes.
-=======
->>>>>>> §sa
+

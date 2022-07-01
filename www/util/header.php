@@ -14,7 +14,7 @@ function insertHeader($html, Session $session){
 
 	if($session->isLoggedIn()){
 		
-		$sql  = 'SELECT Handle, ProfilePicture';
+		$sql  = 'SELECT Handle';
 			$sql .= '  FROM User';
 			$sql .= '  WHERE ID = :ID';
 		
