@@ -10,25 +10,29 @@ class SearchController extends Controller{
         $searchHtml = file_get_contents('./view/html/search.html');
         $searchHtml = insertHeader($searchHtml, $this->session);
 
-        $searchHtml = str_replace('#searchParamPlaceholder', $_POST["search"], $searchHtml);
+        if($params == ""){
+            $paramsSearch = $_POST['search'];
+            $url = $_SERVER['REQUEST_URI'] . '/show/' . $paramsSearch;
+            header("Location: $url");
+        }else{
+            $paramsSearch = $params;
+        }
         
-        echo $_POST["search"];
-        echo $_POST["search1"];
-        if(!isset($_POST["search"]) ANd !isset($_POST["seach1"])){
-         #   header("Location: /land");
-        }
+        $searchHtml = str_replace('<!-- searchParams -->', $paramsSearch, $searchHtml);
+        
+
+        
 
 
 
-        $searchParam = $_POST["search"];
-        if($searchParam == null){
-            $searchParam = $_POST["search1"];
-        }
-        if(isset($_POST['sorting'])){
+        
+
+        if(!empty($_POST['sorting'])){
             $sorting = $_POST['sorting'];
         }else{
             $sorting = 1;
         }
+        $searchHtml = str_replace("#" . $sorting, "selected", $searchHtml);
         $sqlUser = "";
         $sqlPosts = "";
         $sqlSticker = "Select * From Sticker;";
@@ -50,7 +54,7 @@ class SearchController extends Controller{
                 $sqlPosts = 'Select * From Post AS P Where ( P.Content + P.CreationTime) Like "%:SearchParam%" Order By P.CreationTime ASC;';
         }   
 
-        $params = array(':SearchParam' => $searchParam);
+        $params = array(':SearchParam' => $paramsSearch);
 
 		$cmdUser = new SQLCommand($sqlUser, $params);
 		$sqlResultUser = $cmdUser->execute();

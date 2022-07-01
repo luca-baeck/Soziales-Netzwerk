@@ -19,14 +19,13 @@
         <i class="fa-solid fa-users header-icon selectI" onclick="select(1)"></i>
         <i class="fa-solid fa-certificate header-icon selectI" onclick="select(2)" ></i>
     </div>
-    <form action="/search" method="POST" id="sort">
+    <form action="" method="POST" id="sort">
       <div class="choose">
-        <input type="hidden" name="search1" value="searchParamPlaceHolder">
         <select name="sorting" onchange="sort.submit()">
-          <option value="1">Trending</option>
-          <option value="2">Likes</option>
-          <option value="3">Newest</option>
-          <option value="4">Oldest</option>
+          <option value="1" #1>Trending</option>
+          <option value="2" #2>Likes</option>
+          <option value="3" #3>Newest</option>
+          <option value="4" #4>Oldest</option>
         </select>
       </div>
     </form>
@@ -34,20 +33,20 @@
     <br>
     <div class="postSelect tabShow">
         <h2>Posts</h1>
-        <p>Results for "#searchParamPlaceholder" in posts</p>
+        <p>Results for "<!-- searchParams -->" in posts</p>
         <!-- post elements -->
 
     </div>
     <div class="userSelect tabShow">
 
-      <h2>Users</h1>></h2>
-      <p>Results for "#searchParamPlaceholder" in users</p>
+      <h2>Users</h1></h2>
+      <p>Results for "<!-- searchParams -->" in users</p>
       <!-- user elements -->
         
     </div>
     <div class="postSelect tabShow">
       <h2>Stickers</h1>
-      <p>Results for "#searchParamPlaceholder" in stickers</p>
+      <p>Results for "<!-- searchParams -->" in stickers</p>
       <!-- sticker elements -->
       <div class="sticker">
         <div class="info">

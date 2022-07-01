@@ -33,3 +33,8 @@ if($_GET['tab'] == null){
 }else{
     select(parseInt($_GET['tab']));
 }
+
+
+window.addEventListener('load', function () {
+    document.getElementById("sort").action = window.location.href;
+})
