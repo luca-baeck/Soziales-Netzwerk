@@ -38,7 +38,7 @@ class SearchController extends Controller{
         $searchHtml = str_replace("#" . $sorting, "selected", $searchHtml);
         $sqlUser = "";
         $sqlPosts = "";
-        $sqlSticker = "Select Sticker.*, User.Handle From Sticker Left Outer Join User On User.ID = Sticker.CreatorID;";
+        $sqlSticker = "Select Sticker.*, User.Handle From Sticker Left Outer Join User On User.ID = Sticker.CreatorID Where ( Sticker.Name + Sticker.Description) Like '%:SearchParam%' ;";
         switch($sorting){
 
             case 1:
@@ -46,7 +46,9 @@ class SearchController extends Controller{
                 $sqlUser = 'Select U.*, Count(Point.UserID) From User AS U Left Outer Join Post AS P On U.ID = P.CreatorID Left Outer Join Point On Point.PostID = P.ID Where Point.Time  >= (now() - interval 30 minute) AND ( U.Handle + U.Name + U.CreationTime) Like "%:SearchParam%"  Group by U.ID Order by Count(Point.UserID) DESC;';
                 $sqlPosts = 'Select P.*, Count(Point.UserID) From Post AS P Left Outer Join Point On Point.PostID = P.ID Where Point.Time  >= (now() - interval 30 minute) AND ( P.Content + P.CreationTime) Like "%:SearchParam%"  Group by P.ID Order by Count(Point.UserID) DESC;';
             case 2:
-                #LikespostS P Left Outer Join Point On Point.PostID = P.ID Where ( P.Content + P.CreationTime) Like "%:SearchParam%"  Group by P.ID Order by Count(Point.UserID) DESC;';
+                #Likes
+                $sqlPosts ='Select * From Post AS P Left Outer Join Point On Point.PostID = P.ID Where ( P.Content + P.CreationTime) Like "%:SearchParam%"  Group by P.ID Order by Count(Point.UserID) DESC;';
+                $sqlUser = 'Select U.*, Count(Point.UserID) From User AS U Left Outer Join Post AS P On U.ID = P.CreatorID Left Outer Join Point On Point.PostID = P.ID Where ( U.Handle + U.Name + U.CreationTime) Like "%:SearchParam%"  Group by U.ID Order by Count(Point.UserID) DESC;';
             case 3:
                 #Newest
                 $sqlUser = 'Select * From User AS U Where ( U.Handle + U.Name + U.CreationTime) Like "%:SearchParam%" Order By U.CreationTime DESC;';
@@ -121,7 +123,7 @@ class SearchController extends Controller{
                 $name = $row['Name'];
                 $creator = $row['Handle'];
                 $creationTime = $row['CreationTime'];
-                $imgUrl = FileUtils::generateStickerURL($row['ID']); 
+                $imgUrl = FileUtils::generateStickerURL(null, $row['ID'], true); 
 
                 $html .= '<div class="sticker">
                              <div class="info">
@@ -134,7 +136,7 @@ class SearchController extends Controller{
                             </div>
                         </div>';
 
-            }while($sqlResultSticker->next());#
+            }while($sqlResultSticker->next());
             $searchHtml = str_replace( "<!-- sticker elements -->", $html, $searchHtml);
         }
         
