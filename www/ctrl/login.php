@@ -10,7 +10,7 @@ class LoginController extends Controller{
 		$loginHtml = file_get_contents('./view/html/login.html');
 
 		if($this->session->isLoggedIn()){
-			$sql  = 'SELECT Handle, Name, ProfilePicture, CreationTime';
+			$sql  = 'SELECT Handle, Name, CreationTime';
 			$sql .= '  FROM User';
 			$sql .= '  WHERE ID = :ID';
 		
