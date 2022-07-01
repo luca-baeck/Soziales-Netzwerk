@@ -91,6 +91,26 @@ class FileUtils{
 		return $info;
 	}
 
+	public static function deleteFile($usage, $item_uuid){
+		if(in_array($usage, FileConfig::UPLOAD_USAGES)){
+			$loc = FileConfig::DIR_DATA;
+			switch($usage){
+				case 'media':
+					$loc .= generateMediaURL($item_uuid);
+					break;
+				case 'profilepicture':
+					$loc .= generateProfilePictureURL($item_uuid);
+					break;
+				case 'sticker':
+					$loc .= generateStickerURL($item_uuid);
+					break;
+				default:
+					return;
+			}
+			unlink($loc);
+		}	
+	}
+
 	private static function deleteFromUploads($file_uuid){
 		$sql  = 'DELETE FROM Upload';
 		$sql .= '  WHERE ID = :ID;';
