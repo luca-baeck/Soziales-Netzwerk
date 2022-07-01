@@ -9,9 +9,10 @@
 
 .element-wrapper{
 	position: relative;
-	margin-top: 2rem;
+	margin-top: 5rem;
 	display: block;
 	width: var(--element-size);
+	padding-bottom: 2rem;
 }
 
 .element-container{

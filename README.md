@@ -21,3 +21,11 @@ a brand new social network
 * When using Firefox the expires attribute of cookies is always session (why?)
 * Die Suche funktioniert nicht, bzw kann nur alle Posts, User, Sticker Anzeigen, da aus rätselhaften Gründen und extremen Zeitmangel nur leere Ergebnisse von der Datenbank zurückgegeben werden.
 * Die Sortierung der Suche funktioniert noch nicht, ist aber in html und php schon teilweise implementiert
+* Der footer befindet sich aus unerfindlichen Gründen nicht am Ende der Seite und wurde deshalb ausgeblendet.
+* Der Header verschwindet rätselhafterweise beim scrollen nach unten, obwohl als sticky festgelegt.
+* Die Fullscreen view und die Fähigkeit, Points zu verteilen sind aus Zeitgründen entfallen
+
+## setup
+* requirements erfüllen
+* sql befehle ausführen
+* dateien aus www/default in den DIR_DATA(->FileConfig) kopieren (Testdaten)

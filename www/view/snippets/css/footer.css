@@ -19,10 +19,24 @@ footer{
 }
 
 .footer-left, .footer-center, .footer-right{
-	position: relative;
+	position: absolute;
+	display: block;
 	float: left;
 	width: calc(100% / 3);
 	height: 100%;
+	top: 0;
+}
+
+.footer-left{
+	left: 0;
+}
+
+.footer-center{
+	left: calc(100% / 3);
+}
+
+.footer-right{
+	right: 0;
 }
 
 footer p{

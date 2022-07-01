@@ -22,6 +22,10 @@ class ElementUtils{
 		$element = str_replace('<!-- creator handle -->', $user->getHandle(), $element);
 		$element = str_replace('<!-- creation date -->', $post->getCreationTime()->format('Y.m.d'), $element);
 
+		if($post->hasMedia()){
+			$element = str_replace('<!-- media location -->', '<img src="' . $post->getMediaURL() . '" class="element-media-img" loading="lazy">', $element);
+		}
+
 		$html = str_replace('<!-- element placeholder -->', $element, $html);
 		return $html;
 	}
