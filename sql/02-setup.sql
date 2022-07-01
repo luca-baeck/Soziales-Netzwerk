@@ -103,7 +103,7 @@ CREATE TABLE Session(
 );
 
 CREATE TABLE PermissionLevel(
-    Level TINYINT NOT NULL,
+    Level TINYINT UNSIGNED NOT NULL,
     Name VARCHAR(15) NOT NULL,
 
     PRIMARY KEY(Level),
