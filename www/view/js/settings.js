@@ -26,3 +26,7 @@ if($_GET['tab'] == null){
 function deleteAccount() {
     window.location.href = "/settings/delete";
 }
+
+function changeProfilePicture(){
+    window.location.href = "/settings/changeProfilePicture";
+}

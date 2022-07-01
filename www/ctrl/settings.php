@@ -45,6 +45,7 @@ class SettingsController extends Controller{
     }
 
     public function changeProfilePicture($params){
+        FileUtils::confirm("profilepicture");
         header("Location: /settings?tab=0");
     }
 
