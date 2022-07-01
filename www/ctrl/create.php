@@ -28,7 +28,7 @@ class CreateController extends Controller{
             do{
                 
                 $row = $sqlResult->getRow();
-                $imgUrl = FileUtils::generateStickerURL(null, $row['ID']); 
+                $imgUrl = FileUtils::generateStickerURL($row['ID']); 
                 $stripID = UUIDUtils::strip($row['ID']);
                 $id = '"' . $stripID . '"';
                 $html .= "<div class='sticker' onclick='selectSticker(" . $id . " , this);'>
