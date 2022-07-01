@@ -91,7 +91,7 @@ class Post{
 			$sql .= '  WHERE PostID = :PostID';
 			$sql .= '    AND UserID = :UserID;';
 
-			$params = array(':PostID' => $this->uuid, ':UserID' => $us<erUUID);
+			$params = array(':PostID' => $this->uuid, ':UserID' => $userUUID);
 
 			$cmd = new SQLCommand($sql, $params);
 			$sqlResult = $cmd->execute();
