@@ -46,7 +46,7 @@ class Session{
 					deleteCookie('authentificationToken');
 					$exp = time() + 60;
 					createCookie('cookiestorageMethod', 'remove', $exp);
-					createCookie('cookiestorageCookies', 'authentificationUser, authentificationToken', $exp);
+					createCookie('cookiestorageCookies', 'authentificationUser___authentificationToken', $exp);
 				}
 			}else{
 				$sql  = 'SELECT *';
@@ -79,7 +79,7 @@ class Session{
 		}else{
 			$exp = time() + 60;
 			createCookie('cookiestorageMethod', 'restore', $exp);
-			createCookie('cookiestorageCookies', 'authentificationUser, authentificationToken', $exp);
+			createCookie('cookiestorageCookies', 'authentificationUser___authentificationToken', $exp);
 		}
 	}
 
@@ -108,7 +108,7 @@ class Session{
 
 			$exp = time() + 60;
 			createCookie('cookiestorageMethod', 'store', $exp);
-			createCookie('cookiestorageCookies', 'authentificationUser, authentificationToken', $exp);
+			createCookie('cookiestorageCookies', 'authentificationUser___authentificationToken', $exp);
 		}else{
 			$timeToExpire += 3600 * 2;
 			$timeToRefresh = time() + (3600);
@@ -143,7 +143,7 @@ class Session{
 
 			$exp = time() + 60;
 			createCookie('cookiestorageMethod', 'remove', $exp);
-			createCookie('cookiestorageCookies', 'authentificationUser, authentificationToken', $exp);
+			createCookie('cookiestorageCookies', 'authentificationUser___authentificationToken', $exp);
 		}
 
 		$_SESSION['user'] = NULL;
