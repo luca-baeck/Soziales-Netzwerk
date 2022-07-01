@@ -1,0 +1,39 @@
+@import url("/static/css/colors.css");
+@import url("/static/lib/fonts/OpenSans/font.css");
+
+*::selection{
+    color: var(--background-color);
+    background-color: var(--text-color);
+}
+
+body{
+    position: relative;
+    margin: 0;
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+}
+
+.main-left, .main-center, .main-right{
+    position: relative;
+    float: left;
+    margin: 1rem 0;
+    height: 100%;
+    margin-bottom: 10rem;
+}
+
+.main-left{
+    width: 20%;
+}
+
+.main-center{
+    width: 40%;
+}
+
+.main-right{
+    width: 40%;
+}
+
+.element-wrapper{
+    position: relative;
+    margin-left: calc((100% - var(--element-size)) / 2);
+    margin-right: calc((100% - var(--element-size)) / 2);
+}
