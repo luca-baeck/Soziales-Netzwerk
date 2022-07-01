@@ -3,6 +3,7 @@
 require_once('./config/files.php');
 require_once('./core/logger.php');
 require_once('./core/sql/sql_command.php');
+require_once('./core/sql/sql_result.php');
 require_once('./util/uuid.php');
 
 class FileUtils{
@@ -16,6 +17,88 @@ class FileUtils{
 		$html = str_replace('<!-- upload wrapper stylesheets -->', $styles, $html);
 		$html = str_replace('<!-- upload wrapper placeholder -->', $upload_wrapper, $html);
 		return $html;
+	}
+
+	public static function confirm($usage): array{
+		if(!in_array($usage, FileConfig::UPLOAD_USAGES)){
+			return array('error' => FileConfig::CONFIRM_ERRORS['Invalid usage']);
+		}
+		$file_uuid = $_SESSION[FileConfig::UPLOADS[$usage]];
+		if(!isset($file_uuid)){
+			return array('error' => FileConfig::CONFIRM_ERRORS['No given ID']);
+		}
+		$sql  = 'SELECT U.ID, U.Extension, U.UploaderID, U.UploadTime, T.Type, T.Name';
+		$sql .= '  FROM Upload AS U, UploadType AS T';
+		$sql .= '  WHERE ID = :ID';
+		$sql .= '    AND U.Type = T.Type;';
+
+		$params = array(':ID' => $file_uuid);
+
+		$cmd = new SQLCommand($sql, $params);
+		$sql_result = $cmd->execute();
+
+		if($sql_result->isEmpty()){
+			return array('error' => FileConfig::CONFIRM_ERRORS['Missing DB entry']);
+		}else{
+			$row = $sql_result->getRow();
+			if($usage != $row['Name']){
+				return array('error' => FileConfig::CONFIRM_ERRORS['Different usages']);
+			}
+		}
+
+		$location = FileConfig::DIR_DATA . '/' . 'uploads' . '/' . UUIDUtils::strip($row['ID']) . '.' . $row['extension'];
+
+		if(!file_exists($location)){
+			return array('error' => FileConfig::CONFIRM_ERRORS['Missing file']);
+		}
+
+		$info = array();
+
+		switch($usage){
+			case 'media':
+				$info = array(
+					'error' => FileConfig::CONFIRM_ERRORS['OK'],
+					'extension' => $row['Extension'],
+					'mediaID' => $file_uuid,
+					'uploaderID' => $row['UploaderID']
+				);
+				$new_location = FileConfig::DIR_DATA . '/' . 'media' . '/' . UUIDUtils::strip($row['UploaderID']) . '/' . UUIDUtils::strip($row['ID']) . '.' . $row['Extension'];
+				rename($location, $new_location);
+				break;
+			case 'profilepicture':
+				$info = array(
+					'error' => FileConfig::CONFIRM_ERRORS['OK']
+				);
+				$new_location = FileConfig::DIR_DATA . '/' . 'profilepicture' . '/' . UUIDUtils::strip($row['UploaderID']) . '.webp';
+				rename($location, $new_location);
+				break;
+			case 'sticker':
+				$info = array(
+					'creatorID' => $row['UploaderID'],
+					'error' => FileConfig::CONFIRM_ERRORS['OK'],
+					'stickerID' => $file_uuid
+				);
+				$new_location = FileConfig::DIR_DATA . '/' . 'sticker' . '/' . UUIDUtils::strip($row['UploaderID']) . '/' . UUIDUtils::strip($row['ID']) . '.' . $row['Extension'];
+				rename($location, $new_location);
+				break;
+			default:
+				return array('error' => FileConfig::CONFIRM_ERRORS['Invalid usage']);
+				break;
+		}
+
+		deleteFromUploads($file_uuid);
+
+		return $info;
+	}
+
+	private static function deleteFromUploads($file_uuid){
+		$sql  = 'DELETE FROM Upload';
+		$sql .= '  WHERE ID = :ID;';
+
+		$params = array(':ID' => $file_uuid);
+
+		$cmd = new SQLCommand($sql, $params);
+		$cmd->execute();
 	}
 
 	public static function generateMediaURL(?string $uploaderID = NULL, string $mediaID, ?string $extension): string{

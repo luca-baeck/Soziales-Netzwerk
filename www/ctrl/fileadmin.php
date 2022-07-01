@@ -4,7 +4,9 @@ require_once('./config/files.php');
 require_once('./config/miscellaneous.php');
 require_once('./core/controller.php');
 require_once('./core/logger.php');
+require_once('./core/sql/sql_command.php');
 require_once('./core/uuid_factory.php');
+require_once('./util/image.php');
 require_once('./util/string.php');
 
 class FileadminController extends Controller{
@@ -69,6 +71,9 @@ class FileadminController extends Controller{
 			case 'profilepicture':
 			case 'sticker':
 				try{
+					if(!$this->session->isLoggedIn()){
+						throw new RuntimeException('You have to be logged in, in order to upload a file.');
+					}
 					if(!isset($_FILES['upload']['error'])){
 						throw new RuntimeException('Some unknown error occured.');
 					}
@@ -112,9 +117,37 @@ class FileadminController extends Controller{
 						$this->idFactory = new UUIDFactory();
 					}
 
-					$file_uuid = $this->idFactory->create();
+					$file_uuid = $this->idFactory->create(true);
 
-					move_uploaded_file($_FILES['upload']['tmp_name'], (FileConfig::DIR_DATA . '/' . 'uploads' . '/' . $file_uuid . '.' . $file_ext));
+					$new_file_location = FileConfig::DIR_DATA . '/' . 'uploads' . '/' . $file_uuid . '.' . $file_ext;
+
+					move_uploaded_file($_FILES['upload']['tmp_name'], $new_file_location);
+					
+					if(in_array($mime_type, FileConfig::CONVERTABLE_MIME_TYPES)){
+						ImageUtils::convert($new_file_location);
+						unlink($new_file_location);
+						$file_ext = FileConfig::MIME_TYPE_EXTENSIONS['image/webp'];
+					}
+					
+					$datetime = new DateTime('now');
+					$datetime->modify('+2 hours');
+					$expires = $datetime->format('Y-m-d H:i:s');
+
+					$sql  = 'INSERT INTO Upload (ID, Extension, Type, UploaderID, ExpirationTime)';
+					$sql .= '  VALUES (:ID, :Extension, :Type, :UploaderID, :ExpirationTime);';
+
+					$sql_params = array(
+						':ID' => $file_uuid,
+						':Extension' => $file_ext,
+						':Type' => FileConfig::UPLOAD_TYPES[$params],
+						':UploaderID' => $_SESSION['userID'],
+						':ExpirationTime' => $expires
+					);
+
+					$cmd = new SQLCommand($sql, $sql_params);
+					$cmd->execute();
+
+					$_SESSION[FileConfig::FILE_UPLOADS[$params]] = $file_uuid;
 
 					$html = file_get_contents('./view/snippets/html/uploadok.html');
 

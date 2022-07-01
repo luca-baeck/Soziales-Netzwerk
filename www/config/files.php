@@ -15,6 +15,12 @@ class FileConfig{
 		3 => 'sticker'
 	);
 
+	const UPLOAD_USAGES = array(
+		'media',
+		'profilepicture',
+		'sticker'
+	);
+
 	const ALLOWED_MIME_TYPES = array(
 		'media' => array(
 				'image/jpeg',
@@ -42,6 +48,30 @@ class FileConfig{
 		'image/jpeg' => 'jpg',
 		'image/png' => 'png',
 		'image/webp' => 'webp'
+	);
+
+	const FILE_UPLOADS = array(
+		'media' => 'nextMedia',
+		'profilepicture' => 'nextProfilePicture',
+		'sticker' => 'nextSticker',
+		'nextMedia' => 'media',
+		'nextProfilePicture' => 'profilepicture',
+		'nextSticker' => 'sticker'
+	);
+
+	const CONVERTABLE_MIME_TYPES = array(
+		'image/jpeg',
+		'image/png',
+		'image/webp'
+	);
+
+	const CONFIRM_ERRORS = array(
+		'OK' => 0,
+		'Invalid usage' => 1,
+		'Missing file' => 2,
+		'No given ID' => 3,
+		'Missing DB entry' => 4,
+		'Different usages' => 5
 	);
 }
 
