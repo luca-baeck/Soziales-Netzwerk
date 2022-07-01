@@ -32,9 +32,7 @@ class SearchController extends Controller{
                 $sqlUser = 'Select U.*, Count(Point.UserID) From User AS U Left Outer Join Post AS P On U.ID = P.CreatorID Left Outer Join Point On Point.PostID = P.ID Where Point.Time  >= (now() - interval 30 minute) AND ( U.Handle + U.Name + U.CreationTime) Like "%:SearchParam%"  Group by U.ID Order by Count(Point.UserID) DESC;';
                 $sqlPosts = 'Select P.*, Count(Point.UserID) From Post AS P Left Outer Join Point On Point.PostID = P.ID Where Point.Time  >= (now() - interval 30 minute) AND ( P.Content + P.CreationTime) Like "%:SearchParam%"  Group by P.ID Order by Count(Point.UserID) DESC;';
             case 2:
-                #Likes
-                $sqlUser = 'Select U.*, Count(Point.UserID) From User AS U Left Outer Join Post AS P On U.ID = P.CreatorID Left Outer Join Point On Point.PostID = P.ID Where ( U.Handle + U.Name + U.CreationTime) Like "%:SearchParam%"  Group by U.ID Order by Count(Point.UserID) DESC;';
-                $sqlPosts = 'Select P.*, Count(Point.UserID) From Post AS P Left Outer Join Point On Point.PostID = P.ID Where ( P.Content + P.CreationTime) Like "%:SearchParam%"  Group by P.ID Order by Count(Point.UserID) DESC;';
+                #LikespostS P Left Outer Join Point On Point.PostID = P.ID Where ( P.Content + P.CreationTime) Like "%:SearchParam%"  Group by P.ID Order by Count(Point.UserID) DESC;';
             case 3:
                 #Newest
                 $sqlUser = 'Select * From User AS U Where ( U.Handle + U.Name + U.CreationTime) Like "%:SearchParam%" Order By U.CreationTime DESC;';
@@ -67,8 +65,8 @@ class SearchController extends Controller{
                                 </div>
                             <a href="/' . $handle . '"><img class="profilePic" src="' . $imgUrl . '" alt="User"></a>
                             <div class="info">
-                                <p></p>
-                                <p>handle: <a href="#handleLinkPlaceholder">#handlePlaceholder</a></p>
+                                <p>' . $creationTime . '</p>
+                                <p>handle: <a href="/' . $handle . '">' . $handle . '</a></p>
                             </div>
                         </div>';
 
@@ -79,13 +77,26 @@ class SearchController extends Controller{
 
         $cmdPosts = new SQLCommand($sqlPosts, $params);
 		$sqlResultPosts = $cmdPosts->execute();
-		$row = $sqlResultPosts->getRow();
 
+        if($sqlResultPosts->isEmpty()){
+            $searchHtml = str_replace( " <!-- user elements -->", '<p>No results found</p>', $searchHtml);
+        }else{
+            do{
+                $row = $sqlResultUser->getRow();
+
+                $name = $row['Name'];
+                $handle = $row['Handle'];
+                $creationTime = $row['CreationTime'];
+                $imgUrl = FileUtils::generateProfilePictureURL($row['ID']); 
+
+
+            }while($sqlResultUser->next());
+        }
 
         $cmdSticker = new SQLCommand($sqlSticker, $params);
 		$sqlResultSticker = $cmdSticker->execute();
-		$row = $sqlResultSticker->getRow();
 
+        
 
         echo($searchHtml);
     }

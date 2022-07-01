@@ -115,61 +115,12 @@ body{
 }
 
 .upload-wrapper {
-    width: 15vw;
-    height: 15vw;
+    width: 20vw;
+    height: 15vw;;
+    margin: auto;
 }
 
-/* .drop-zone {
-    max-width: 15vw;
-    height: 15vw;
-    padding: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-weight: 500;
-    font-size: 20px;
-    cursor: pointer;
-    color: #fff;
-    border: 2px dashed var(--logo-color3);
-    border-radius: 70px;
-    margin: auto;
-  }
-  
-  .drop-zone--over {
-    border-style: solid;
-  }
-  
-  .drop-zone__input {
-    display: none;
-  }
-  .drop-zone__prompt{
-      position: absolute;
-      font-size: medium;
-  }
-  .drop-zone__thumb {
-    width: 100%;
-    height: 100%;
-    border-radius: 70px;
-    overflow: hidden;
-    background-color: var(--text-color);
-    background-size: cover;
-    position: relative;
-  }
-  
-  .drop-zone__thumb::after {
-    content: attr(data-label);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 5px 0;
-    color: var(--text-color);
-    background: rgba(0, 0, 0, 0.75);
-    font-size: 14px;
-    text-align: center;
-  }
-  */
+
   .rightbox div form{
       text-align: center;
       width: 80%;
@@ -177,6 +128,7 @@ body{
   }
 
   .rightbox div button{
+      margin: auto;
       margin-top: 3vh;
   }
 
@@ -201,7 +153,11 @@ body{
     height: 3.5vh;
     text-align: center;
     margin-left: 11.45vw;
-    margin-top: 6vh;
+    margin-top: 4vh;
+}
+
+#buttonProfilePic{
+    margin-left: 41.5%;
 }
 
 .glow-on-hover:before {

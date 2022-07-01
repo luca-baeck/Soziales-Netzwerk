@@ -11,6 +11,7 @@ class CreateController extends Controller{
     {
         $createHtml = file_get_contents('./view/html/create.html');
         $createHtml = insertHeader($createHtml, $this->session);
+        $createHtml = FileUtils::insertUploadArea($createHtml, 'profilepicture');
 
         $sql  = 'Select Sticker.*, User.Handle';
 		$sql .= '  From Sticker ';

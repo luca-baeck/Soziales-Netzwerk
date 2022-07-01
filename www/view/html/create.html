@@ -9,9 +9,9 @@
     <link rel="stylesheet" type="text/css" href="/view/css/create.css">
     <link rel="stylesheet" type="text/css" href="/static/lib/fontawesome/6.1.1/css/all.css">
     <!-- header stylesheets -->
+    <!-- upload wrapper stylesheets -->
 </head>
 <body>
-  <script src="/view/js/theme.js"></script>
   <script src="/view/js/create.js"></script>
   <header></header>
 
@@ -42,17 +42,13 @@
             <h1>Content</h1>
             <h2>Create your post</h2>
             <p>Add media for your post</p>
+            <!-- upload wrapper placeholder -->
             <form method="POST" action="/create/create">
                 <input type="hidden" name="StickerID" id="StickerID" value="" />
-                <div class="drop-zone">
-                    <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                    <input type="file" name="newPostMedia" class="drop-zone__input" accept="image/png, image/webp, image/jpeg">
-                </div>
                 <div class="contentPost">
                     <textarea  name="contentPost" required></textarea>
                   </div>
                 <button class="glow-on-hover" name="submit_createPost" type="submit" type="button">Post</button>
-                <script src="/view/js/drag-drop.js"></script>
             </form>
         </div>
 

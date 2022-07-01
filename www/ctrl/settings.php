@@ -20,11 +20,8 @@ class SettingsController extends Controller{
         $sqlResult = $cmd->execute();
         $row = $sqlResult->getRow();
 
-        if($row['ProfilePicture']){
-            $pic = $row['ProfilePicture'];
-        }else{
-            $pic = '/static/img/preload-background.png';
-        }
+        $pic = $_SESSION['user']->getProfilePictureURL();
+			
 
         $settingsHtml = str_replace('<!-- user name  -->', '<p>' . $row['Name'] . '</p>', $settingsHtml);
         $settingsHtml = str_replace('<!-- user creationtime  -->', '<p>' . $row['CreationTime'] . '</p>', $settingsHtml);
