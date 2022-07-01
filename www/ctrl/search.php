@@ -91,7 +91,7 @@ class SearchController extends Controller{
             $searchHtml = str_replace( "<!-- user elements -->", $html, $searchHtml);
         }
 
-
+        $sqlPosts = "Select * From Post";
 
         $cmdPosts = new SQLCommand($sqlPosts, $params);
 		$sqlResultPosts = $cmdPosts->execute();
