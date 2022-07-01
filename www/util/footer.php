@@ -1,6 +1,6 @@
 <?php
 
-require_once('./util/string');
+require_once('./util/string.php');
 
 class Footer{
 	public static function insert($html){

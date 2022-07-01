@@ -113,7 +113,7 @@ class FileUtils{
 		}	
 	}
 
-	protected static function deleteFromUploads($file_uuid){
+	public static function deleteFromUploads($file_uuid){
 		$sql  = 'DELETE FROM Upload';
 		$sql .= '  WHERE ID = :ID;';
 
@@ -149,7 +149,7 @@ class FileUtils{
 	public static function generateProfilePictureURL(string $userID, ?bool $fileadmin = true): string{
 		$location = '/' . 'profilepicture' . '/' . UUIDUtils::strip($userID) . '.webp';
 		if(file_exists(FileConfig::DIR_DATA . $location)){
-			return (($fileadmin ? 'fileadmin/' : '') . $location);
+			return (($fileadmin ? '/fileadmin' : '') . $location);
 		}else{
 			return '/' . ($fileadmin ? 'fileadmin/' : '') . 'profilepicture' . '/' . 'default.webp';
 		}

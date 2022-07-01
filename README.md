@@ -7,9 +7,10 @@ a brand new social network
 * libgd
 * php v 7.4
 
-### php-modules
-* gd
+### php-modules (package)
+* gd (php7-gd)
 * header_module
+* fileinfo (php7-fileinfo)
 
 `names of the packages are those on opensuse`
 
