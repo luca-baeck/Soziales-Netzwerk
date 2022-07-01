@@ -61,8 +61,7 @@ class FileConfig{
 
 	const CONVERTABLE_MIME_TYPES = array(
 		'image/jpeg',
-		'image/png',
-		'image/webp'
+		'image/png'
 	);
 
 	const CONFIRM_ERRORS = array(
