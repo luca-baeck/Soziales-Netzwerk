@@ -1,7 +1,7 @@
 $(document).ready(function () {
 	const cookies = document.cookie.split('; ');
-	if(cookies.some((item) => item.trim.startsWith('cookiestorageMethod='))){
-		if(cookies.some((item) => item.trim.startsWith('cookiestorageCookies='))){
+	if(cookies.some((item) => item.trim().startsWith('cookiestorageMethod='))){
+		if(cookies.some((item) => item.trim().startsWith('cookiestorageCookies='))){
 			const cookiesToUse = cookies.find((item) => item.startsWith('cookiestorageCookies=')).split('=')[1].split(', ');
 			const method = cookies.find((item) => item.startsWith('cookiestorageMethod=')).split('=')[1];
 			switch (method) {
