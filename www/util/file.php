@@ -96,13 +96,13 @@ class FileUtils{
 			$loc = FileConfig::DIR_DATA;
 			switch($usage){
 				case 'media':
-					$loc .= generateMediaURL($item_uuid);
+					$loc .= generateMediaURL($item_uuid, false);
 					break;
 				case 'profilepicture':
-					$loc .= generateProfilePictureURL($item_uuid);
+					$loc .= generateProfilePictureURL($item_uuid, false);
 					break;
 				case 'sticker':
-					$loc .= generateStickerURL($item_uuid);
+					$loc .= generateStickerURL($item_uuid, false);
 					break;
 				default:
 					return;
@@ -123,7 +123,7 @@ class FileUtils{
 		$cmd->execute();
 	}
 
-	public static function generateMediaURL(?string $uploaderID = NULL, string $mediaID, ?string $extension): string{
+	public static function generateMediaURL(?string $uploaderID = NULL, string $mediaID, ?string $extension, ?bool $fileadmin = true): string{
 		if(!(isset($uploaderID) && isset($extension))){
 			$sql  = 'SELECT CreatorID, MediaExtension';
 			$sql .= '  FROM Post';
@@ -142,20 +142,20 @@ class FileUtils{
 				$extension = $row['MediaExtension'];
 			}
 		}
-		$location = '/' . 'media' . '/' . UUIDUtils::strip($uploaderID) . '/' . UUIDUtils::strip($mediaID) . '.' . $extension;
+		$location = '/' . ($fileadmin ? 'fileadmin/' : '') . 'media' . '/' . UUIDUtils::strip($uploaderID) . '/' . UUIDUtils::strip($mediaID) . '.' . $extension;
 		return $location;
 	}
 
-	public static function generateProfilePictureURL(string $userID): string{
+	public static function generateProfilePictureURL(string $userID, ?bool $fileadmin = true): string{
 		$location = '/' . 'profilepicture' . '/' . UUIDUtils::strip($userID) . '.webp';
 		if(file_exists(FileConfig::DIR_DATA . $location)){
 			return $location;
 		}else{
-			return '/' . 'profilepicture' . '/' . 'default.webp';
+			return '/' . ($fileadmin ? 'fileadmin/' : '') . 'profilepicture' . '/' . 'default.webp';
 		}
 	}
 
-	public static function generateStickerURL(?string $creatorID = NULL, string $stickerID): string{
+	public static function generateStickerURL(?string $creatorID = NULL, string $stickerID, ?bool $fileadmin = true): string{
 		if(!isset($creatorID)){
 			$sql  = 'SELECT CreatorID';
 			$sql .= '  FROM Sticker';
@@ -177,7 +177,7 @@ class FileUtils{
 				}
 			}
 		}
-		return '/sticker' . '/' . UUIDUtils::strip($creatorID) . '/' . UUIDUtils::strip($stickerID) . '.webp';
+		return '/sticker' . ($fileadmin ? 'fileadmin/' : '') . '/' . UUIDUtils::strip($creatorID) . '/' . UUIDUtils::strip($stickerID) . '.webp';
 	}
 
 }
