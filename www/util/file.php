@@ -23,7 +23,7 @@ class FileUtils{
 		if(!in_array($usage, FileConfig::UPLOAD_USAGES)){
 			return array('error' => FileConfig::CONFIRM_ERRORS['Invalid usage']);
 		}
-		$file_uuid = $_SESSION[FileConfig::UPLOADS[$usage]];
+		$file_uuid = $_SESSION[FileConfig::FILE_UPLOADS[$usage]];
 		if(!isset($file_uuid)){
 			return array('error' => FileConfig::CONFIRM_ERRORS['No given ID']);
 		}
