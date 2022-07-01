@@ -39,9 +39,9 @@ class FileConfig{
 	);
 
 	const UPLOAD_TEXTS = array(
-		'media' => 'Please select an image(*.jpg, *.png, *.webp) file to upload',
-		'profilepicture' => 'Please select an image(*.jpg, *.png, *.webp) file to upload',
-		'sticker' => 'Please select an image(*.png, *.webp) file to upload'
+		'media' => 'Please select or drag and drop an image(*.jpg, *.png, *.webp) file to upload',
+		'profilepicture' => 'Please select or drag and drop an image(*.jpg, *.png, *.webp) file to upload',
+		'sticker' => 'Please select or drag and drop an image(*.png, *.webp) file to upload'
 	);
 
 	const MIME_TYPE_EXTENSIONS = array(

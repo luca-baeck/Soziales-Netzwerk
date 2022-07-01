@@ -31,11 +31,11 @@ body{
 #upload-text{
 	position: absolute;
 	z-index: 1;
-	margin-left: 33%;
-	margin-right: 33%;
-	margin-top: 30vh;
+	margin-left: 25%;
+	margin-right: 25%;
+	margin-top: 25vh;
 	text-align: center;
-	width: 34%;
+	width: 50%;
 }
 
 #upload-file{
