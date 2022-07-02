@@ -26,7 +26,7 @@ class LoginController extends Controller{
 			
 			
 			$htmlSnippet  = '<h1>Logged In as...</h1>';
-			$htmlSnippet .= '<loading="lazy" id="profile_picture" src="'. $pic .'" alt="profile picture">';
+			$htmlSnippet .= '<img loading="lazy" id="profile_picture" src="'. $pic .'" alt="profile picture">';
 			$htmlSnippet .= '<p>'. $row['Name'] .'</p>';
 			$htmlSnippet .= '<a href="/'. $row['Handle'] .'">@'. $row['Handle'] .'</a>';
 			$htmlSnippet .= '<p class="creationDate">'. $row['CreationTime'] .'</p>';
