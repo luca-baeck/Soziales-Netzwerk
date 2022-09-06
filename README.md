@@ -1,11 +1,12 @@
 # hiddlestick
 
+a brand new social network
+
 ## Projekt by:
 * Luca Bäck - https://github.com/luca-baeck
 * Fabian Tolksdorf - https://git.infint.de/tolksdfa
 
 
-a brand new social network
 
 ## Requirements
 * MariaDB v 10.7.3
