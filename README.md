@@ -1,5 +1,10 @@
 # hiddlestick
 
+Projekt by:
+Luca Bäck - https://github.com/luca-baeck/
+Fabian Tolksdorf - https://git.infint.de/tolksdfa/
+
+
 a brand new social network
 
 ## Requirements
